@@ -136,7 +136,13 @@ This executes:
 5. `src/comparison.py` — Executes 3-way evaluation and confidence-gating simulation.
 6. `src/plot_results.py` — Renders high-res charts into `results/`.
 
-### 3. Run Real-Time Salesforce Bridge
+### 3. Run Live Side-by-Side Scenarios
+```bash
+make demo
+# Executes live comparisons across synonyms, rule collisions, and multilingual edge cases
+```
+
+### 4. Run Real-Time Salesforce Bridge
 ```bash
 make serve
 # Starts FastAPI server at http://localhost:8000

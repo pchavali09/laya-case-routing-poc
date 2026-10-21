@@ -31,6 +31,9 @@ run: data rules laya-baseline laya-finetune compare plots
 	@echo " Results available in results/ and rendered at docs/index.html"
 	@echo "=========================================================="
 
+demo:
+	$(PYTHON) src/demo_scenarios.py
+
 serve:
 	$(PYTHON) -m uvicorn salesforce.fastapi_bridge:app --host 0.0.0.0 --port 8000 --reload
 
