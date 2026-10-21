@@ -15,10 +15,14 @@ Metrics Measured:
 """
 
 import os
+import sys
 import json
 import pandas as pd
 import numpy as np
 from typing import Dict, Any, List
+
+# Ensure project root is in sys.path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 DEPARTMENTS = ["Billing", "Technical", "Sales", "Operations", "Other"]
 

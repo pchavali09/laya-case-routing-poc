@@ -11,11 +11,15 @@ Loads the fine-tuned and temperature-calibrated model to perform:
 """
 
 import os
+import sys
 import json
 import torch
 import numpy as np
 from typing import Dict, Any, Tuple, Optional
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Ensure project root is in sys.path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 DEPARTMENTS = ["Billing", "Technical", "Sales", "Operations", "Other"]
 DEFAULT_THRESHOLD = 0.85

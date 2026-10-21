@@ -20,7 +20,7 @@ CS-1061,Technical,Other,,RULE_DEFAULT_FALLBACK,False,English
 CS-1040,Billing,Other,,RULE_DEFAULT_FALLBACK,False,English
 CS-1159,Operations,Operations,,RULE_13_FACILITIES_MAINT,True,English
 CS-1105,Sales,Sales,,RULE_09_ENTERPRISE_UPGRADE,True,English
-CS-1144,Operations,Operations,,RULE_12_LOGISTICS,True,English
+CS-1144,Operations,Other,,RULE_DEFAULT_FALLBACK,False,English
 CS-1091,Sales,Sales,,RULE_11_DEMO_TRIAL,True,English
 CS-1027,Billing,Billing,,RULE_02_PAYMENT_FAILURE,True,English
 CS-1171,Other,Other,,RULE_DEFAULT_FALLBACK,True,English

@@ -9,10 +9,14 @@ Generates publication-quality charts for the repository README, blog posts, and 
 """
 
 import os
+import sys
 import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
+# Ensure project root is in sys.path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Set clean aesthetic styling
 plt.style.use("seaborn-v0_8-whitegrid" if "seaborn-v0_8-whitegrid" in plt.style.available else "default")
