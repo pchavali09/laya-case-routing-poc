@@ -95,3 +95,24 @@ Building and validating this POC repository utilized Google Antigravity to:
 | **Model Size** | Lightweight Classifier Head (< 5MB) | 70B Parameter LLM Prompting | LLM prompting costs $0.02 per case and takes 2500ms; Laya takes 12ms and costs $0. |
 | **Calibration** | Empirical Temperature Scaling | Raw Softmax Probs | Raw softmax suffers from extreme overconfidence and breaks threshold gating. |
 | **Interface** | FastAPI Bridge + Apex Invocables | Proprietary Salesforce AppExchange Package | Independent REST API enables universal reuse across Zendesk, Freshdesk, Slack, and Salesforce. |
+
+---
+
+## 6. Enterprise Scale: Continuous Learning via Data Lakehouse
+
+In production enterprise deployments, model evolution does not occur inside an interactive notebook. Instead, the architecture establishes an **Active Learning Loop** decoupled from operational CRM limits:
+
+```
+[Salesforce Service Cloud] ──(CDC / Fivetran / Data Cloud)──> [Lakehouse: Snowflake / Databricks]
+                                                                     │
+                                                               (Table: gold_support_cases)
+                                                                     │
+                                                                     ▼
+[Local Laya Pod / Edge API] <──(Hot Reload Weights)── [Headless Training Job: Airflow / dbt]
+```
+
+### Architectural Principles of the Enterprise Loop:
+1. **Zero Impact on Salesforce OLTP:** Training queries are offloaded entirely to the Data Lakehouse, protecting Salesforce governor limits and transactional throughput.
+2. **Quality-Gated Supervision:** Only closed cases meeting strict QA filters (e.g., `CSAT >= 4`, verified by tier-2 leads, and deduplicated) are ingested into training.
+3. **Sub-15-Second Retraining:** Because Laya operates as an efficient System 1 decision engine, retraining on 5,000 cases completes in seconds on commodity CPU instances without requiring costly GPU clusters.
+4. **Autonomous Expansion of Automation Rate:** As human agents resolve edge cases and corrections flow back into the Lakehouse, Laya's posterior confidence on ambiguous tickets systematically rises, naturally increasing the proportion of tickets that exceed the safety gate ($\tau \ge 0.85$).
