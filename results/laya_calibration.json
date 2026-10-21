@@ -1,0 +1,15 @@
+{
+  "temperature": 1.496901273727417,
+  "train_samples": 140,
+  "val_samples": 30,
+  "test_samples": 30,
+  "test_accuracy": 1.0,
+  "mean_confidence": 0.9656961560249329,
+  "classes": [
+    "Billing",
+    "Technical",
+    "Sales",
+    "Operations",
+    "Other"
+  ]
+}

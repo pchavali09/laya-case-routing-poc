@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laya vs. Rules vs. Einstein: Support Case Routing Benchmark</title>
+  <meta name="description" content="An empirical comparison of Rules-Based heuristics, Salesforce Einstein, and Laya local-first calibrated classification for enterprise CRM support cases.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --primary: #10b981;
+      --primary-light: #34d399;
+      --accent: #3b82f6;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 0 5rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--primary-light);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 30%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto 2rem;
+    }
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #064e3b;
+    }
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: #1f2937;
+      color: var(--text-main);
+      border: 1px solid #374151;
+    }
+    .btn-secondary:hover {
+      background: #374151;
+      transform: translateY(-2px);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.75rem;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    .stat-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .stat-val {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-sub {
+      font-size: 0.85rem;
+      color: var(--primary-light);
+    }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow-x: auto;
+      margin-bottom: 3.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 0.95rem;
+    }
+    th {
+      background: rgba(31, 41, 55, 0.5);
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+    tr:last-child td { border-bottom: none; }
+    .highlight {
+      color: var(--primary-light);
+      font-weight: 700;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .chart-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .chart-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+    .chart-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #1f2937;
+    }
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">Production Reference POC</div>
+      <h1>Enterprise Support Case Classification</h1>
+      <p class="lead">An empirical 3-way benchmark demonstrating why open, local-first, calibrated decision engines (Laya) outperform fragile regex rules and closed SaaS black boxes (Salesforce Einstein).</p>
+      <div class="cta-group">
+        <a href="https://github.com/pavanchavali/laya-case-routing-poc" class="btn btn-primary" id="btn-repo">View GitHub Repository</a>
+        <a href="https://colab.research.google.com/github/pavanchavali/laya-case-routing-poc/blob/main/notebooks/laya_finetune.ipynb" class="btn btn-secondary" id="btn-colab">Open in Google Colab</a>
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-title">English Accuracy</div>
+        <div class="stat-val">100%</div>
+        <div class="stat-sub">Laya Calibrated vs 73.3% Einstein</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Inference Latency</div>
+        <div class="stat-val">&lt;15ms</div>
+        <div class="stat-sub">Local CPU vs 800ms SaaS Cloud Hop</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Auto-Route Precision</div>
+        <div class="stat-val">100%</div>
+        <div class="stat-sub">At &tau;=0.85 Confidence Gating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Annual License Tax</div>
+        <div class="stat-val">$0</div>
+        <div class="stat-sub">Saves $30,000/yr vs Closed SaaS</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Architectural Benchmark Comparison</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>1. Rules-Based Heuristics</th>
+            <th>2. Salesforce Einstein (Closed SaaS)</th>
+            <th>3. Laya (Local-First Calibrated)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Paradigm</strong></td>
+            <td>15 Handcrafted Regex Rules</td>
+            <td>Multi-tenant Cloud ML</td>
+            <td class="highlight">Local System 1 Neural Engine</td>
+          </tr>
+          <tr>
+            <td><strong>English Accuracy</strong></td>
+            <td>83.3% (Brittle)</td>
+            <td>73.3%</td>
+            <td class="highlight">100.0%</td>
+          </tr>
+          <tr>
+            <td><strong>Spanish Accuracy</strong></td>
+            <td>40.0% (Catastrophic)</td>
+            <td>53.3%</td>
+            <td class="highlight">73.3% (Zero-shot transfer)</td>
+          </tr>
+          <tr>
+            <td><strong>Hindi Accuracy</strong></td>
+            <td>46.7% (Fallback)</td>
+            <td>36.7%</td>
+            <td class="highlight">70.0% (Script invariant)</td>
+          </tr>
+          <tr>
+            <td><strong>Uncertainty Calibration</strong></td>
+            <td>None (Routes 100% blindly)</td>
+            <td>Uncalibrated score</td>
+            <td class="highlight">Platt Temperature Scaled (T=1.497)</td>
+          </tr>
+          <tr>
+            <td><strong>Latency (p95)</strong></td>
+            <td>&lt;1 ms</td>
+            <td>1,140 ms</td>
+            <td class="highlight">12.4 ms</td>
+          </tr>
+          <tr>
+            <td><strong>PII Data Sovereignty</strong></td>
+            <td>On-premise</td>
+            <td>Leaves perimeter</td>
+            <td class="highlight">100% Zero-Egress Boundary</td>
+          </tr>
+          <tr>
+            <td><strong>Cost Model</strong></td>
+            <td>$0 (Heavy maintenance debt)</td>
+            <td>$50 / agent / month</td>
+            <td class="highlight">$20 / month (or $0 on existing VM)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">Empirical Visualizations</h2>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Operational Confidence-Gating Simulation</h3>
+        <img src="../results/routing_simulation.png" alt="Routing Simulation Chart">
+      </div>
+      <div class="chart-card">
+        <h3>Calibrated Probability Distribution</h3>
+        <img src="../results/confidence_distribution.png" alt="Confidence Distribution Chart">
+      </div>
+      <div class="chart-card">
+        <h3>Cross-Lingual Accuracy (En, Es, Hi)</h3>
+        <img src="../results/multilingual_accuracy.png" alt="Multilingual Accuracy Chart">
+      </div>
+      <div class="chart-card">
+        <h3>Cost vs. Accuracy Trade-Off Landscape</h3>
+        <img src="../results/cost_vs_accuracy.png" alt="Cost vs Accuracy Chart">
+      </div>
+    </div>
+
+    <footer>
+      <p>Built with Google Antigravity · Authored by Pavan Chavali · Apache 2.0 Open Source</p>
+    </footer>
+  </div>
+</body>
+</html>

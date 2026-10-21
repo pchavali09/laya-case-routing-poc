@@ -1,0 +1,31 @@
+case_id,subject,ground_truth,prediction,confidence,correct,calibrated,model_version
+CS-1052,SDK TypeError: undefined is not an object,Technical,Technical,0.5549,True,False,convaiinnovations/laya:zero-shot
+CS-1057,REST API 500 error on webhook dispatch,Technical,Sales,0.6387,False,False,convaiinnovations/laya:zero-shot
+CS-1121,Shipment tracking delay for hardware dispatch,Operations,Sales,0.5884,False,False,convaiinnovations/laya:zero-shot
+CS-1010,Overcharged for inactive seats,Billing,Other,0.5577,False,False,convaiinnovations/laya:zero-shot
+CS-1098,Contract renewal discount discussion,Sales,Sales,0.5112,True,False,convaiinnovations/laya:zero-shot
+CS-1028,Requesting VAT tax exemption update,Billing,Sales,0.4559,False,False,convaiinnovations/laya:zero-shot
+CS-1041,REST API 500 error on webhook dispatch,Technical,Operations,0.4334,False,False,convaiinnovations/laya:zero-shot
+CS-1069,Export to CSV contains corrupted UTF-8 characters,Technical,Other,0.6192,False,False,convaiinnovations/laya:zero-shot
+CS-1196,Speaker invitation for Annual Tech Summit,Other,Other,0.6002,True,False,convaiinnovations/laya:zero-shot
+CS-1172,Speaker invitation for Annual Tech Summit,Other,Technical,0.5829,False,False,convaiinnovations/laya:zero-shot
+CS-1185,General inquiry regarding public API roadmap,Other,Sales,0.4247,False,False,convaiinnovations/laya:zero-shot
+CS-1086,Custom SLA terms for dedicated hosting,Sales,Other,0.6431,False,False,convaiinnovations/laya:zero-shot
+CS-1186,GDPR data subject deletion request (RTBF),Other,Other,0.6465,True,False,convaiinnovations/laya:zero-shot
+CS-1007,Past due notice received in error,Billing,Sales,0.4688,False,False,convaiinnovations/laya:zero-shot
+CS-1106,Contract renewal discount discussion,Sales,Operations,0.4618,False,False,convaiinnovations/laya:zero-shot
+CS-1046,Rate limit reached unexpectedly on Sandbox,Technical,Other,0.4622,False,False,convaiinnovations/laya:zero-shot
+CS-1042,SSO SAML authentication loop with Okta,Technical,Technical,0.5408,True,False,convaiinnovations/laya:zero-shot
+CS-1061,Export to CSV contains corrupted UTF-8 characters,Technical,Sales,0.5407,False,False,convaiinnovations/laya:zero-shot
+CS-1040,Update billing contact and PO number,Billing,Operations,0.5193,False,False,convaiinnovations/laya:zero-shot
+CS-1159,Facility cooling outage alert followup,Operations,Other,0.487,False,False,convaiinnovations/laya:zero-shot
+CS-1105,Upgrading to Enterprise Tier - custom quote,Sales,Sales,0.6024,True,False,convaiinnovations/laya:zero-shot
+CS-1144,Courier damaged packaging on arrival,Operations,Technical,0.4521,False,False,convaiinnovations/laya:zero-shot
+CS-1091,Request for product demo - Field Service add-on,Sales,Operations,0.4872,False,False,convaiinnovations/laya:zero-shot
+CS-1027,Urgent: Payment gateway failure & subscription cancelled,Billing,Billing,0.5533,True,False,convaiinnovations/laya:zero-shot
+CS-1171,Feedback on recent UI navigation redesign,Other,Billing,0.5249,False,False,convaiinnovations/laya:zero-shot
+CS-1064,Data synchronization lag in replica database,Technical,Technical,0.637,True,False,convaiinnovations/laya:zero-shot
+CS-1175,Lost and found inquiry from visitor center,Other,Sales,0.4659,False,False,convaiinnovations/laya:zero-shot
+CS-1054,Rate limit reached unexpectedly on Sandbox,Technical,Technical,0.5828,True,False,convaiinnovations/laya:zero-shot
+CS-1092,Add 25 additional agent licenses,Sales,Sales,0.5985,True,False,convaiinnovations/laya:zero-shot
+CS-1011,Urgent: Payment gateway failure & subscription cancelled,Billing,Billing,0.4893,True,False,convaiinnovations/laya:zero-shot

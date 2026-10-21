@@ -1,0 +1,73 @@
+{
+  "rules": {
+    "accuracy_en": 0.8,
+    "accuracy_es": 0.4,
+    "accuracy_hi": 0.4666666666666667,
+    "confidence_available": false,
+    "latency_ms": 1,
+    "monthly_cost": "$0 (maintenance burden)"
+  },
+  "einstein": {
+    "accuracy_en": 0.733,
+    "accuracy_es": 0.533,
+    "accuracy_hi": 0.367,
+    "confidence_available": false,
+    "latency_ms": 800,
+    "monthly_cost": "$50/agent/mo"
+  },
+  "laya": {
+    "accuracy_en": 1.0,
+    "accuracy_es": 0.733,
+    "accuracy_hi": 0.7,
+    "confidence_available": true,
+    "latency_ms": 12,
+    "monthly_cost": "$20/mo (self-hosted)"
+  },
+  "gating_simulation": [
+    {
+      "threshold": 0.6,
+      "pct_auto_routed": 100.0,
+      "pct_human_triage": 0.0,
+      "auto_routed_accuracy": 100.0,
+      "auto_routed_error_rate": 0.0,
+      "cases_auto_routed": 30,
+      "cases_in_triage": 0
+    },
+    {
+      "threshold": 0.7,
+      "pct_auto_routed": 93.3,
+      "pct_human_triage": 6.7,
+      "auto_routed_accuracy": 100.0,
+      "auto_routed_error_rate": 0.0,
+      "cases_auto_routed": 28,
+      "cases_in_triage": 2
+    },
+    {
+      "threshold": 0.8,
+      "pct_auto_routed": 90.0,
+      "pct_human_triage": 10.0,
+      "auto_routed_accuracy": 100.0,
+      "auto_routed_error_rate": 0.0,
+      "cases_auto_routed": 27,
+      "cases_in_triage": 3
+    },
+    {
+      "threshold": 0.85,
+      "pct_auto_routed": 90.0,
+      "pct_human_triage": 10.0,
+      "auto_routed_accuracy": 100.0,
+      "auto_routed_error_rate": 0.0,
+      "cases_auto_routed": 27,
+      "cases_in_triage": 3
+    },
+    {
+      "threshold": 0.9,
+      "pct_auto_routed": 90.0,
+      "pct_human_triage": 10.0,
+      "auto_routed_accuracy": 100.0,
+      "auto_routed_error_rate": 0.0,
+      "cases_auto_routed": 27,
+      "cases_in_triage": 3
+    }
+  ]
+}

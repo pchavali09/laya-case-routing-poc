@@ -1,0 +1,6 @@
+threshold,pct_auto_routed,pct_human_triage,auto_routed_accuracy,auto_routed_error_rate,cases_auto_routed,cases_in_triage
+0.6,100.0,0.0,100.0,0.0,30,0
+0.7,93.3,6.7,100.0,0.0,28,2
+0.8,90.0,10.0,100.0,0.0,27,3
+0.85,90.0,10.0,100.0,0.0,27,3
+0.9,90.0,10.0,100.0,0.0,27,3

@@ -1,0 +1,31 @@
+case_id,subject,body,department,urgency,churn_risk,language
+CS-1157,Supply chain delay for replacement parts,We have 12 field units stalled awaiting shipment of motherboard replacement modules part #ET-882. Reference ID: REF-678.,Operations,Critical,Yes,English
+CS-1145,Shipment tracking delay for hardware dispatch,The replacement scanner hardware scheduled for delivery on Monday is still marked as pending in warehouse status. Reference ID: REF-151.,Operations,Medium,No,English
+CS-1081,Upgrading to Enterprise Tier - custom quote,Our startup just closed Series B and we need to upgrade from Growth to Enterprise with 150 dedicated seats. Need pricing. Reference ID: REF-897.,Sales,Medium,No,English
+CS-1089,Upgrading to Enterprise Tier - custom quote,Our startup just closed Series B and we need to upgrade from Growth to Enterprise with 150 dedicated seats. Need pricing.,Sales,Medium,No,English
+CS-1112,Partnership reseller inquiry,We are an AWS Premier Consulting partner interested in joining your reseller program to bundle your platform.,Sales,Low,No,English
+CS-1176,Unsubscribe from marketing email updates,Please remove our corporate domain from all promotional webinars while keeping transactional alerts active. Reference ID: REF-936.,Other,Low,No,English
+CS-1174,Copyright DMCA notice acknowledgment,Formal confirmation required regarding the takedown notice processed for community forum thread #4419.,Other,Medium,No,English
+CS-1068,SDK TypeError: undefined is not an object,"When calling client.cases.create() in the Python SDK v2.4, we get an unhandled exception when passing custom metadata. Reference ID: REF-838.",Technical,Medium,No,English
+CS-1149,Supply chain delay for replacement parts,We have 12 field units stalled awaiting shipment of motherboard replacement modules part #ET-882.,Operations,Critical,Yes,English
+CS-1183,Lost and found inquiry from visitor center,Checking if an encrypted laptop charger left in conference room B on Tuesday was turned in to security.,Other,Low,No,English
+CS-1067,Query latency spike on GraphQL endpoint,Our reporting queries that usually take 200ms are now timing out at 30s. Has there been a database migration or index drop?,Technical,Medium,No,English
+CS-1030,Double billing detected on corporate card,Our finance department flagged two identical charges of $1250 posted on the same day. Please reverse one.,Billing,Critical,Yes,English
+CS-1008,Update billing contact and PO number,Please update the billing email to accounts-payable@company.com and reference PO-98412 on all future statements.,Billing,Low,No,English
+CS-1162,GDPR data subject deletion request (RTBF),"Pursuant to Article 17 GDPR, please permanently erase all personal telemetry records associated with user ID 9104.",Other,Medium,No,English
+CS-1138,Scheduled maintenance notification clash,Your scheduled maintenance window on Saturday 2 AM overlaps with our peak Black Friday deployment. Can we reschedule?,Operations,Critical,Yes,English
+CS-1163,Feedback on recent UI navigation redesign,The recent dashboard update moved the filter controls behind a hamburger menu which adds two unnecessary clicks.,Other,Low,No,English
+CS-1131,Vendor compliance questionnaire completion,Please have your InfoSec operations team complete the attached SOC 2 Type II vendor assessment spreadsheet. Please escalate to a tier-2 specialist as soon as possible.,Operations,Low,No,English
+CS-1169,General inquiry regarding public API roadmap,Are there plans to support gRPC streaming in the Q4 public release? We could not find mentions on your blog.,Other,Low,No,English
+CS-1161,General inquiry regarding public API roadmap,Are there plans to support gRPC streaming in the Q4 public release? We could not find mentions on your blog. Reference ID: REF-505.,Other,Low,No,English
+CS-1018,Overcharged for inactive seats,Our account was billed for 45 seats this month even though 10 were de-provisioned last month. We need an immediate refund credit.,Billing,Medium,Yes,English
+CS-1072,Data synchronization lag in replica database,"Secondary read replicas are lagging by over 45 minutes behind primary, causing stale read bugs on our user portal.",Technical,Critical,Yes,English
+CS-1085,Competitor price matching inquiry,We received a quote from Zendesk at 20% lower cost per seat. Can your commercial team match this to keep our business?,Sales,Critical,Yes,English
+CS-1103,Trial extension request for POC evaluation,Our security audit took longer than expected. Can we extend our enterprise trial sandbox for another 14 days?,Sales,Low,No,English
+CS-1050,SSO SAML authentication loop with Okta,Our engineering team cannot log into the dashboard via Okta SAML. Users are caught in an infinite redirect loop. Reference ID: REF-771.,Technical,Critical,Yes,English
+CS-1184,Unsubscribe from marketing email updates,Please remove our corporate domain from all promotional webinars while keeping transactional alerts active.,Other,Low,No,English
+CS-1058,SSO SAML authentication loop with Okta,Our engineering team cannot log into the dashboard via Okta SAML. Users are caught in an infinite redirect loop.,Technical,Critical,Yes,English
+CS-1059,Query latency spike on GraphQL endpoint,Our reporting queries that usually take 200ms are now timing out at 30s. Has there been a database migration or index drop? Reference ID: REF-621.,Technical,Medium,No,English
+CS-1079,WebSocket connection dropping every 60 seconds,Persistent live-feed WebSocket disconnects with code 1006 every minute. Keep-alive pings seem unacknowledged.,Technical,Medium,No,English
+CS-1090,Contract renewal discount discussion,Our 1-year agreement expires next month. We're evaluating alternatives unless we can discuss competitive volume pricing. Reference ID: REF-231.,Sales,Critical,Yes,English
+CS-1118,Custom SLA terms for dedicated hosting,Our compliance team requires 99.99% uptime with financial penalty clauses. Can we negotiate custom SLA terms?,Sales,Medium,No,English

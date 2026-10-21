@@ -1,0 +1,31 @@
+case_id,subject,body,department,urgency,churn_risk,language
+CS-1052-ES,Error 500 de API REST en envío de webhook,"Desde las 09:00 UTC, todos los webhooks a nuestro endpoint fallan con HTTP 500 Error Interno. Adjunto logs.",Technical,Critical,Yes,Spanish
+CS-1057-ES,Bucle de autenticación SSO SAML con Okta,Los ingenieros no pueden acceder al panel mediante Okta SAML. Los usuarios quedan atrapados en bucle infinito.,Technical,Critical,Yes,Spanish
+CS-1121-ES,Cuestionario de cumplimiento de seguridad,Por favor soliciten al equipo de operaciones completar el cuestionario de evaluación SOC 2 adjunto.,Operations,Low,No,Spanish
+CS-1010-ES,Actualización de exención de impuestos,Adjunto nuestro certificado de exención fiscal actualizado. Por favor regenerar la factura sin impuestos.,Billing,Low,No,Spanish
+CS-1098-ES,Igualación de precio de la competencia,Recibimos cotización de Zendesk con un costo 20% menor por puesto. ¿Pueden igualar esta oferta?,Sales,Critical,Yes,Spanish
+CS-1028-ES,Doble cargo detectado en tarjeta corporativa,Contabilidad detectó dos cargos idénticos de $8900 el mismo día. Por favor reembolsar uno de inmediato.,Billing,Critical,Yes,Spanish
+CS-1041-ES,Error 500 de API REST en envío de webhook,"Desde las 09:00 UTC, todos los webhooks a nuestro endpoint fallan con HTTP 500 Error Interno. Adjunto logs.",Technical,Critical,Yes,Spanish
+CS-1069-ES,Bucle de autenticación SSO SAML con Okta,Los ingenieros no pueden acceder al panel mediante Okta SAML. Los usuarios quedan atrapados en bucle infinito.,Technical,Critical,Yes,Spanish
+CS-1196-ES,Comentarios sobre el rediseño de interfaz,"La actualización reciente movió los filtros dentro de un menú adicional, lo que genera clics innecesarios.",Other,Low,No,Spanish
+CS-1172-ES,Invitación a conferencia anual de tecnología,Nos gustaría invitar a su director de IA a dar una ponencia magistral en nuestra cumbre de Austin.,Other,Low,No,Spanish
+CS-1185-ES,Consulta sobre postulación laboral,Envié mi solicitud para el puesto de ingeniero de infraestructura y deseo confirmar la recepción del portafolio.,Other,Low,No,Spanish
+CS-1086-ES,Términos de SLA personalizados,Requerimos 99.99% de disponibilidad con cláusulas de penalización financiera. ¿Podemos negociar términos?,Sales,Medium,No,Spanish
+CS-1186-ES,Consulta general sobre hoja de ruta de API pública,¿Existen planes para admitir gRPC streaming en el lanzamiento del cuarto trimestre?,Other,Low,No,Spanish
+CS-1007-ES,Cobro excesivo por asientos inactivos,Se nos facturaron 45 puestos este mes aunque 10 fueron dados de baja. Necesitamos un reembolso inmediato.,Billing,Medium,Yes,Spanish
+CS-1106-ES,Solicitud de demostración de producto,A nuestro director le gustaría una demo de 30 minutos de la nueva funcionalidad este jueves.,Sales,Low,No,Spanish
+CS-1046-ES,TypeError en SDK: undefined is not an object,Al invocar client.cases.create() en Python SDK v2.4 recibimos una excepción no controlada.,Technical,Medium,No,Spanish
+CS-1042-ES,Caracteres corruptos al exportar a CSV,"Al exportar registros de auditoría que contienen caracteres especiales, el archivo muestra signos de interrogación.",Technical,Low,No,Spanish
+CS-1061-ES,Límite de tasa excedido inesperadamente,Las pruebas automáticas fallan con error 429 Too Many Requests a pesar de que el límite debía ser ilimitado.,Technical,Medium,No,Spanish
+CS-1040-ES,Discrepancia en la factura #80458,Notamos un cargo inesperado de $249 en la factura #80458 de nuestra suscripción empresarial. Por favor aclarar antes del pago.,Billing,Medium,No,Spanish
+CS-1159-ES,Conflicto con horario de mantenimiento programado,El mantenimiento del sábado a las 2 AM coincide con nuestro pico de tráfico. ¿Se puede reprogramar?,Operations,Critical,Yes,Spanish
+CS-1105-ES,Solicitud de demostración de producto,A nuestro director le gustaría una demo de 30 minutos de la nueva funcionalidad este jueves.,Sales,Low,No,Spanish
+CS-1144-ES,Retraso en credenciales de acceso a instalaciones,Los pases solicitados para técnicos hace 5 días no han sido aprobados por seguridad física.,Operations,Low,No,Spanish
+CS-1091-ES,Igualación de precio de la competencia,Recibimos cotización de Zendesk con un costo 20% menor por puesto. ¿Pueden igualar esta oferta?,Sales,Critical,Yes,Spanish
+CS-1027-ES,Doble cargo detectado en tarjeta corporativa,Contabilidad detectó dos cargos idénticos de $249 el mismo día. Por favor reembolsar uno de inmediato.,Billing,Critical,Yes,Spanish
+CS-1171-ES,Consulta general sobre hoja de ruta de API pública,¿Existen planes para admitir gRPC streaming en el lanzamiento del cuarto trimestre?,Other,Low,No,Spanish
+CS-1064-ES,Bucle de autenticación SSO SAML con Okta,Los ingenieros no pueden acceder al panel mediante Okta SAML. Los usuarios quedan atrapados en bucle infinito.,Technical,Critical,Yes,Spanish
+CS-1175-ES,Comentarios sobre el rediseño de interfaz,"La actualización reciente movió los filtros dentro de un menú adicional, lo que genera clics innecesarios.",Other,Low,No,Spanish
+CS-1054-ES,TypeError en SDK: undefined is not an object,Al invocar client.cases.create() en Python SDK v2.4 recibimos una excepción no controlada.,Technical,Medium,No,Spanish
+CS-1092-ES,Igualación de precio de la competencia,Recibimos cotización de Zendesk con un costo 20% menor por puesto. ¿Pueden igualar esta oferta?,Sales,Critical,Yes,Spanish
+CS-1011-ES,Doble cargo detectado en tarjeta corporativa,Contabilidad detectó dos cargos idénticos de $249 el mismo día. Por favor reembolsar uno de inmediato.,Billing,Critical,Yes,Spanish
