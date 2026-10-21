@@ -1,0 +1,2002 @@
+[
+  {
+    "subject": "Discrepancy identified on latest monthly invoice statement",
+    "description": "Our finance team noticed an unexpected charge of 450 dollars on invoice 88419 for our cloud subscription. We already authorized payment for the base package last Monday. Please clarify this line item before we approve the payment schedule.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Urgent payment gateway failure code 402 card rejected",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our recurring credit card payment failed this morning with error code 402 and the portal is threatening account suspension. We updated the corporate Mastercard with our bank. Please re-run the transaction immediately so our team is not locked out.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Need updated W9 and VAT exemption certificate on file",
+    "description": "FYI see forwarded thread below from our accounting director. Attached is our updated W-9 form and European Union VAT exemption documentation. Our recent invoice included local sales tax in error. Please regenerate the billing statement without tax.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Double billing charge flagged on corporate credit card",
+    "description": "Our accounting department discovered two identical transactions of 320 dollars posted on the same banking day. Both reference merchant ID CLOUD-4410. Please reverse the duplicate charge as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Wire transfer remittance instructions for annual software subscription renewal",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Could you please provide your current SWIFT code and IBAN wire instructions for our upcoming annual contract renewal? Our procurement department requires banking verification before scheduling the disbursement. Thank you for your assistance. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Past due notice received in error for cleared payment",
+    "description": "We received an automated dunning email claiming invoice 90214 is past due. Our bank wire cleared on the twelfth of this month and we have confirmation from JPMorgan. Please update your accounts receivable ledger to show paid.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Credit memo request for deprovisioned user licenses",
+    "description": "FYI see forwarded thread below from our accounting director. We removed fifteen inactive seats from our workspace three weeks ago as documented in ticket 4120. However, our monthly invoice still reflects the old seat count. Please issue a credit memo to correct this overcharge.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Update billing contact email address and mandatory purchase order",
+    "description": "Please update our primary billing email address to accounts-payable@kestrelanalytics.com on all future notices. Also make sure purchase order PO-88712 is printed on every invoice. We cannot process payment without that reference number.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Invoice calculation error regarding state sales tax rate",
+    "description": "The sales tax calculated on our Q3 invoice uses an 8.5 percent rate instead of our local county rate of 6 percent. Our physical office is located in Arlington County. Please correct the tax assessment and re-send the invoice.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Need itemized receipt for accountant end of month reconciliation",
+    "description": "Our bookkeeper needs an itemized receipt for the transaction processed on September 28th. The portal only provides a generic payment confirmation without itemized product details. Please email the complete PDF statement. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Immediate refund requested for accidental duplicate subscription charge",
+    "description": "I checked our bank statement and your system charged us twice for our monthly plan! This is completely unacceptable because it overran our departmental budget limit. I demand an immediate refund for the second transaction today.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "ACH debit transaction failed due to routing transit mismatch",
+    "description": "Our accounting team attempted to set up automated ACH direct debit, but the bank returned an invalid routing number error. We verified our bank routing number with Wells Fargo. Please advise on how to reset the ACH payment mandate.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Customer requesting electronic invoice in PDF format for archiving",
+    "description": "Good morning. Could someone please send over the official PDF invoice for order number 77410? We need to archive it in our enterprise accounting system before the end of the week. Thank you very much.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Cancellation of recurring credit card auto pay arrangement",
+    "description": "We wish to disable automatic credit card renewals on our account immediately. Moving forward our organization will pay all invoices via net 30 corporate purchase orders. Please confirm when auto pay is deactivated. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Credit card on file expired and need payment link",
+    "description": "Hello support. Our corporate Visa card expired at teh end of last month so our monthly renewal was declined yesterday. Could you send a secure paymnet link where our finance manager can enter the new card details?",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Incorrect exchange rate applied on international Euro billing invoice",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our contract specifies that invoices will be converted using the European Central Bank fix rate on the first of each month. Your invoice 66201 applied a much higher commercial rate resulting in an overcharge of 140 Euros. Please issue an adjusted invoice. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Annual pre payment discount missing from renewal invoice",
+    "description": "FYI see forwarded thread below from our accounting director. Our agreement states that annual pre-payment receives a ten percent discount off list pricing. The invoice we received this morning shows the full undiscounted total. Please revise the statement to include our contract discount.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Overcharged for add on modules not included in contract",
+    "description": "Why does our latest invoice list charges for the Advanced Reporting add-on? We never activated that feature and never consented to that charge. Remove this line item and send a corrected bill right away.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Monthly statement address update for corporate relocation",
+    "description": "Our headquarters has moved to 500 Enterprise Way, Suite 400, Chicago, IL. Pleas ensure this new legal address is reflected on all future tax invoices and receipts. Our accounts payable team requires updated billing documents.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Statement of account reconciliation requested for annual audit",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our external auditors are conducting our annual financial audit and require a complete statement of account for fiscal year 2025. Please provide a ledger showing all invoiced amounts, payments received, and current outstanding balance.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Unrecognized charge on business card from your company",
+    "description": "Phone intake note: Customer contact called regarding this issue today. There is a charge of 89 dollars on our corporate card from yesterday that nobody in our department recognizes. Our account number is ACCT-4910. Please identify who authorized this purchase or reverse the funds immediately. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Phone",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Refund status update for returned hardware diagnostic module",
+    "description": "Phone intake note: Customer contact called regarding this issue today. We returned the defective hardware module two weeks ago with RMA tracking 9401. Your operations team confirmed receipt, but the credit has not appeared on our billing statement. When can we expect the refund to clear? Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Late fee assessed incorrectly on invoice paid on time",
+    "description": "We were charged a 50 dollar late fee on invoice 55190. However, our bank records confirm payment was sent four days before the due date. Please remove this late penalty from our account balance.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Partial payment allocation across multiple open corporate invoices",
+    "description": "We sent a wire transfer of 15,000 dollars this morning to cover invoices 101, 102, and partially 103. Attached is teh remittance advice detailing teh exact amount to apply to each invoice. Please confirm proper posting.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Pro rated billing adjustment needed after mid month downgrade",
+    "description": "We downgraded our subscription tier from Enterprise to Standard on October 15th. The full monthly rate was still deducted on November 1st. Please calculate the pro-rated credit owed to us and apply it to next month.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Disputed merchant transaction charge on Citibank corporate account",
+    "description": "Our finance VP noticed a transaction of 540 dollars from your service that does not correspond to our approved monthly fee. We did not purchase any additional seats or storage. Please explain this charge or we will dispute it with Citibank.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request for tax exempt status verification in California jurisdiction",
+    "description": "Phone intake note: Customer contact called regarding this issue today. We are a registered 501c3 non-profit institution in California. Attached is our state tax exemption certificate. Please mark our account as tax-exempt so state sales tax is not applied to future charges. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Web",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Dunning reminder email sent despite active payment method",
+    "description": "Your system sent us a warning that our subscription will be cancelled in 48 hours for non-payment. Our corporate card on file has plenty of available credit and is valid through 2028. Why is your billing system failing to charge it?",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Invoice currency change request from British Pounds to US Dollars",
+    "description": "FYI see forwarded thread below from our accounting director. Our parent company has consolidated treasury operations in Delaware. We need all future invoices denominated in USD rather than GBP. Please let us know what documentation is required to update our contract currency.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Copy of paid receipt needed for corporate expense report",
+    "description": "I need an official receipt showing invoice 44819 was paid in full so I can submit my monthly expense report. The online portal only shows a paid status badge without a downloadable receipt. Please send the document as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Subscription charged after explicit cancellation request submitted",
+    "description": "FYI see forwarded thread below from our accounting director. I submitted a cancellation request for our account two weeks ago and received confirmation ticket 7712. Today your company deducted 299 dollars from our account anyway! This is outrageous and I demand an immediate reversal of the unauthorized charge.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request to change billing cycle from monthly to annual billing",
+    "description": "We would like to switch our billing cadence from monthly invoicing to an annual pre-paid contract to take advantage of the discounted rate. Can you send an invoice for the annual amount starting with our next renewal?",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Payment portal throwing security certificate error during checkout",
+    "description": "Our accountant was attempting to enter corporate credit card details on your billing checkout page, but the browser flagged an expired SSL certificate on the payment iframe. We cannot submit payment until this security warning is resolved. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Clarification on recurring service fee line item in monthly bill",
+    "description": "There is a line item described as Regulatory Recovery Surcharge for 18 dollars on our monthly bill. Our contract does not mention this surcharge. Can you explain the contractual basis for this recurring fee? Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Wire transfer reference code missing on payment confirmation",
+    "description": "Our bank completed a wire transfer of 8,500 dollars yesterday under reference WIRE-9931. However, your accounts receivable portal does not show the funds credited to our account. Please manually match the wire reference to our account.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Corporate credit card charged three times for single transaction",
+    "description": "FYI see forwarded thread below from our accounting director. Your billing gateway charged our card three separate times for 150 dollars each on Monday. Our bank verified that all three charges settled. Please reverse two of the charges immediately and provide the transaction reversal IDs.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request for electronic 1099 vendor tax form from finance",
+    "description": "FYI see forwarded thread below from our accounting director. Our accounts payable department is preparing annual tax filings and requires a Form W-9 or 1099 from your company. Please email the signed form with your federal tax identification number. Thank you.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Invoice due date extension requested due to bank holiday",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Due to the upcoming national holiday, our corporate banking services are closed until Tuesday. We request a five-day extension on invoice 81023 to avoid any late fees or automated suspension flags. We appreciate your understanding.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Account balance discrepancy following promotional credit application",
+    "description": "We were awarded a 500 dollar promotional credit during the spring conference, but our latest invoice still reflects the full balance due. Please verify why the credit was not applied and send an adjusted statement.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Credit card processing fee added to invoice without notice",
+    "description": "Our latest invoice includes a 3.5 percent credit card processing surcharge that was never part of our agreed terms. If credit card fees are now assessed, please switch our account to ACH bank transfer immediately and credit the fee. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Customer requesting refund for unutilized professional services hours",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. We purchased a package of forty onboarding consulting hours with our initial deployment. Our team only utilized twenty hours and the project is now complete. Please issue a refund for the remaining twenty unused hours per section 4 of our agreement.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Urgent notice regarding locked account due to billing misunderstanding",
+    "description": "Our entire customer support department is locked out because our account is flagged for non-payment! We wired the annual fee last Thursday and sent the confirmation to your billing team. Restore our access right now while you locate the wire. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Need billing statement with breakdown by departmental cost center",
+    "description": "Our internal accounting requires all SaaS expenses to be split across our three operating divisions. Can your billing system generate monthly statements broken down by department tags? Please let us know if this can be configured.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Chargeback inquiry notification from credit card processor",
+    "description": "Our accounting team initiated a chargeback inquiry through Chase for transaction TX-8812 because no invoice was ever provided. We are willing to withdraw the inquiry if you can provide the itemized bill and adjust the duplicate amount.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Duplicate seat charges on consolidated enterprise billing account",
+    "description": "We consolidated two subsidiary accounts into a single master enterprise account last month. However, users in subsidiary B are being billed on both the old account and the master account. Please eliminate the duplicate charges.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request for invoice copy to satisfy internal procurement audit",
+    "description": "Hello. We are missing the invoice corresponding to payment reference PAY-3310 from June. Could you please resend a duplicate copy for our accounting files? Thank you for your prompt help. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Subscription fee debited twice within twenty four hours",
+    "description": "FYI see forwarded thread below from our accounting director. I am writing to report that our bank account was debited on both October 1st and October 2nd for 499 dollars. This is the third time this year your billing system has doubled our charge. I want a refund and an explanation of why this keeps happening.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request to remove sales tax from software license subscription",
+    "description": "Our organization has federal tax-exempt status as a certified educational institution. Attached is our certificate of exemption. Please remove all sales tax from our pending invoice 71209.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Late fee dispute on payment delayed by automated system outage",
+    "description": "Your customer portal was inaccessible for two days during your scheduled upgrade, which prevented our accountant from paying invoice 6641. Now we see a 75 dollar late penalty on our account. Remove this penalty immediately since the delay was caused by your system.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Clarification requested regarding proration formula on seat upgrades",
+    "description": "We added ten user seats on the eighteenth of the month and were billed 250 dollars. Based on the remaining twelve days in the billing cycle, the charge should have been approximately 100 dollars. Could you explain the proration calculation used?",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Credit memo applied to wrong customer account number",
+    "description": "Your billing team issued credit memo CM-441 last week, but our accounting portal still shows an outstanding balance. It appears the credit was applied to customer account 1042 instead of 1024. Please reassign the credit memo to the correct account.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Invoice payment terms discrepancy between contract and bill",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our signed enterprise contract specifies Net 60 payment terms. The invoice we received yesterday states Net 30 with late penalties accruing after thirty days. Please update your billing system to reflect our contractual Net 60 terms. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Annual subscription renewal charged at unapproved rate increase",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our contract caps annual price increases at three percent. Your renewal invoice 99120 reflects a fifteen percent price jump without prior notification. We will not pay this amount until it is corrected to the contracted rate. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Wire payment confirmation sent but account marked overdue",
+    "description": "We sent a wire payment of 12,400 dollars on November 3rd and received bank confirmation. Today our administrator received an overdue payment notification. Please trace the wire using federal reference FED-99214 and clear the overdue flag.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Direct debit mandate cancellation confirmation requested",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. We have closed our account with Bank of America and will be paying all future invoices via corporate credit card. Please provide formal written confirmation that our direct debit mandate has been cancelled.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "VAT number validation failure on European billing portal",
+    "description": "When entering our German VAT number DE294819201 into your billing settings, the portal gives a validation error saying the number is invalid. We verified with the VIES database that our VAT registration is active. Please manually override this validation.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Payment receipt does not match amount charged to credit card",
+    "description": "The email receipt we received states that 450 dollars was charged, but our online credit card statement shows a pending charge of 495 dollars. Please explain the 45 dollar difference or correct the transaction.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Request for invoice breakdown of storage overage charges",
+    "description": "Our monthly bill includes 220 dollars in storage overage fees. We need an itemized daily breakdown of storage utilization to verify whether these overages are accurate. Please provide the utilization data.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Corporate procurement requires supplier bank account verification letter",
+    "description": "To disburse wire payments over 10,000 dollars, our corporate procurement policy requires an official bank letter on your bank's letterhead confirming your account and routing numbers. Please provide this document at your earliest convenience.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Multiple small test charges appearing on company credit card",
+    "description": "We noticed four separate charges of 1.00 dollar each from your billing descriptor on our credit card statement. Are these authorization holds or actual charges? Please ensure these pending authorizations are voided.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Unapproved recurring fee charged after contract expiration",
+    "description": "Our one-year service contract expired on October 31st and we did not sign a renewal agreement. Yet on November 1st your system charged our credit card 850 dollars. Reverse this unauthorized transaction immediately.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Need updated invoice reflecting correct legal entity name",
+    "description": "Our company completed a corporate rebranding and our new legal entity is Apex Cloud Solutions LLC. Pleas reissue invoce 44102 with our updated corporate entity name so accounts payable can release payment.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Refund promised by support agent has not been received",
+    "description": "Two weeks ago agent Marcus confirmed that a 300 dollar refund had been processed for our billing overcharge ticket 6610. We have checked with our bank and no funds have been credited. Please provide the merchant refund reference number. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Early payment discount deduction on vendor invoice",
+    "description": "Our agreement allows a 2 percent discount if invoice is paid within 10 days (2/10 Net 30). We paid invoice 8821 on day 5 and deducted the 2 percent discount. Please confirm our account balance is settled in full.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Payment failed notification received but bank confirms charge cleared",
+    "description": "Phone intake note: Customer contact called regarding this issue today. We received an email stating our automated monthly payment was unsuccessful. However, our bank mobile app shows the charge has already cleared and posted. Do not double-charge our card while this is investigated. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request for monthly consolidated billing across five subsidiary accounts",
+    "description": "We currently recieve five separate invoices each month for our regional divisions. We would like to combine these into a single consolidated invoce billed to our parent entity. Please advise how to establish a parent billing profile.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Incorrect billing frequency set on new account activation",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. When we signed our contract we selected quarterly invoicing. Your system generated a monthly invoice for November instead. Please adjust our billing frequency to quarterly and regenerate the statement.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Web",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Penalty interest charge disputed on delayed invoice delivery",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. We were assessed an 85 dollar interest penalty for late payment on invoice 7712. We never received the original invoice because your team sent it to an invalid email address. Please waive this penalty fee.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Credit balance refund request via corporate check",
+    "description": "Following our acount reconciliation, our profile shows a positive credit balance of 1,450 dollars. Since we have closed our acount, please issue a refund check to our corporate mailing address.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Urgent credit card update required before automated batch run",
+    "description": "Our corporate card was compromised yesterday and cancelled by our bank. We have received the replacement card and need to update our billing details immediately before your tonight batch run to avoid service interruption.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Primary account contact change request for accounts payable department",
+    "description": "Please update the billing primary contact on our master profile from David Smith to Karen Jones at kjones@veloceindustries.com. All future invoices, credit memos, and receipts should be routed to her attention.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Disputed seat count charge on enterprise portal",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our enterprise portal shows that we have 82 active users, but invoice 55410 charges us for 100 users. Why are we paying for 18 non-existent seats? Please credit the difference on our account.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Inquiry regarding annual software maintenance fee calculation",
+    "description": "We received an invoice for annual software maintenance for 3,200 dollars. Could you provide a breakdown showing how this maintenance fee is calculated based on our deployed software components?",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Automatic renewal charge processed without mandatory thirty day notice",
+    "description": "Our master contract explicitly states that your company must provide thirty days advance notice before auto-renewing our annual plan. No notice was ever sent and our card was charged 6,000 dollars yesterday. We request an immediate review and reversal. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Tax exemption certificate submitted but taxes still appearing on bill",
+    "description": "FYI see forwarded thread below from our accounting director. We submitted our Georgia state sales tax exemption certificate three weeks ago and received approval ticket 9941. However, our new invoice 11409 still includes 180 dollars in state tax. Please remove the tax charge immediately.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Credit adjustment request for unscheduled platform service outage",
+    "description": "Per section 7 of our Service Level Agreement, we are entitled to a ten percent billing credit for teh four-hour unscheduled downtime that occurred on October 12th. Pleas apply this credit to our next billing cycle.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Duplicate payment processed via wire and automated credit card",
+    "description": "Our accounting team wired 4,000 dollars for invoice 8820 on Friday, and on Monday your automated system also charged our corporate card for the same amount. Please reverse the credit card charge immediately.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Inquiry regarding electronic payment portal maintenance and availability",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our finance staff has been trying to access your online payment portal since 9 AM to pay our pending invoice, but the portal displays an under maintenance message. When will the payment gateway be back online? Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Overcharged due to misclassified user tier on monthly statement",
+    "description": "Ten of our read-only dashboard users were billed as full enterprise administrative seats at 75 dollars each instead of teh 15 dollar read-only rate. Pleas recalculate the invoice and credit the 600 dollar difference.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Dispute regarding retroactive price increase applied to existing contract",
+    "description": "We just received an invoice that retroactively increases our subscription fee by ten dollars per seat starting from July. Retroactive rate changes are a direct violation of our fixed-term agreement. Revert this charge at once. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Discrepancy noted between bank deduction and signed commitment",
+    "description": "FYI see forwarded thread below from our accounting director. Our treasury ledger indicates that funds withdrawn on Tuesday exceeded the agreed figure by three hundred dollars. Nobody on our executive team approved any deviation from our original baseline. Please reconcile this difference and return the surplus amount.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Unexplained reduction in available corporate funds from your company",
+    "description": "Our banking portal shows an unexpected debit of four hundred dollars that settled overnight. We do not have any record of authorizing this outflow. We need an immediate explanation of why these funds were pulled from our commercial acount.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "typo",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Double payout cleared from our institutional bank account",
+    "description": "FYI see forwarded thread below from our accounting director. Our bookkeeper noticed two identical withdrawals processed against our account within forty-eight hours. Both transactions display your vendor identification tag. Please return the secondary withdrawal to our cash reserves immediately.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Remittance sent last Thursday still not recognized in user profile",
+    "description": "FYI see forwarded thread below from our accounting director. We completed the monetary transfer five business days ago through our primary institution. However, our profile status still warns that our organization is in arrears. Please ensure our funds are properly matched to our profile so operations are not disrupted.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Unidentified monetary subtraction on our monthly card statement",
+    "description": "There is an unexpected monetary subtraction on our commercial card statement from two days ago. It does not correspond to any approved project expenses or headcount additions. We need to identify who initiated this transaction.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "typo",
+    "origin": "Phone",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Disagreement regarding the numbers on our latest financial summary",
+    "description": "The financial summary delivered to our accounting department does not match the terms negotiated in our agreement. Several figures have been inflated without any prior discussion. Please revise the figures to match our documented commitment.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Funds pulled from our account despite scheduled service termination",
+    "description": "We concluded our engagement at the end of last month as mutually confirmed in writing. Despite this, money was deducted from our commercial balance yesterday morning. We expect an immediate restoration of those funds to our account.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "terse",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Need breakdown of all financial deductions for the third quarter",
+    "description": "Our internal auditing team is conducting a comprehensive review of all vendor disbursements from July through September. We require a detailed schedule showing every deduction and its corresponding service allocation. Please provide this documentation. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Monetary deduction occurred twice for the current cycle",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Your organization has pulled money out of our operating reserve twice this week. Our cash flow planning does not accommodate duplicate extractions of this magnitude. Reverse the duplicate transaction back to our account today.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "rambling",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Discrepancy in the rate applied to our international payments",
+    "description": "Phone intake note: Customer contact called regarding this issue today. The currency conversion applied to our latest payment was significantly less favorable than the published mid-market rate. This resulted in an extra expense for our European subsidiary. Please adjust the conversion figure to reflect standard financial benchmarks. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Account balance reflects past due status after payment cleared",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our treasury team wired the necessary funds over a week ago and our bank confirmed successful delivery. Your system is still showing our account in default and threatening to cut off access. Please update your records immediately. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Unexpected rate adjustment reflected in recent transaction",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. The amount deducted for our service this cycle is twelve percent higher than what was charged during the previous eleven cycles. We were never informed of any modification to our financial arrangement. Please restore the agreed pricing.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Money removed from our banking profile without authorization",
+    "description": "Our controller flagged an unauthorized withdrawal of six hundred dollars from our primary operating account. We require full documentation showing who authorized this monetary transfer. If unauthorized, the money must be refunded at once. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "non_native",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request for complete financial transaction history for year end closing",
+    "description": "As part of our annual corporate close, we need a complete accounting ledger of all monetary transactions between our entities for the past twelve months. Please send a verified statement from your finance department. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Deduction took place prior to the agreed schedule date",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our contract establishes that automatic disbursements occur on the fifteenth of each month. Your system pulled the funds on the eighth, causing an overdraft issue with our banking partner. Please adhere to the contracted timeline.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Need written documentation for unexpected banking debit",
+    "description": "Our finance director requires an official explanatory memo for the 850 dollar debit that occurred on November 2nd. Without proper documentation, our compliance team cannot reconcile our corporate ledger. Please provide this urgently.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Two separate withdrawals processed for a single service period",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. I am writing because two distinct withdrawals were executed against our credit line for the current service period. This appears to be an automated error on your end. Please remit the second deduction back to our institution.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Disputed financial adjustment following team size reduction",
+    "description": "We downsized our operational team by twenty percent last month and notified your staff in writing. However, the monetary deduction for this period does not reflect any reduction in scope. We need an appropriate adjustment to our ledger.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Payment completed via international draft not yet reflected",
+    "description": "Our treasury sent an international bank draft ten days ago to satisfy our obligations. The money has already cleared our institution, but your platform displays an outstanding obligation. Please locate the draft and credit our profile.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Surplus funds remaining on our corporate profile after contract conclusion",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Following the conclusion of our agreement, our balance sheet shows that your company is holding three thousand dollars of our unutilized funds. Please return these funds via bank transfer to our designated corporate account.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Banking statement shows unapproved recurring transaction",
+    "description": "We noticed that your company is still extracting funds on a recurring monthly cadence even though our trial period ended. We never authorized a recurring subscription. Reverse all charges that occurred after teh trial ended.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "typo",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Discrepancy between verbal agreement and final withdrawal amount",
+    "description": "During our quarterly discussion your representative stated our renewal commitment would be locked at the previous rate. The actual amount withdrawn from our funds this morning was significantly higher. Please adjust the numbers to match the agreed rate. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Excess money taken from our account for annual commitment",
+    "description": "FYI see forwarded thread below from our accounting director. Our annual obligation was scheduled at ten thousand dollars, but the total funds transferred amounted to eleven thousand two hundred dollars. We need the extra twelve hundred dollars returned to our account without delay.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Need official verification of all funds received during 2025",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our tax preparation advisors need certified confirmation of all monies paid to your organization during the calendar year 2025. Please provide an itemized schedule with official corporate sign-off. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Funds pulled from outdated payment method that was deleted",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. We removed our old corporate credit card from our profile settings two weeks ago. However, your automated processing attempted to charge that very card yesterday. Please ensure our payment preferences are respected.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "rambling",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Mismatch in monthly cost following addition of team members",
+    "description": "We added five additional members to our team and the resulting cost increase was far higher than the agreed per-person rate. Please explain how this higher figure was derived and provide a corrected accounting summary.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Deduction processed twice on consecutive calendar days",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Your system executed a deduction on Monday and then another identical deduction on Tuesday. We have already notified our banking representative. Reverse the second transfer immediately before we initiate a formal recall.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request for adjusted figures following mid cycle tier change",
+    "description": "Our division changed its service tier halfway through the current period. The recent financial statement charges us at the premium tier for the entire cycle. Please compute the proportional adjustment and credit our account. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "non_native",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Unexplained fee added to our standard quarterly disbursement",
+    "description": "Our quarterly disbursement showed an additional seventy-five dollars added without explanation. Our contract does not permit miscellaneous surcharges. Pleas remove this amount and re-send teh adjusted statement.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Monetary funds transferred via automated clearing house not credited",
+    "description": "Our company sent an automated clearing house transfer of five thousand dollars on Friday. Teh funds have settled on our end, but your platform still indicates non-payment. Pleas manually reconcile this transfer with our profile.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "typo",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Dispute regarding unexpected financial assessment on closed project",
+    "description": "We completed the designated project three months ago and paid all associated obligations. Yesterday our bank account was debited for two hundred dollars referencing that project. We demand an explanation and full refund.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Need clarification on variable rate charges on recent ledger",
+    "description": "The variable rate component on our recent ledger increased by forty percent compared to previous months with identical usage. Please provide the underlying telemetry data used to calculate these variable fees.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Funds deducted while account was suspended by your staff",
+    "description": "Your technical team placed a temporary maintenance hold on our tenant for six days. Despite our inability to use the service, our monthly fee was deducted in full. We expect a financial concession for the time lost.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "terse",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Discrepancy on currency conversion for overseas subsidiary account",
+    "description": "Our regional subsidiary in Tokyo noticed that the yen conversion applied to their quarterly payment was far above market rates. This has caused an unexpected variance in their local budget. Please review the conversion terms.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Immediate return of unauthorized funds pulled from checking account",
+    "description": "Your company pulled twelve hundred dollars from our corporate checking account without our knowledge or approval. This is unacceptable and has caused issues with our payroll. Return the full amount immediately.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "polite",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Confirmation of zero balance owed following full settlement",
+    "description": "We sent the remaining balance to settle all outstanding commitments last week. Please provide a formal letter confirming that our account carries a zero balance and that no further disbursements are due.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Unexpected price elevation on annual contract extension",
+    "description": "FYI see forwarded thread below from our accounting director. The rate for our contract extension is fifteen percent higher than the rate we have paid for the past two years. We were promised rate stability in our discussions. Please adjust the extension rate back to our historical baseline.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Two identical transactions posted to our corporate Amex card",
+    "description": "Our corporate American Express statement lists two identical charges of $750 from your organization on the same date. Please reverse the duplicate charge and email the transaction confirmation. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "non_native",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Request for itemized cost breakdown of recent platform changes",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Following our recent workspace migration, the monthly cost went up by three hundred dollars. We require an itemized breakdown showing exactly what features or seats contributed to this cost change. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Payment cleared bank but system still indicates past due",
+    "description": "FYI see forwarded thread below from our accounting director. Our bank records show that payment cleared nine days ago under transaction reference 88124. Your automated emails continue to threaten service disruption. Please fix your records and acknowledge receipt of payment.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Server error 500 during checkout but credit card was charged",
+    "description": "Our accountant encountered an HTTP 500 server error when clicking submit on your checkout portal. However, our corporate bank card was still charged 450 dollars. We need you to confirm whether the payment went through or reverse the charge immediately.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "polite",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Representative promised twenty percent discount but invoice shows full price",
+    "description": "FYI see forwarded thread below from our accounting director. During our renewal call with our sales account executive, she promised a twenty percent discount on our annual subscription. The invoice sent to accounts payable this morning shows the standard list price. Please adjust the invoice to reflect the promised discount.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Hardware shipment delayed by operations and requesting billing pause",
+    "description": "Operations notified us that our scanning hardware is backordered for three weeks. Because our team cannot use the software without the hardware, we want to pause our monthly subscription billing until the devices arrive. Please adjust our billing schedule.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Engineering team decommissioned servers but invoice still charges full capacity",
+    "description": "Our engineering staff decommissioned ten virtual nodes three weeks ago. However, our monthly billing statement arrived yesterday charging us for the old capacity. Please credit our account for the inactive nodes and reissue the bill.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "terse",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Account executive agreed to waive onboarding fees on first invoice",
+    "description": "When we signed the enterprise contract, our account executive promised in writing that the 1,500 dollar onboarding fee would be waived. Our first invoice includes this 1,500 dollar charge. Please remove this fee from our billing statement. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Authentication failure prevented accountant from downloading tax invoice",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our finance director encountered an Okta SSO authentication loop when trying to log in to the billing portal. Because she cannot access the portal, could you please email our annual tax invoice directly to accounts@veloce.com? We need it for tax filing. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "API rate limit blocked due to supposed unpaid invoice that cleared",
+    "description": "Our developers reported that our production API calls are returning 403 Forbidden because our account is flagged for non-payment. Our bank wire cleared three days ago and we have confirmation. Please clear the payment flag in billing so our API access is restored.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "polite",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Courier damaged delivered scanners and need credit for damaged units",
+    "description": "Operations shipped fifteen barcode units but three arrived with crushed screens from courier mishandling. While operations prepares replacements, please issue an immediate billing credit for the three damaged units on this month invoice. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "non_native",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Representative rep offered three months free trial but credit card charged",
+    "description": "FYI see forwarded thread below from our accounting director. Our sales rep Sarah told us our pilot would be free for ninety days. Our corporate card was charged 300 dollars on day thirty. Please reverse this unauthorized charge and update our billing profile to reflect the free trial terms.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Database replica lag caused duplicate checkout submission and double charge",
+    "description": "A database lag on your platform caused our checkout page to freeze, prompting our user to click submit twice. As a result, our credit card was charged twice for 299 dollars. Please refund the duplicate transaction.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "terse",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Warehouse dispatched wrong model and need price adjustment on invoice",
+    "description": "Operations sent us model B scanners instead of model A, which cost 50 dollars less per unit. Until teh exchange is completed, pleas adjust invoice 9910 to reflect the price of the lower-tier hardware actually delivered.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Representative negotiated custom SLA terms but billing added standard surcharge",
+    "description": "Our commercial agreement negotiated by your sales director includes custom 99.99 percent SLA coverage at no extra charge. Our latest invoice includes a 500 dollar High Availability surcharge. Please credit this charge.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "REST API bug caused duplicate subscription seat creation and overbilling",
+    "description": "FYI see forwarded thread below from our accounting director. A bug in your provisioning API caused twenty test accounts to be created as paid seats rather than sandbox seats. Our invoice arrived charging an extra 1,000 dollars. Please adjust the invoice to remove the phantom seat charges.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Data center maintenance caused downtime and requesting SLA credit memo",
+    "description": "Operations performed unscheduled cooling maintenance at the Chicago data center, causing eight hours of downtime for our team. Under section 5 of our contract, we are entitled to a fifteen percent service credit. Please issue the credit memo. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Account manager promised free migration assistance but invoice charges consulting",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our account executive promised that database migration support would be provided free of charge as an incentive to sign. Our monthly invoice includes a 2,000 dollar professional services line item. Please eliminate this charge. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Frontend crash during renewal payment caused authorization hold on card",
+    "description": "FYI see forwarded thread below from our accounting director. When our accountant attempted to pay the annual renewal, the web page threw an uncaught JavaScript exception. Although the transaction shows failed in your portal, our bank shows an authorization hold of 4,500 dollars. Please release the hold.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "forwarded",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Supply chain delay for replacement parts and requesting billing credit",
+    "description": "Operations has delayed the delivery of our replacement server parts by five weeks due to supply shortages. We cannot use our secondary cluster during this time and request a corresponding credit on our monthly invoice.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Representative agreed to match competitor pricing but invoice reflects old rate",
+    "description": "We provided a competing proposal from Zendesk and your sales VP agreed in writing to match their per-seat rate of 45 dollars. The invoice sent to our finance department today still bills us at 65 dollars. Kindly make the needful correction and fix the rate.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "SSL certificate expiration on payment gateway prevented automated invoice settlement",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our automated payment failed yesterday because your payment gateway SSL certificate had expired, causing our firewall to block the connection. Now your system has assessed a late fee. Please waive the late fee since your technical issue caused the failure.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "rambling",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Facility cooling outage damaged server units and requesting lease adjustment",
+    "description": "An HVAC failure at the co-location facility took three leased rack units offline permanently. While operations arranges replacements, please adjust our monthly hardware leasing invoice to deduct the offline units.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Representative director promised complimentary analytics module but invoice charges license fee",
+    "description": "Our sales director promised in our renewal contract that the AI Predictive Analytics add-on would be complimentary for year one. Our new invoice includes an 800 dollar line item for this module. Please issue a revised invoice.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "WebSocket disconnect loop caused automated re-orders and multiple invoice charges",
+    "description": "A reconnect loop in your WebSocket client caused five automated orders to be submitted in rapid succession. We only intended to place one order and our credit card was charged five times. Please cancel four orders and refund the charges.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "angry",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "train"
+  },
+  {
+    "subject": "Contract renewal discount discussed with sales omitted from annual invoice",
+    "description": "Our sales rep confirmed via email that our early renewal would receive a 12 percent discount. Our accounts department received invoice 77109 without any discount applied. Please regenerate the invoice with the agreed discount.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Security badge provisioning delay for data center technician and requesting credit",
+    "description": "Operations took five business days to clear data center access badges for our contracted engineers, during which we were billed for idle standby time. We request a 600 dollar credit on our account to offset this operational delay.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Reallocation of fifteen unused software licenses to credit ledger",
+    "description": "We have fifteen software licenses that have remained unassigned across our corporate subsidiaries during the past six months. We would like to re-allocate these licenses to credit our accounting ledger for our upcoming commitment. Please advise how this balance adjustment can be finalized. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Early termination financial liability calculation for unused seat allocation",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Under section 9 of our agreement, our organization has the option to adjust our total seat commitment at mid-year. We need your team to calculate our net financial liability and any applicable balance adjustments through December. Please provide the financial summary.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Balance sheet adjustments following our mid year corporate restructuring",
+    "description": "FYI see forwarded thread below from our accounting director. Following our corporate restructuring, several cost centers have been merged and historical asset allocations must be adjusted. We need your department to review our account ledger and apply the remaining credits to our new parent entity. Let us know what documentation is required.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Clarification on recurring line item labeled Platform Maintenance Tier B",
+    "description": "Our quarterly financial review highlighted a recurring line item designated as Platform Maintenance Tier B for 350 dollars. We need to verify whether this represents an active service commitment or a legacy recurring charge. Please provide the ledger details. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Reconciliation of promotional credit balance prior to fiscal year closing",
+    "description": "Our account shows an unapplied promotional allowance of 1,200 dollars that was credited during our implementation phase. We need to determine whether this allowance can be offset against our fourth-quarter service fees or if it expires. Please clarify our ledger balance.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Audit of variable consumption assessments on monthly corporate statement",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our finance director wants an audit of the variable consumption assessments billed across our departmental profiles since January. We need to reconcile the billing metrics against our internal workload records. Please send the detailed statement of assessments. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Verification of remaining deposit balance in enterprise drawdown account",
+    "description": "Our organization established a pre-funded drawdown account of 50,000 dollars at the start of our contract term. We need a formal accounting of the remaining deposit balance after last month transactions. Please provide the current ledger report.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Dispute regarding retroactive assessment of administrative processing fees",
+    "description": "FYI see forwarded thread below from our accounting director. We noticed an administrative processing assessment applied retroactively to our quarterly statement. Our team was not notified of any administrative fee schedule changes when our contract was signed. Please review the validity of this fee on our ledger.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Financial settlement terms following voluntary license surrender",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. We surrendered thirty auxiliary user seats last month in accordance with our phased transition plan. We need formal confirmation of how the remaining monetary value of those licenses will be credited against our account. Please send the reconciliation statement.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Discrepancy in cost allocation between regional subsidiaries",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our European and North American business units are disputing the cross-entity allocation of our shared infrastructure costs. We need an itemized reconciliation showing the billing split between entity codes 101 and 102. Please furnish this report.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Accounting treatment of unused professional services allowance",
+    "description": "Our contract included an upfront allowance of 10,000 dollars for specialized implementation services. Only 4,000 dollars was consumed during deployment. Please explain the accounting procedure for rolling over or refunding the remaining 6,000 dollars.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Ledger adjustments needed for duplicate entity provisioning",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. During our initial setup two separate customer entities were created for our company, resulting in split billing records. We have consolidated our users under a single entity. Please merge the financial ledgers and credit any duplicate fees.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "rambling",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Evaluation of commercial liability under force majeure suspension",
+    "description": "Due to unexpected regulatory restrictions, our primary facility was required to suspend operations for twenty days. We are requesting an evaluation of our contractual payment liabilities during the suspension period under force majeure provisions. Please review our account status.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "train"
+  },
+  {
+    "subject": "Reconciliation of currency hedging variances on international account",
+    "description": "Our master contract includes a currency stabilization clause to mitigate severe exchange rate volatility between GBP and USD. We need your team to reconcile the hedging variances applied across our last four statements. Please provide the calculation sheet.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Confirmation of final financial release after contract non renewal",
+    "description": "Our leadership decided not to renew our subscription upon expiration on November 30th. We require a formal confirmation of financial release certifying that all accounts are settled and no outstanding balances remain. Pleas issue this certificate.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Audit inquiry regarding tax withholding certificates for foreign entity",
+    "description": "Our corporate treasury in Zurich requires certified confirmation of tax withholding remittances associated with our vendor acount. We need documentation showing that applicable foreign withholding taxes were credited properly. Pleas provide this statement.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "train"
+  },
+  {
+    "subject": "Canadian GST and HST exemption registration missing from statement",
+    "description": "Our Canadian subsidiary submitted our official GST and HST tax registration certificate last month. However, invoce 88201 still includes Canadian provincial sales taxes. Pleas adjust the tax line item and reissue the invoice.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Credit card chargeback arbitration request for unauthorized renewal",
+    "description": "FYI see forwarded thread below from our accounting director. Our merchant bank has opened an arbitration case regarding transaction TX-9921 for 750 dollars. We have repeatedly asked your company to reverse this unapproved renewal charge. Please provide immediate credit to avoid merchant penalties.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "High",
+    "split": "test"
+  },
+  {
+    "subject": "Request for certified statement of accounts for fiscal year audit",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our external auditing firm Deloitte requires a certified statement of accounts covering all invoices and disbursements from our 2025 contract. Please have your finance controller sign and return the attached audit confirmation form. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Prepayment discount of five percent omitted from annual billing statement",
+    "description": "Our agreement provides an automatic five percent discount for prepayment of annual software subscriptions. The statement sent yesterday lists the standard undiscounted price of 12,000 dollars. Please apply the discount and send an updated bill.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Multi currency settlement discrepancy between EUR and USD corporate accounts",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our European division wired 5,000 Euros to settle invoice 3310, but your billing system only credited 4,800 USD due to an internal conversion markup. Our contract stipulates payments in Euros are settled at par value. Please correct our balance. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "SEPA direct debit mandate cancellation confirmation requested",
+    "description": "We have instructed our German banking partner to revoke our SEPA direct debit mandate for your company. All future payments will be handled via corporate wire transfer. Please confirm that direct debit transactions have been disabled.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Invoice split request between two subsidiary corporate cost centers",
+    "description": "Could you please reissue invoice 9940 as two separate bills split 60/40 between cost center US-East and cost center US-West? Our internal accounting policies require separate departmental vouchers for payment release. Thank you.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Penalty interest charge disputed on payment subject to net sixty terms",
+    "description": "Your accounts team added a late penalty of 120 dollars to our recent statement claiming payment was overdue after thirty days. Our contract clearly specifies Net 60 payment terms. Please remove the penalty fee immediately.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "polite",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Corporate procurement requires electronic EDI 810 format for all invoices",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our enterprise procurement platform now mandates that all vendor invoices be delivered via EDI 810 electronic data interchange. Please contact our procurement technical team to configure EDI billing delivery for our account. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Credit memo balance not applied to reduce current outstanding invoice",
+    "description": "We have an existing credit memo CM-209 for 600 dollars from July. However, invoce 4410 was issued for teh full balance without deducting our credit memo. Please apply the 600 dollar credit and send the updated balance due.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Request for itemized usage report for variable bandwidth overage fees",
+    "description": "We were billed 340 dollars for bandwidth overages on our October statement. We need an itemized daily log showing bandwidth consumption spikes to verify these charges. Please provide the detailed telemetry report.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Refund status inquiry for cancelled user seat licenses",
+    "description": "We cancelled ten enterprise user seats on October 5th and were informed by your billing agent that a 400 dollar refund would process in 5-7 business days. It has now been three weeks and no funds have cleared. Please check the refund status.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "angry",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Direct deposit remittance advice email notification missing transaction details",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Your automated billing system sent an email notification stating payment was received, but the attached remittance PDF was blank. Please resend the official receipt showing invoice number and payment settlement date.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Unapproved price increase on automated monthly credit card charge",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our monthly credit card charge was increased from 199 dollars to 249 dollars without any notice or agreement. We signed a one-year price lock agreement in March. Reverse the 50 dollar overcharge and restore our agreed price. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "agent_note",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "test"
+  },
+  {
+    "subject": "Request for vendor payment registration form completion for accounts payable",
+    "description": "Our accounts payable department is onboarding your company into our automated vendor portal. Pleas complete and return teh attached ACH banking authorization and tax form so we can release payment on your pending invoice.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Disputed merchant transaction fee added to corporate credit card invoice",
+    "description": "Our invoice arrived with a 4 percent merchant processing fee added to our software subscription. Our enterprise contract does not permit merchant surcharge pass-through. Please remove this fee from our billing account.",
+    "department": "Billing",
+    "difficulty": "easy",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Discrepancy noted between corporate treasury records and vendor balance",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our treasury records indicate that funds were extracted from our commercial account without a corresponding statement of service. The figure is higher than our agreed monthly commitment. We need an immediate audit of this transaction and a restoration of the variance. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Funds transferred via international wire last Friday still not acknowledged",
+    "description": "FYI see forwarded thread below from our accounting director. We dispatched an international wire transfer of seven thousand dollars five business days ago to satisfy our obligations. The money has already cleared our commercial institution, but your platform still indicates arrears. Please locate the transfer and update our profile.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "forwarded",
+    "origin": "Web",
+    "priority": "High",
+    "split": "test"
+  },
+  {
+    "subject": "Unexpected monetary withdrawal occurred on our company card over weekend",
+    "description": "Our finance director identified an unexpected monetary withdrawal of six hundred dollars on our corporate card on Saturday. We have no internal record of authorizing this expenditure. We request an immediate explanation or full reimbursement.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "terse",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "test"
+  },
+  {
+    "subject": "Disagreement regarding the numbers on our annual settlement summary",
+    "description": "The financial settlement summary delivered to our leadership contains numbers that are significantly higher than the contract signed in January. Several unapproved fees have been incorporated into the total. Please revise the figures to match our documented agreement.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "polite",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Excess money pulled from cash reserves for monthly platform access",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Your automated processing pulled three hundred dollars more from our operating reserves than what was agreed upon. Our accounting department requires an immediate reimbursement of the extra funds. Please confirm when the transfer has been initiated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "rambling",
+    "origin": "Web",
+    "priority": "High",
+    "split": "test"
+  },
+  {
+    "subject": "Need certified breakdown of all monetary transfers for fiscal review",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our internal auditing team is conducting a comprehensive review of all vendor disbursements from the past twelve months. We require an official schedule showing every monetary transfer and its service allocation. Please provide this documentation. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Two separate deductions processed against our credit line in single week",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Your organization executed two distinct deductions against our corporate credit line within a four-day span. This has created a cash flow disruption for our regional office. Please reverse the duplicate deduction back to our account today. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "High",
+    "split": "test"
+  },
+  {
+    "subject": "Monetary funds transferred via direct draft not matched to account",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our bank completed a direct draft transfer ten days ago to cover our obligations. The funds cleared our bank account, but our status still displays an outstanding obligation. Please manually match the draft reference to our profile. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Unexplained increase in recurring deduction for software access",
+    "description": "The amount deducted for our service this month is twenty percent higher than what was charged during the previous six months. We were never notified of any modification to our financial arrangement. Please restore the agreed pricing.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "angry",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Surplus balance remaining on profile following service adjustment",
+    "description": "Following our recent operational adjustments, our profile reflects an unapplied cash reserve of two thousand dollars. Since we have adjusted our service tier, please return these surplus funds to our corporate checking account. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "non_native",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Withdrawal occurred prior to scheduled calendar disbursement date",
+    "description": "Phone intake note: Customer contact called regarding this issue today. Our agreement specifies that automated disbursements occur on the twenty-fifth of each month. Your system pulled the funds on the eighteenth, causing an unexpected budget variance. Please ensure all future debits adhere to the contracted date. Verified account PIN and escalated.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "agent_note",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Need official verification of account settlement to release pending funds",
+    "description": "Our procurement group requires formal verification that all prior financial obligations have been satisfied before releasing our next budget allocation. Pleas provide a verified statement confirming our acount carries a zero balance.",
+    "department": "Billing",
+    "difficulty": "paraphrase",
+    "voice": "typo",
+    "origin": "Web",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Production webhooks halted due to unpaid balance flag despite wire clearance",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our engineering staff reported that our production webhooks stopped firing this morning because an automated unpaid balance flag was placed on our account. We wired the subscription fee six days ago and attached the bank confirmation. Please clear the billing hold so our technical services resume.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "rambling",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "test"
+  },
+  {
+    "subject": "Representative agreed to comp staging environment but accounting received bill",
+    "description": "FYI see forwarded thread below from our accounting director. Our sales director agreed in our pilot contract that our staging environment would be comped at zero cost for sixty days. Our accounting department just received a bill for 450 dollars for staging server usage. Please zero out this invoice as agreed.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Engineering portal crashed while bookkeeper was submitting remittance advice",
+    "description": "The customer portal threw a runtime exception while our bookkeeper was uploading our remittance advice for invoice 8812. Because the portal is failing, please manually confirm receipt of the attached wire confirmation and update our account status.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "terse",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Warehouse logistics delayed hardware kit and requesting prorated service credit",
+    "description": "Operations had an inventory delay that pushed delivery of our inspection hardware back by four weeks. Because our staff could not use the platform without the hardware, please prorate our monthly subscription fee and credit the missing weeks. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "non_native",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Account manager promised fee waiver for additional licenses on invoice",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our account manager promised that administrative setup fees for our twenty new licenses would be waived. Our invoice arrived today with a 300 dollar administrative fee included. Please remove this fee from our billing account.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "API rate limits triggered by payment gateway communication timeout",
+    "description": "An intermittent network timeout between your billing gateway and our bank triggered a false payment failure flag, which throttled our production API rate limits. Our bank confirms the funds settled. Remove the payment restriction immediately.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "polite",
+    "origin": "Phone",
+    "priority": "High",
+    "split": "test"
+  },
+  {
+    "subject": "Delivered tablet screens cracked in transit and need billing adjustment",
+    "description": "Operations shipped five technician tablets but two units arrived with cracked screens. While we wait for replacements from operations, pleas adjust this month invoce so we are not charged for the unusable tablets.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "typo",
+    "origin": "Web",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Representative rep promised early renewal bonus credit not appearing on statement",
+    "description": "Our sales executive confirmed that signing our renewal by October 15th would qualify our acount for a 1,000 dollar platform credit. Our new statement shows teh full renewal fee without the promotional credit. Please apply the credit memo.",
+    "department": "Billing",
+    "difficulty": "multi_topic",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Medium",
+    "split": "test"
+  },
+  {
+    "subject": "Reconciliation of residual credit balance before contract renewal window closes",
+    "description": "FYI see forwarded thread below from our accounting director. Please reconcile the residual credit balance on our master account before our annual contract renewal window closes next month. Our internal finance team needs to know if these remaining credits will roll over into our new contract term or offset current liabilities. Please provide the financial summary.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "forwarded",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Internal compliance audit of all vendor disbursements from past twelve months",
+    "description": "Our corporate compliance group is performing an internal audit of all disbursements made to your company over teh past twelve months. We need an authorized statement of all financial transactions, credits applied, and outstanding liabilities. Pleas furnish this report.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "typo",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Confirmation of sufficient deposit balance in pre funded platform drawdown account",
+    "description": "Our enterprise maintains a pre-funded deposit account with your organization to cover variable consumption. Please confirm whether our current deposit balance is sufficient to cover our projected usage for next quarter or if an additional replenishment wire is needed. Kindly do the needful as soon as possible.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "non_native",
+    "origin": "Web",
+    "priority": "Low",
+    "split": "test"
+  },
+  {
+    "subject": "Clarification of financial calculation used for variable overage assessments",
+    "description": "Our department was going through our monthly closing and reviewing multiple vendor statements yesterday afternoon. Our financial controller has requested clarification regarding the mathematical formula used to assess variable overage fees on our last quarterly ledger. We need to verify that the rates applied align with our negotiated rate card. Please provide the accounting schedule.",
+    "department": "Billing",
+    "difficulty": "ambiguous",
+    "voice": "rambling",
+    "origin": "Email",
+    "priority": "Low",
+    "split": "test"
+  }
+]

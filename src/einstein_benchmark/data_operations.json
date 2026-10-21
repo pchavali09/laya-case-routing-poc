@@ -1,0 +1,2002 @@
+[
+  {
+    "subject": "Shipment tracking delay for replacement barcode scanner hardware",
+    "description": "The replacement handheld scanner hardware scheduled for delivery on Monday is still marked as pending in warehouse status. Our warehouse team is unable to process incoming freight without these replacement scanning terminals. Please provide updated courier tracking information.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Data center physical security badge provisioning delay for visiting technicians",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Contractor technician badges requested five days ago for the Chicago data center have not been cleared by security ops. Our field engineers are scheduled to perform rack maintenance tomorrow morning. Please escalate badge clearance with building security.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Scheduled maintenance window notification clashes with peak business hours",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Your scheduled maintenance window on Saturday at 2 AM UTC overlaps directly with our peak end-of-month deployment window. A four-hour outage during this timeframe will severely disrupt our international operations. Can this maintenance window be rescheduled?",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Supply chain delay on replacement motherboard modules part ET 882",
+    "description": "We have twelve field units stalled awaiting shipment of motherboard replacement modules part ET-882. Your warehouse operations team indicated an estimated ship date of yesterday, but no dispatch confirmation was sent. Please provide an urgent logistics update.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Employee onboarding hardware asset provisioning stalled in pending approval",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. New employee hardware provisioning request OP-4410 has been stalled at facilities manager sign-off for four business days. The new staff member begins on Monday and requires a pre-configured laptop and security token. Please expedite hardware dispatch. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Auxiliary HVAC cooling system failure in zone 3 server room",
+    "description": "Root cause inquiry regarding the auxiliary HVAC failover incident in zone 3 reported yesterday afternoon. Ambient server room temperatures reached 88 degrees Fahrenheit before secondary fans engaged. We require an incident report from facility operations.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Courier damaged external packaging on incoming parcel delivery",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Batch parcel consignment arrived with crushed exterior packaging and torn protective wrapping. Our receiving team flagged potential structural damage to internal optical sensor components. An on-site inspection is required before inventory check-in.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Vendor compliance questionnaire completion for SOC 2 Type II assessment",
+    "description": "Please have your InfoSec operations team complete the attached SOC 2 Type II vendor compliance assessment spreadsheet. Our enterprise procurement guidelines require updated physical security and operational controls audits annually. Please return by Friday.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Hazardous material disposal protocol compliance for decommissioned server batteries",
+    "description": "We are decommissioning thirty uninterruptible power supply battery modules at our Denver facility. Could facility operations provide certified recycling documentation and hazardous waste manifest certificates? We need these records for environmental compliance.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "angry"
+  },
+  {
+    "subject": "Warehouse inventory discrepancy on RFID scanner terminal units",
+    "description": "Our quarterly warehouse cycle count revealed a discrepancy of eight RFID scanner terminals between physical shelf stock and system inventory. We need your logistics team to cross-reference recent shipment manifests against return orders. Please furnish the inventory log. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Freight carrier bill of lading documentation missing for international shipment",
+    "description": "Our customs broker cannot clear palletized hardware shipment HWD-9912 at Rotterdam harbor without an endorsed Bill of Lading. The electronic documents transmitted by your freight forwarder were missing carrier signatures. Please provide the signed paperwork immediately.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Physical access keycard reader malfunctioning at facility entrance gate",
+    "description": "The RFID keycard reader at the exterior security entrance to our production facility has stopped responding to employee badges. Security staff is currently manually checking credentials, creating massive line delays. Please dispatch a facilities technician to repair the reader.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "terse"
+  },
+  {
+    "subject": "Office workstation ergonomic monitor arm dispatch request for regional branch",
+    "description": "Our regional branch in Phoenix requires dual-monitor mounting arms and adjustable standing desk converters for twelve workstations. Facilities ticket FAC-3310 was submitted two weeks ago without status updates. When will these ergonomic assets ship?",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "angry"
+  },
+  {
+    "subject": "Diesel backup generator emergency load test schedule notification",
+    "description": "Facility management will conduct mandatory annual emergency load testing on the secondary diesel generators this Saturday between 06:00 and 10:00 UTC. Uninterruptible power supply battery banks will handle load transfer. Please notify on-duty operations personnel. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Cleanroom access authorization request for contracted air filtration engineers",
+    "description": "Contracted HVAC filtration specialists require Class 100 cleanroom access authorization to replace HEPA filters in teh clean assembly bay next Tuesday. Attached are background clearance forms and safety certifications. Pleas approve access credentials.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Return merchandise authorization shipping label generation for defective scanner",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. We submitted an RMA request for a defective handheld scanner with serial number SCN-9941. Your support agent approved the return, but the prepaid shipping label was never delivered to our logistics email. Please generate and transmit the courier return label. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Pallet intake inspection protocol failure due to broken security seals",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. A freight delivery of ten server racks arrived at our loading dock with broken tamper-evident security seals on pallets two and four. Per security protocol, our receiving team has quarantined the shipment pending joint inspection. Please contact carrier dispatch.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Routine fire suppression system hydrostatic test scheduled for data facility",
+    "description": "Please be advised that municipal inspectors will conduct routine hydrostatic pressure testing on the dry-pipe fire suppression system in server hall B next Wednesday. No system discharges will occur. Please coordinate with facilities duty engineers.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "terse"
+  },
+  {
+    "subject": "Supply chain shortage notification regarding industrial touch panel displays",
+    "description": "We received notice from our tier-1 display supplier that industrial touch panels for model 440 are facing a six-week component delay. We need your supply chain operations team to identify alternative vetted suppliers or adjust production schedules. Pleas advise.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Contractor escort policy compliance for unbadged facilities maintenance crew",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. A contracted electrical crew arrived at the regional switching station without prior security pre-clearance. Under facility operations policy, unbadged personnel require continuous physical escort by certified staff. Please confirm whether escort coverage is available today.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Damaged freight claim submission for crushed diagnostic terminal shipment",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Consignment 4410-FRT arrived via FedEx Freight with severe forklift puncture damage penetrating the exterior wooden crate and crushing the diagnostic terminal inside. Photographs and signed carrier delivery receipts are attached. Please initiate a freight damage replacement. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Emergency lighting battery backup maintenance cycle in distribution facility",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. The scheduled six-month discharge inspection of emergency exit lighting battery packs is scheduled for Thursday across our main distribution warehouse. Facilities personnel will be operating scissor lifts in aisles four through eight. Please notify warehouse supervisors. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Physical asset tag barcodes missing on newly delivered workstation fleet",
+    "description": "Our IT logistics team received a shipment of forty enterprise desktop workstations, but none of the chassis have corporate asset tags attached. We need your staging facility to confirm serial numbers so our local team can print and affix tags.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Air filtration differential pressure alarm triggered in cleanroom zone 2",
+    "description": "Environmental sensors in cleanroom zone 2 triggered an alarm indicating differential pressure dropped below teh mandatory 0.05 inches of water. Air handling unit AHU-3 appears to have thrown a fan belt. Pleas dispatch emergency facilities repair immediately.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "typo"
+  },
+  {
+    "subject": "Warehouse pallet racking annual structural integrity certification inspection",
+    "description": "Occupational safety regulations require an annual structural engineering certification of our warehouse selective pallet racking systems. The third-party structural inspector is scheduled for November 12th. Please ensure loading aisle clearance is maintained.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Security camera blind spot identified near high value inventory cage",
+    "description": "A physical security vulnerability assessment revealed a blind spot in CCTV coverage adjacent to the high-value electronics inventory cage. Security operations recommends installing an auxiliary wide-angle dome camera. Please schedule facilities installation.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Loading dock hydraulic leveler failure blocking outbound freight trailers",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Hydraulic dock leveler bay 3 failed in the lowered position, trapping an outbound freight trailer and blocking access to adjacent bays. Distribution operations is currently at a standstill. Please dispatch an emergency hydraulic technician immediately. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Disposal manifest documentation required for decommissioned hard drives",
+    "description": "Our data compliance officer requires certified certificates of destruction and physical serial number manifests for forty-eight SAS disk drives decommissioned last week. Pleas provide teh signed destruction certificates from your certified e-waste partner.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Water leak detected near raised floor tile in secondary electrical room",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Water detection rope sensors beneath raised floor tile 14 in electrical room B triggered an audible moisture alert. Maintenance personnel confirmed minor condensation runoff from chilled water piping. Please dispatch pipe insulation specialists.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Replacement thermal transfer barcode ribbon stock exhausted in warehouse",
+    "description": "Our primary distribution hub has completely exhausted stock of 4-inch resin thermal transfer ribbon cartridges part RBN-440. Warehouse shipping labels cannot be printed without these supplies. Please expedite an emergency shipment of twenty ribbon rolls.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Courier missed scheduled pickup window for overnight express consignment",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. The freight courier failed to arrive during our designated 16:00 to 18:00 pickup window for five critical diagnostic repair kits. These units must reach our West Coast hospital clients by tomorrow morning. Please escalate with courier dispatch for urgent recovery.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Facility biometric iris scanner enrollment failure for regional operations staff",
+    "description": "Newly hired operations supervisors are unable to complete biometric enrollment at the main data facility entrance. The enrollment software reports camera calibration failure. Please have biometric security support re-calibrate the enrollment station.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Supply chain inventory lead time inquiry for replacement power supply units",
+    "description": "We need to know current replenishment lead times for 1200-watt hot-swappable server power supply units model PSU-881. Our regional maintenance buffer is down to three spare units. Kindly do the needful and provide current supply chain availability.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Industrial forklift battery charging station ventilation fan failure",
+    "description": "The hydrogen exhaust ventilation fan in the battery charging bay has failed, triggering a localized air quality warning during peak forklift charging. Safety regulations require active ventilation during charging cycles. Please service the exhaust fan urgently. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Damaged palletized consignment delivered with broken shrink wrap and missing cartons",
+    "description": "Delivery driver tendered a partial pallet of telecommunications hardware with severed shrink wrap and three cartons missing according to the master packing slip. The delivery was signed with exception notes. Please file a courier tracer for the missing cartons.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "polite"
+  },
+  {
+    "subject": "Server cabinet earthquake bracing retrofitting schedule for California facility",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Per updated seismic safety building codes, twenty-four equipment racks in our Santa Clara facility must be retrofitted with heavy-duty seismic base anchor brackets. Work is scheduled to begin next Monday. Please coordinate with on-site facilities staff.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Security alarm sensor false positive trips on exterior perimeter fence",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Vibration sensors on the northern perimeter security fence have triggered four false intruder alarms over the weekend due to high wind gusts. Security operations requests a sensitivity recalibration of zone 4 sensors. Please schedule technician service.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Chilled water loop pressure drop observed in central facility cooling plant",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Central cooling telemetry recorded a five PSI pressure drop across the chilled water return loop serving computer room air conditioning units. A slow glycol leak is suspected near pump manifold 2. Please dispatch industrial mechanical contractors.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Asset recovery logistics coordination for decommissioned branch office hardware",
+    "description": "Our branch office in Cleveland will close on November 30th. We need operations to coordinate freight pickup, asset tagging, and secure transport of fifteen workstations, two network switches, and a rack enclosure back to central inventory. Please arrange logistics.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "angry"
+  },
+  {
+    "subject": "Cardboard recycling compactor hydraulic cylinder maintenance required",
+    "description": "The industrial hydraulic cardboard compactor in the receiving yard is leaking hydraulic fluid from the main ram cylinder, creating an environmental slip hazard. Compactor operations are halted. Kindly do the needful and schedule an emergency hydraulic repair technician.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Warehouse temperature and humidity sensor calibration verification audit",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Our pharmaceutical logistics client requires quarterly calibration certificates for all wireless temperature and humidity sensors in the cold storage warehouse. The compliance audit is scheduled for Friday. Please furnish the calibration logs.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Visitor badging system thermal badge printer hardware jam",
+    "description": "The front desk thermal badge printer at our headquarters visitor center has experienced a roller gear failure and cannot print visitor passes. Security officers are issuing manual paper passes. Kindly arrange and dispatch an IT hardware technician with a replacement printer.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Scheduled power outage notification for main switchboard breaker replacement",
+    "description": "The municipal power utility has scheduled an eight-hour electrical feed interruption on Sunday November 17th to replace aging sub-station breakers. Dedicated diesel generators will maintain critical operations. Please alert all operational teams.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Damaged delivery container returned from regional fulfillment center",
+    "description": "A reusable bulk transport container returned from regional hub B arrived with cracked structural walls and damaged lid hinges. The container is unsafe for stacking and must be removed from the fleet. Please issue an asset decommissioning voucher.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Supply chain delay notification regarding industrial power distribution units",
+    "description": "We were informed that our order of thirty metered power distribution units part PDU-992 is stalled at the port of Long Beach due to customs container inspections. Please explore air freight options for five critical units needed for next week deployment.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "angry"
+  },
+  {
+    "subject": "Data center emergency exit door magnetic lock alignment failure",
+    "description": "The electromagnetic lock on emergency exit door B4 failed to engage properly after morning security rounds, leaving the perimeter door unlatched. Security personnel are stationed on-site. Kindly arrange and dispatch an emergency lock technician immediately.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Freight forwarder cross docking paperwork discrepancy on international parcel",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our freight forwarder in Frankfurt identified a weight discrepancy of 45 kilograms between the airway bill and actual cross-dock scale weight for crate HWD-441. Customs release is suspended pending manifest reconciliation. Please contact shipping operations.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Warehouse conveyor belt roller bearing failure in sorting zone 4",
+    "description": "A seized roller bearing on the primary sorting conveyor in zone 4 is generating excessive heat and smoke, tripping automated thermal overload protectors. Parcel sorting has ceased. Please dispatch conveyor maintenance technicians urgently.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Offboarding asset return shipping kit dispatch request for remote engineer",
+    "description": "Senior systems engineer Mark Vance departed our company yesterday. We need operations to dispatch a secure, foam-lined laptop return box with a prepaid overnight shipping label to his residential address. Please initiate the asset recovery workflow.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "polite"
+  },
+  {
+    "subject": "Facility roof drain blockage causing minor water seepage in storage annex",
+    "description": "Heavy rainfall caused rooftop drain pooling that resulted in minor water seepage along the interior wall of storage annex C. Inventory pallets have been moved away from the wall. Please dispatch commercial roofing contractors to clear drains.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Inventory stock check discrepancy on high speed optical transceivers",
+    "description": "An inventory audit of our network optics bin revealed twenty 100G QSFP28 optical transceivers missing from physical storage. We need operations to verify whether these components were issued to rack deployment ticket 4410. Please investigate.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Visitor vehicle parking gate arm broken by third party delivery truck",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. A delivery box truck struck and snapped the motorized barrier gate arm at our commercial delivery entrance. The gate is currently locked in the upright position, compromising perimeter access control. Please schedule emergency gate repair. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Supply chain lead time update requested for custom server rack cabling harnesses",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. We require fifty custom pre-loomed Cat6A patch cabling harnesses for our upcoming data hall expansion. What is the manufacturing lead time from your cabling fabrication partner? Please provide lead times and minimum order quantities. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Uninterruptible power supply battery replacement schedule for zone 1",
+    "description": "Internal battery monitoring indicates that string 4 of the zone 1 UPS battery bank has reached eighty percent degradation and must be replaced prior to winter weather. Please coordinate with facilities for weekend battery module replacement.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Courier delivered parcel to wrong loading dock across business park",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. FedEx marked our critical replacement power supply parcel as delivered, but our receiving dock never received it. Security cameras reveal the courier dropped the box at building 4 across the park. Please contact courier dispatch to retrieve our package.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Warehouse barcode scanner charging cradle power supply failure",
+    "description": "The multi-slot charging cradle for ten handheld barcode scanners in packing zone 2 has experienced a power supply failure. Handheld units cannot recharge overnight. Please ship a replacement charging base assembly.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "angry"
+  },
+  {
+    "subject": "Facility fire alarm strobe light malfunctioning in main equipment hallway",
+    "description": "During weekly safety testing, the visual strobe light for the fire alarm system in equipment hallway 3 failed to flash. Life safety regulations require immediate repair of all emergency signaling devices. Please dispatch fire protection engineers.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Palletized freight consignment arrived without required hazardous material placards",
+    "description": "A delivery containing lithium iron phosphate auxiliary battery modules arrived without required Class 9 hazardous materials placards displayed on the trailer exterior. Our safety officer has quarantined the vehicle. Please contact the freight carrier.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "angry"
+  },
+  {
+    "subject": "Cleanroom gowning room air shower nozzle blockage in manufacturing wing",
+    "description": "Three high-velocity air nozzles in the cleanroom entrance air shower have become clogged with particulates, reducing de-contamination efficiency below ISO Class 5 standards. Please schedule maintenance to clean and replace nozzle assemblies.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Supply chain parts buffer threshold breached for server cooling fan assemblies",
+    "description": "Our inventory management system triggered an automated alert that physical buffer stock for dual-rotor cooling fans part FAN-8812 has dropped below the minimum ten-unit safety threshold. Please initiate a purchase order for twenty replenishment fans.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Emergency generator fuel polishing service scheduling for winter readiness",
+    "description": "To ensure reliable cold-weather startup, our facilty diesel storage tanks require annual fuel polishing and microbiological testing before November 30th. Pleas schedule fuel filtration contractors to service tanks 1 and 2.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Damaged exterior fencing panel discovered along southern facility perimeter",
+    "description": "Morning security perimeter patrols identified a bent chain-link fence panel and loose barbed wire along teh southern boundary line, likely caused by fallen tree limbs. Physical security integrity is compromised. Pleas dispatch fence repair contractors.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Warehouse hydraulic lift table oil leak creating slip hazard in packing",
+    "description": "The scissor lift table at packing station 4 is leaking hydraulic fluid onto the concrete floor, creating a severe slip hazard for operators. The station has been taken out of service. Kindly do the needful and schedule hydraulic cylinder servicing.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Data center cable tray weight capacity audit for upcoming fiber expansion",
+    "description": "Our network engineering team is planning to run 200 additional high-density fiber trunks through overhead cable trays in row D. Facilities engineering must verify that tray structural brackets meet weight capacity specifications. Please schedule an audit.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Package tracking status shows delivered but receiving dock confirms no package",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. The courier tracking portal indicates that five replacement motherboard kits were delivered and signed for by 'J. Doe'. However, our receiving staff has no record of this delivery and no employee by that name exists. Please initiate a trace with the courier. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Security turnstile optical sensors failing during morning shift influx",
+    "description": "Teh optical pedestrian barrier turnstile at employee turnstile 2 is frequently alarming and trapping employees during morning peak hours. Teh optical beam alignment appears shifted. Please have facilities technicians realign the sensors.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Freight carrier fuel surcharge discrepancy on monthly transportation statement",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Our transportation billing review identified that carrier freight invoices for October included an 18 percent fuel surcharge instead of the contracted 12 percent index rate. Please coordinate with freight logistics to credit the variance.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Warehouse automated packing machine tape dispenser mechanism jammed",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. The automated carton sealing machine at packing line 1 has suffered a mechanical jam in the tape cutting head, halting outbound e-commerce fulfillment. Our line technicians require replacement blade components. Please expedite part dispatch.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Industrial air compressor pressure drop in facility maintenance workshop",
+    "description": "Teh main industrial air compressor supplying pneumatic tools in our equpment staging workshop has experienced a cylinder pressure drop, preventing pneumatic tool operation. Please dispatch an air compressor repair technician.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Pallet jack manual steering wheel bearing seized in warehouse aisle",
+    "description": "A manual hydraulic pallet jack in aisle 6 suffered a seized nylon steering wheel bearing while transporting an 800-pound server rack, blocking the central transport corridor. Please dispatch maintenance with a transport dolly to remove it.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Supply chain lead time inquiry for replacement high voltage circuit breakers",
+    "description": "Our electrical infrastructure team is scheduling preventative maintenance for our main power distribution boards. We need verified delivery lead times for three 400-amp molded case circuit breakers model CB-440. Please check supplier availability.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Facility keycard access audit log discrepancies identified by corporate security",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. A security audit comparing card reader timestamps against perimeter video surveillance identified two timestamp anomalies on exterior door C. Facilities must check time synchronization on the door controller hardware. Please investigate.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Damaged server chassis delivery accepted with freight delivery exception notes",
+    "description": "A freight delivery of three rackmount server chassis arrived with punctured packaging and dented mounting ears. The delivery receipt was signed with formal damage exceptions noted. Please coordinate an immediate RMA replacement with the vendor.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Warehouse dock door weather seal torn causing cold drafts near packing",
+    "description": "The heavy rubber weather seal on dock door 5 was torn off by an incoming tractor trailer, allowing cold air and rainwater to blow into packing stations. Employees are working in cold conditions. Kindly do the needful and schedule door seal replacement.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Emergency eye wash station annual inspection certification due in chemical storage",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Safety regulations require annual certified plumbing inspections of all emergency eye wash and shower stations in our battery storage area. The current certification tag expires on November 15th. Please schedule an inspection plumber.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Courier delivery dropped pallet on driveway blocking fire truck access lane",
+    "description": "An unescorted freight delivry driver offloaded a two-ton pallet of equpment directly onto the marked fire lane in front of our main building and departed. Local fire regulations require this lane clear at all times. Please send facilities with a forklift immediately.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Warehouse ventilation fan belt squeal generating excessive noise in packing",
+    "description": "Exhaust fan EF-4 in the warehouse roof structure has developed a severe belt slip, generating loud squealing noise that exceeds allowable OSHA decibel thresholds for operators below. Please dispatch facilities to tighten or replace the belt.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "angry"
+  },
+  {
+    "subject": "Package returned to sender due to missing customs invoice documentation",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. A shipment of replacement networking switches sent to our Canadian subsidiary was returned by FedEx customs in Toronto due to missing commercial invoice copies. Please have shipping operations regenerate complete customs paperwork and re-dispatch. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Data center humidity level dropping below recommended static mitigation threshold",
+    "description": "Facilty environmental telemetry shows relative humidity in server hall 1 has dropped to eighteen percent, increasing electrostatic discharge risk. Ultrasonic humidifier unit HUM-2 appears offline. Pleas service the humidifier system immediately.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Security officer shift log reports unlatched perimeter gate during night rounds",
+    "description": "The physical security night report noted that contractor vehicle gate 3 was found unlatched at 03:00. The magnetic latching mechanism failed to catch after evening contractor departure. Kindly arrange and dispatch facilities to repair the latch mechanism.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Replacement units that were supposed to arrive have not appeared",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. The replacement equipment that was promised to reach our loading area on Monday has still not shown up. Our staff has been unable to handle standard client processing without these physical tools. We need someone to trace where these boxes currently are.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Visiting field engineers cannot enter physical premises because security has no record",
+    "description": "Our external technicians arrived at teh location this morning to carry out scheduled equpment checks, but the front security desk has no documentation of their clearance. The technicians are currently stranded in the lobby waiting. Please provide security clearance immediately.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "typo"
+  },
+  {
+    "subject": "Planned system downtime coincides directly with highest volume commercial weekend",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. The upcoming operational shutdown that was announced for this Saturday overlaps with our most critical customer activity period of the entire quarter. Taking everything offline during those hours will inflict massive operational disruption on our business. We request moving this shutdown to a later date.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Waiting on critical component modules and assembly floor has been halted",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our assembly technicians have been idle since yesterday morning because the specialized components we ordered have not arrived. Our local inventory has been completely depleted and production deadlines are being missed. Please let us know when these supplies will arrive.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Setup request for new staff member sitting in waiting status for days",
+    "description": "Our setup ticket for an incoming team member was submitted four business days ago, but nobody has taken action on it. Teh employee is arriving on Monday morning and will have no physical tools to do their job unless action is taken today. Pleas expedite this setup.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Temperature alarms went off in equipment enclosure following air conditioning failure",
+    "description": "The climate control in our equipment area malfunctioned yesterday afternoon and internal temperatures climbed to dangerous levels before secondary ventilation kicked in. We need an official incident review explaining what went wrong and how it will be prevented.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "polite"
+  },
+  {
+    "subject": "Wooden crate arrived with heavy structural crushing and cracked protective tape",
+    "description": "The transport container brought to our receiving area was heavily dented, with structural fractures on the exterior panels and broken protective seals. We are concerned that the delicate internal sensors may have sustained physical damage. Someone must inspect this before we accept it.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Audit review group must fill out attached security standards evaluation document",
+    "description": "Our enterprise compliance department requires all key external partners to complete our annual operational security questionnaire. The spreadsheet covers physical site security, access controls, and emergency protocols. Please have your team complete and return it by Friday. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Need certified environmental disposal documentation for old power storage units",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. We recently decommissioned thirty heavy battery modules from our operational center and need official proof of certified hazardous recycling. Our regulatory inspectors will penalize our company if we cannot produce these disposal certificates. Please provide this documentation.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Discrepancy identified between physical inventory count and recorded figures",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Our quarterly manual count revealed that eight scanning tools are unaccounted for when compared against our central records. We need your logistics team to review recent transfer manifests to determine where these missing units went. Please provide the transfer logs. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Signed transport paperwork missing for international maritime consignment",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Our customs broker at the seaport cannot release our freight container because the shipping documents transmitted electronically lacked mandatory endorsements. The container is currently racking up daily storage penalties at the dock. Please transmit properly signed paperwork. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Electronic entrance barrier sensor malfunctioning at main access point",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. The electronic sensor on our exterior security gate is failing to recognize authorized employee credentials this morning. Guards are having to manually verify everyone by hand, causing severe vehicular backups down the street. Please send someone to fix the sensor.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Workstation adjustment accessories requested for branch office not yet dispatched",
+    "description": "Our branch office requested dual monitor mounting brackets and ergonomic desk risers two weeks ago, but we have received no dispatch notifications. Our employees are experiencing discomfort while working. Please let us know when these items will be dispatched. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Mandatory backup generator test scheduled for coming weekend",
+    "description": "Facility staff will be running emergency power transfer checks on our backup generators this Saturday morning. Power will temporarily transfer to battery reserves while the main switch is tested. Please alert all team members who will be on-site. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Specialized clean area access authorization needed for contracted filtration staff",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. External air handling specialists need access clearance to enter our sealed manufacturing environment next Tuesday to swap out filtration media. We have attached their background checks and safety credentials. Please ensure their credentials are ready at the desk.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Prepaid return label not delivered following return authorization approval",
+    "description": "Our return request for a malfunctioning scanner was authorized by your representative three days ago, but the prepaid return label was never sent to our inbox. The defective tool is packed and waiting on our dock. Please email the return label.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "angry"
+  },
+  {
+    "subject": "Tamper evident protective seals broken on delivered transport containers",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. When the delivery truck arrived at our receiving bay, our staff discovered that the security seals on two large crates had been severed. Under our security protocols, we cannot open unsealed crates without an official investigation. Please contact the transport company.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Routine fire protection system pressure inspection scheduled next week",
+    "description": "Municipal safety inspectors will perform hydrostatic pressure checks on the fire suppression piping in hall B next Wednesday afternoon. No actual water discharge will take place. Please coordinate with the on-duty building staff.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Severe component delay announced by primary supplier of display panels",
+    "description": "Our main supplier of industrial display screens informed us that component shortages will delay production by six weeks. We need your supply operations group to find vetted secondary suppliers so we can fulfill orders. Please advise on options.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Uncredentialed maintenance crew arrived on site without security pre clearance",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. An electrical contractor team arrived at our facility without having their security badges pre-approved. Our company rules prohibit unbadged workers from walking the premises without a permanent escort. Please let us know if an escort can be provided today.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Punctured transport crate delivered with crushed diagnostic machinery inside",
+    "description": "A large wooden crate arrived with severe puncture holes from a forklift fork penetrating all teh way through teh machinery inside. Photographs of the ruined equipment have been taken. Please begin the process of sending an immediate replacement.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Emergency exit lighting battery check scheduled across distribution floor",
+    "description": "Safety inspectors will be testing emergency battery packs on all exit signs throughout our main warehouse floor on Thursday. Mobile scissor lifts will be operating in the storage aisles during the test. Please inform the floor supervisors. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Identification numbers not printed on newly delivered workstation hardware",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our team received forty new desktop computers, but none of the outer cases have our required identification numbers attached. We need your setup team to supply the serial records so we can label them before handing them out. Please send the list.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Air pressure drop detected in sealed assembly enclosure",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Environmental monitors inside our assembly enclosure reported that positive air pressure dropped below safe thresholds earlier today. One of the primary ventilation motors appears to have failed. Please send emergency maintenance right away. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Annual structural inspection of storage racks scheduled for next month",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Workplace safety rules require a certified structural review of our industrial storage racking once every twelve months. The certified engineer will be here on November 12th. Please make sure the storage aisles are clear for inspection.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Unmonitored area discovered near high security storage cage",
+    "description": "Our physical security review highlighted that our camera coverage misses a blind corner right outside the high-value storage room. We need an auxiliary camera mounted in that hallway to eliminate the vulnerability. Please schedule the installation.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Dock lift mechanism failed in lowered position blocking freight truck",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. The hydraulic lift plate on loading dock bay 3 failed while in the lowered position, trapping a delivery truck and blocking all adjacent bays. All loading operations are currently frozen. Please send an emergency technician to raise the plate.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Destruction certificates needed for decommissioned data storage drives",
+    "description": "Our security compliance officer requires certified destruction manifests confirming that forty-eight obsolete hard disk drives were physically shredded. Our regulatory auditors will not close their review without these certificates. Kindly do the needful and provide them.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Water moisture alert triggered beneath raised floor in utility room",
+    "description": "Sensors underneath teh raised flooring in utility room B detected liquid accumulation near teh chilled water piping. Our building team confirmed a slow drip from an uninsulated pipe. Please dispatch pipe specialists to seal the leak.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Consumable printing supplies completely depleted in fulfillment area",
+    "description": "Our fulfillment department has run out of teh thermal printing ribbon cartridges needed to generate shipping tags. Orders cannot leave our building without these tags attached. Pleas send an emergency replenishment of ribbon rolls immediately.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Courier driver failed to show up during scheduled collection window",
+    "description": "The transport driver did not arrive during our afternoon window to collect five urgent diagnostic replacement kits. These packages must reach our medical clients on the West Coast by tomorrow morning. Please escalate with the transport dispatch.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Facial recognition entrance terminal failing to enroll incoming staff",
+    "description": "Newly hired supervisors cannot complete their biometric security enrollment at the entrance gate because the camera reports a calibration error. Employees cannot access the building without this enrollment. Please send someone to recalibrate the terminal.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Lead time inquiry for backup electrical power modules",
+    "description": "We need to know how long it will take to receive replenishment power modules for our main server enclosures. Our local safety stock has dwindled to just three units. Please let us know the current manufacturer lead times.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Ventilation fan failure in battery charging area creating air safety hazard",
+    "description": "The exhaust fan that removes hydrogen fumes from our forklift battery area has stopped spinning during charging cycles. Safety regulations forbid battery charging without active airflow. Please repair the exhaust fan urgently.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "angry"
+  },
+  {
+    "subject": "Broken plastic wrapping and missing cartons on delivered consignment",
+    "description": "The delivery driver unloaded a pallet where the protective plastic wrapping was torn open and three boxes were missing compared to the manifest. We noted the missing items on the receipt. Please initiate a tracer for the missing boxes.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Earthquake bracing installation scheduled for computer racks in California",
+    "description": "To comply with updated earthquake safety rules, twenty-four computer cabinets in our Santa Clara center must have seismic brackets anchored into the concrete floor. Work begins on Monday. Please coordinate with the local team.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Perimeter boundary sensors triggering false intruder warnings in high winds",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Sensors along our southern boundary fence tripped four false intruder alarms over the weekend because of heavy wind gusts. Our security team wants the sensitivity adjusted so we do not waste emergency responses. Please schedule a technician.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Pressure drop recorded across facility liquid cooling system",
+    "description": "Our facility monitors observed a five pound pressure drop across our liquid cooling lines, pointing to a potential glycol leak near the pump manifold. Please send mechanical contractors to inspect the piping before cooling fails. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Logistical arrangement needed to recover equipment from closed regional office",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Our regional office in Cleveland will shut its doors at the end of the month. We need someone to arrange secure packing, transport, and inventory check-in for all computers and networking gear back to headquarters. Please organize logistics. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Trash compactor hydraulic ram leaking fluid onto concrete pavement",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. The heavy compactor in our loading yard is leaking hydraulic fluid from the main ram, creating an environmental spill hazard on the asphalt. The machine has been switched off. Please send someone to fix the cylinder.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Accounting confirmed invoice payment for hardware but pallet has not arrived at dock",
+    "description": "Our accounts payable department confirmed that full payment was wired for our hardware order two weeks ago. However, the physical equipment pallet has not arrived at our warehouse loading dock and courier tracking shows no movement. We need operations to locate and deliver the physical shipment.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Software API works fine but physical handheld units arrived with cracked screens",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our engineering team confirmed the cloud software API works as expected. However, the five physical handheld scanner units dispatched by your team arrived with shattered glass touchscreens due to improper packaging. Operations needs to ship replacement hardware immediately.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Executive finalized contract last week but local office has not received equipment kits",
+    "description": "Our sales account executive confirmed our contract expansion was finalized last week. However, our regional operations office has not received the physical onboarding hardware packages, technician laptops, or security tokens needed for our field staff. Operations needs to expedite physical dispatch.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Developers testing platform when building security staff revoked data center badges",
+    "description": "Our software developers were conducting live platform testing when on-site building security personnel confiscated their physical data center access badges due to an expired facility roster. The software is fine; we need operations to clear our technicians on the facility access list.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Support ticket filed for software but server room HVAC failure requires on site dispatch",
+    "description": "We initially filed a support ticket regarding slow response times, but on-site inspection revealed that the auxiliary cooling unit in server room 2 has completely seized up and room temperature is 92 degrees. Facilities operations needs to dispatch an HVAC technician immediately. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Disputed billing fee credited but damaged scanner RMA replacement not yet shipped",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Billing successfully credited our account for the duplicate charge on our monthly invoice. However, our damaged barcode scanner RMA return from three weeks ago is still marked as pending in your warehouse system. Operations needs to ship our replacement scanner unit today. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Representative agreed to expedited hardware delivery but courier tracking shows origin delay",
+    "description": "Our sales director promised in our agreement that twenty mobile dispatch terminals would be delivered via priority overnight freight. The courier tracking number shows the shipment has been sitting at your origin warehouse dock for three days. Operations must dispatch these units.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "polite"
+  },
+  {
+    "subject": "GDPR deletion request processed by legal but decommissioned server hard drives need physical shredding",
+    "description": "Our legal counsel confirmed that digital customer records were removed under GDPR Article 17. However, our corporate compliance policy also requires physical shredding certificates for the decommissioned backup storage drives at your data facility. Operations must provide destruction certificates. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Application single sign on works but physical card reader at server entrance broken",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our IT team verified that Okta single sign-on functions properly for all digital dashboards. However, the physical RFID badge reader on the server room exterior door is completely dead, locking our technicians out of the physical cages. Facilities operations must repair the hardware reader.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Accounting wired deposit for server expansion but physical server racks not delivered",
+    "description": "Our finance team verified that the hardware deposit was received by your billing department. However, our warehouse facility in Dallas has not received the physical server racks or power distribution units scheduled for installation. Operations needs to furnish an updated delivery schedule.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "terse"
+  },
+  {
+    "subject": "Commercial meeting scheduled for tomorrow but physical conference room AV display hardware failed",
+    "description": "Our executive team has an important commercial client meeting scheduled tomorrow, but teh wall-mounted video conferencing display hardware in boardroom A suffered a power supply failure. Facilities operations must repair or replace teh conference display hardware before morning.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "typo"
+  },
+  {
+    "subject": "Legal compliance team served trademark notice but warehouse shipping cartons display obsolete logo",
+    "description": "Legal counsel updated our corporate branding guidelines last month. However, our logistics staff noticed that newly delivered shipping cartons from your warehouse still feature our obsolete corporate trademark. Warehouse operations must update the packaging stock.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Software database restored from backup but secondary electrical generator throwing warning light",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Engineering successfully resolved the database crash and restored all records. However, during the power fluctuation, the secondary diesel backup generator in the facility yard threw an amber engine warning light and failed its self-test. Facilities operations must service the generator.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Primary contact updated on master account but freight delivery paperwork lists old address",
+    "description": "Accounts payable confirmed that our corporate billing address was updated in your financial portal. However, physical freight shipments are still arriving with waybills addressed to our retired Chicago facility. Logistics operations must update the physical delivery destination. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Commercial contract signed for 50 field units but logistics dispatched only 20 scanners",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. We executed a commercial agreement with sales for fifty mobile scanner units. Our receiving dock only received a single pallet containing twenty units, with the packing slip marked as backordered. Operations needs to inform us when the remaining thirty units will be dispatched. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Candidate interview scheduled by recruiting but visitor parking gate arm broken",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our talent acquisition team has executive candidates visiting our campus today, but the automated visitor vehicle parking gate arm snapped and is blocking the entrance driveway. Facilities operations must send maintenance staff to clear the broken gate immediately.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Engineering team resolved API error but network switch fan failure causing hardware overheating",
+    "description": "Software engineering fixed the REST API bug, but hardware monitoring in the server closet shows that primary network switch SW-02 has suffered a dual fan failure and internal temperature is 85 degrees Celsius. Hardware operations must dispatch a replacement switch chassis.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Credit memo issued for delayed freight but replacement parcel still missing tracking",
+    "description": "Billing issued a credit memo compensating us for the delayed freight charges on our order. However, the replacement shipment that was supposed to be dispatched under priority courier has not generated a tracking number. Logistics operations must provide tracking today. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Commercial expansion finalized with sales but office workstation monitors not delivered",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Sales finalized our contract expansion for twenty new customer agents starting Monday. However, the physical dual-monitor setups and ergonomic workstation accessories ordered through facilities have not arrived at our office. Operations must ensure hardware arrives before Monday.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Press interview arranged by marketing but building security denied reporter access",
+    "description": "Marketing scheduled an on-site interview with a technology journalist this morning, but security operations refused the reporter building entry because their name was omitted from the daily visitor manifest. Operations must update front desk visitor protocol.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Web application restored after outage but data center server rack cooling unit leaking",
+    "description": "The cloud application is back online following the software update, but on-site inspection of our private rack cluster reveals water dripping from the overhead cooling unit onto the top of cabinet 4. Facilities operations must dispatch cooling specialists immediately.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Web",
+    "voice": "terse"
+  },
+  {
+    "subject": "Accounts payable verified wire cleared but freight carrier refusing to release cargo",
+    "description": "Finance provided bank proof that the international customs duties and freight fees were paid in full. However, the ocean freight carrier at the port is holding our cargo claiming a paperwork hold from your logistics team. Operations must issue the cargo release waiver.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "angry"
+  },
+  {
+    "subject": "Account rep promised complimentary spare parts kit not included in hardware crate",
+    "description": "Our sales executive promised in writing that a complimentary spare scanner battery and charging dock kit would accompany our hardware order. When our receiving team unpacked the wooden shipping crate, no spare accessories were found. Operations needs to dispatch the missing parts.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Employee submitted workplace feedback regarding cafeteria but restroom plumbing leaking",
+    "description": "While reviewing staff feedback regarding office facilities, our facilities manager discovered that the fourth-floor executive restroom has an active pipe leak causing water pooling near the electrical closet. Facilities operations must dispatch an emergency plumber right away.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "train",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Logistical timeline and protocol for quarterly equipment rotation cycle",
+    "description": "Our enterprise operational policy requires a staggered physical rotation of all mobile scanning and diagnostic hardware once every ninety days. We need to establish the operational dispatch schedule, return logistics procedures, and staging lead times with your team. Kindly do the needful and provide rotation protocols.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Physical chain of custody documentation for offboarded storage media",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Our information security governance guidelines mandate an unbroken, tamper-evident physical chain of custody for all decommissioned storage devices transitioning from active rack enclosures to shredding facilities. We need documentation detailing the transfer procedures used by your staff. Please provide this policy.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Verification of facility operating procedures against physical security guidelines",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our corporate physical risk management team is auditing all external co-location and hosting sites against revised perimeter security standards. We need your facilities management to verify compliance regarding visitor escort ratios, biometric access redundancy, and exterior barrier controls. Please furnish the audit packet.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Contingency procedure for freight consignments failing customs clearance",
+    "description": "Recent regulatory adjustments in international shipping have increased customs inspection delays at international borders. We need to document the formal contingency procedures and emergency regional buffer allocations utilized by your freight logistics operations when shipments are detained. Kindly do the needful and provide guidance.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Operational notification lead time for unscheduled on site facility inspections",
+    "description": "Our corporate safety and compliance committee conducts periodic unannounced operational health and safety inspections across all regional logistical facilities. We need to clarify the designated on-site point of contact and minimum check-in protocols for our inspection team. Please provide facility protocols.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "angry"
+  },
+  {
+    "subject": "Protocols for custodial transfer of sensitive diagnostic hardware assets",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. When our field engineers transfer specialized optical calibration units between regional operating divisions, strict asset custody handoff protocols must be enforced. We need to review your logistics tracking mechanism to ensure handoffs are logged in real-time. Please send the transfer guidelines. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Environmental standards compliance for auxiliary electrical generator testing",
+    "description": "Local municipal environmental regulations require compliance with strict diesel particulate emissions thresholds during mandatory generator load testing. We need facility operations to provide recent emissions certification reports and maintenance logs for our environmental file. Please send the documentation.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "polite"
+  },
+  {
+    "subject": "Physical security credential revocation protocols following contract termination",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Following the conclusion of an external vendor engagement, our security operations team requires verified confirmation of physical badge deactivation and biometric credential purging across all regional facility access points. Please provide the standard operating procedure for credential revocation.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Warehouse floor weight distribution limits for high density battery storage",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Our facilities engineering group is planning to install an uninterruptible lithium-iron-phosphate battery bank on the mezzanine floor of distribution building 2. We require verified architectural floor load capacity calculations to ensure structural safety. Please provide engineering specs.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Procedure for handling damaged hazardous shipments arriving at receiving dock",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Our environmental safety committee needs to review the standard operating procedure implemented by warehouse receiving personnel when parcels containing lithium batteries arrive with visible chemical leakage or structural crushing. Please provide the hazardous incident containment workflow.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Coordination of scheduled power interruptions with regional utility provider",
+    "description": "The regional power utility has notified our facilities office of an upcoming high-voltage substation maintenance window that will require transfer to islanded generator power. We need to coordinate the operational transition timeline with your facilities engineering team. Please schedule a coordination call.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Asset tagging reconciliation for field dispatched hardware modules",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. During our mid-year equipment audit, several discrepancy flags were raised regarding asset tag numbering between field-dispatched diagnostic modules and our master equipment database. We need your hardware logistics group to assist in reconciling the serial number mappings. Please provide the dispatch records.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Cleanliness standards certification for optical sensor assembly area",
+    "description": "Our quality assurance group requires certified cleanroom air particulate measurement logs for the assembly bay where our optical sensor units are calibrated. We must verify that ISO Class 7 particulate standards were maintained during the last manufacturing run. Please provide the air quality logs.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "angry"
+  },
+  {
+    "subject": "Emergency response protocol for facility fire suppression system accidental discharge",
+    "description": "Our risk management team is updating our disaster recovery guidelines and needs documentation of the clean-agent gas fire suppression system protocol in server hall 3, including personnel evacuation procedures and HVAC dampener controls. Please provide the emergency system documentation.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Logistics procedure for secure reverse transport of obsolete computing hardware",
+    "description": "We are preparing to decommission eighty desktop workstations across three regional sales offices. We need your operational logistics team to arrange tamper-evident palletization, bonded freight transit, and secure intake at your central refurbishment warehous. Pleas outline the reverse logistics workflow.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Medium",
+    "split": "train",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Physical access audit verification for shared multi tenant telecom closets",
+    "description": "Our corporate compliance auditors require physical access logs showing all entries into shared telecommunications closet TR-04 during teh past six months. We need facilities security to compile teh electronic keycard access history for that specific doorway. Please furnish the access report.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "train",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Palletized consignment tracking missing from freight portal after customs handoff",
+    "description": "Our international pallet consignment HWD-8812 was cleared by customs at teh Port of Newark yesterday, but teh domestic freight carrier has not updated tracking for twenty-four hours. Our warehouse cannot plan dock staffing without an arrival estimate. Please escalate with carrier dispatch.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "test",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Cleanroom physical access authorization request for contracted HVAC technicians",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Contracted cleanroom HVAC filtration specialists require authorized security badge credentials to replace ULPA filters in clean bay 2 next Tuesday. Attached are background security clearances and contamination control training certificates. Please issue physical visitor badges.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Planned electrical substation switchover notification affecting secondary data center",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Municipal electric utility engineers will perform an electrical substation switchover on Sunday November 24th affecting feed B at our secondary data center. On-site diesel generators will carry critical electrical load during the two-hour operation. Please alert facilities duty personnel. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Email",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "RMA replacement dispatch tracking number shows invalid status with courier",
+    "description": "Your support team confirmed an RMA replacement for our defective optical scanner unit was dispatched under courier tracking TRK-99214. The courier website indicates the tracking number is invalid or has not been tendered to the carrier. Please provide verified shipping details.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Email",
+    "voice": "angry"
+  },
+  {
+    "subject": "Corporate mailroom parcel intake protocol violation report regarding uninspected cargo",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. A delivery driver offloaded five uninspected equipment crates directly onto an employee walkway instead of the secure mailroom intake dock, violating corporate security protocol. The delivery was accepted without physical inspection. Please review delivery procedures with your carrier. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Server rack cooling distribution unit leak detected during routine inspection",
+    "description": "During morning facilities rounds in server hall B, an engineer discovered coolant pooling beneath rack cabinet 12 originating from a quick-disconnect coupling on the cooling distribution unit. Please dispatch emergency liquid cooling maintenance contractors immediately.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "test",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Emergency evacuation drill schedule notification for regional distribution center",
+    "description": "Facility safety management will conduct an unannounced annual emergency evacuation drill at our main distribution center during the morning shift next Wednesday. All operations will pause for twenty minutes while personnel muster in exterior zones. Please inform shift managers.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Asset barcode scanner firmware flash cradle missing from delivered shipment",
+    "description": "Our IT deployment team unpacked the consignment of thirty mobile barcode scanners delivered yesterday, but the master multi-slot USB firmware flashing cradle part CRD-440 was omitted from the shipment. We cannot configure the scanners without the cradle. Please expedite dispatch.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Email",
+    "voice": "polite"
+  },
+  {
+    "subject": "Warehouse pallet racking upright column damage caused by forklift collision",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. A forklift struck and severely dented the structural upright steel column on storage rack row G, compromising rack load-bearing safety. The aisle has been quarantined and yellow-taped to prevent collapse. Please dispatch structural rack repair contractors urgently. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "test",
+    "origin": "Web",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "High temperature alert in battery room following cooling condenser fan failure",
+    "description": "Environmental telemetry in teh uninterruptible power supply battery room recorded an ambient temperature rise to 94 degrees Fahrenheit following a condenser fan motor failure on air handler AC-2. High temperatures degrade battery life. Pleas service the air handler today.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "typo"
+  },
+  {
+    "subject": "Freight bill of lading consignee address incorrect on international consignment",
+    "description": "Our customs broker reported that the Bill of Lading for international container shipment CTR-441 lists an obsolete consignee address in Baltimore instead of our new distribution center in Savannah. Customs clearance is suspended until the manifest is amended. Please issue a corrected manifest.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "test",
+    "origin": "Web",
+    "voice": "terse"
+  },
+  {
+    "subject": "Physical security keycard access reader offline at main distribution gate",
+    "description": "The electronic RFID keycard access reader at the commercial truck gate has suffered a power failure and will not actuate the motorized barrier. Delivery trucks are backing up onto the county highway. Please dispatch an emergency gate technician immediately.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "test",
+    "origin": "Email",
+    "voice": "angry"
+  },
+  {
+    "subject": "Supply chain parts shortage notification regarding industrial power supplies",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. We were notified by our component supplier that industrial 24-volt DIN rail power supplies part PWR-881 are facing an eight-week component shortage. We need operations to identify alternate vetted suppliers to prevent manufacturing line shutdowns. Please advise.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Hazardous material waste manifest required for disposed transformer oil",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Our environmental safety compliance officer requires the signed hazardous waste manifest and certified disposal documentation for 200 gallons of dielectric transformer oil removed from substation 2. Please provide the certified manifest from your licensed recycling vendor. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Web",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Damaged exterior cartons on palletized delivery containing sensitive optics",
+    "description": "A freight delivry of four pallets containing laser alignment sensors arrived with crushed exterior cartons and broken tilt-indicator sensors. Teh shipment was accepted with formal damage exceptions noted on the carrier bill of lading. Please initiate an insurance inspection.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "High",
+    "split": "test",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Warehouse overhead high bay LED lighting fixture ballast failure",
+    "description": "Three overhead LED high-bay light fixtures in picking aisle 4 have suffered electrical driver failures, leaving a sixty-foot section of the aisle in darkness. Warehouse picking operations cannot proceed safely. Please dispatch facilities electricians to replace the fixtures.",
+    "department": "Operations",
+    "difficulty": "easy",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "terse"
+  },
+  {
+    "subject": "Boxes dispatched from central warehouse have still not reached dock",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. The shipment containing replacement equipment that was dispatched from your primary facility on Wednesday has not arrived at our receiving bay. Our field staff is currently unable to perform daily client tasks without these tools. Please trace the shipment and provide an updated arrival time. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Email",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "External contractor is waiting outside gate because security has no record",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. A contracted technician arrived at our facility entrance this morning to perform scheduled equipment checks, but the security guard has no record of their clearance on the visitor roster. The technician is waiting outside the gate. Please provide access authorization immediately.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "test",
+    "origin": "Web",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Scheduled work on infrastructure clashes directly with customer launch event",
+    "description": "The upcoming operational shutdown that your team announced for this Saturday afternoon overlaps directly with our major public customer product launch. Taking down the systems during this window would cause severe reputational damage. We request rescheduling this shutdown to next weekend.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "test",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "Parcel delivered by freight carrier had crushed exterior cartons and water damage",
+    "description": "The delivery delivered to our loading bay arrived with heavily crushed cartons and noticeable water staining on the cardboard packaging. We are concerned that the internal sensor equipment may be physically damaged. Please send someone to inspect the contents before we accept.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "polite"
+  },
+  {
+    "subject": "Staff setup ticket sitting without action for five business days",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Our request for equipment setup for an incoming team member was submitted over five business days ago, but no progress has been made. The new employee arrives on Monday and will have no physical tools to do their job unless action is taken. Please expedite this setup.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Temperature warning sounded in equipment area after air conditioning stopped",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Ambient temperatures inside our primary equipment enclosure jumped twenty degrees yesterday afternoon after the cooling equipment stopped running. The emergency exhaust fans eventually engaged, but we need an incident report explaining why the primary unit failed. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Annual security standards evaluation document must be completed by Friday",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. Our corporate compliance group requires all key external operational partners to complete our annual physical site security assessment. The document covers access controls, video surveillance, and emergency protocols. Please complete and return the form by Friday. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Email",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Need certified environmental recycling documents for retired battery modules",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. We recently decommissioned thirty heavy battery modules from our backup power bank and need official proof of certified hazardous recycling. Our regulatory inspectors will fine our organization if we cannot produce these disposal certificates. Please provide this documentation. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Manual inventory count revealed eight missing tools compared to system records",
+    "description": "Our quarterly manual count revealed that eight scanning tools are unaccounted for when compared against our central records. We need your logistics team to review recent transfer manifests to determine where these missing units went. Please provide the transfer logs.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "angry"
+  },
+  {
+    "subject": "Signed shipping paperwork missing for maritime container arriving at port",
+    "description": "Our customs broker at the seaport cannot release our freight container because the shipping documents transmitted electronically lacked mandatory endorsements. The container is currently racking up daily storage penalties at the dock. Please transmit properly signed paperwork. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "test",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Electronic gate sensor malfunctioning and refusing valid employee credentials",
+    "description": "Facilities incident log: Operator logged physical asset condition on dock. The electronic sensor on our exterior security gate is failing to recognize authorized employee credentials this morning. Guards are having to manually verify everyone by hand, causing severe vehicular backups down the street. Please send someone to fix the sensor. Notified on-site security and maintenance crew.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "High",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "agent_note"
+  },
+  {
+    "subject": "Specialized standing desk converters requested for regional office still not delivered",
+    "description": "Our regional branch in Phoenix requested adjustable standing desk converters and anti-fatigue floor mats for fifteen workstations three weeks ago. Our local employees are working in uncomfortable postures. Please provide dispatch tracking.",
+    "department": "Operations",
+    "difficulty": "paraphrase",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Accounts payable approved payment for diagnostic terminals but shipment never arrived",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Our accounts payable department approved and wired payment in full for our diagnostic terminals two weeks ago. However, our warehouse supervisor reports the shipment never arrived at our receiving dock and courier tracking shows no movement. Operations needs to locate and deliver the physical shipment.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "test",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Engineering team loves cloud software but physical sensor hubs arrived damaged",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our engineering staff confirmed the cloud software platform works flawlessly during testing. However, the five physical sensor hubs sent to our regional plant arrived with broken mounting brackets and cracked housings from poor packaging. Operations must dispatch replacement hardware.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Commercial rep promised expedited delivery of thirty handhelds but courier tracking stalled",
+    "description": "Our sales director guaranteed priority courier delivery of thirty inventory handhelds by Tuesday morning. The courier tracking shows the parcel has been sitting in your warehouse dispatch staging area for three business days without moving. Operations must expedite this shipment.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "test",
+    "origin": "Email",
+    "voice": "terse"
+  },
+  {
+    "subject": "GDPR deletion request submitted to legal but on site hard drive shredding certification needed",
+    "description": "Our privacy team confirmed digital records were removed under GDPR Article 17. However, our internal security policy also mandates on-site hard drive shredding certification for the decommissioned storage drives at your data facility. Operations must provide the certified destruction manifests. Kindly do the needful as soon as possible.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Phone",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Digital portal functions normally but electronic card reader at data facility offline",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Our team verified that all cloud dashboard features function normally. However, the physical biometric badge reader on the exterior data hall door is completely offline, locking our technicians out of the physical cages. Facilities operations must repair the door controller hardware.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "High",
+    "split": "test",
+    "origin": "Email",
+    "voice": "rambling"
+  },
+  {
+    "subject": "Accounting wired security deposit but loading dock barrier arm remains broken",
+    "description": "Finance confirmed that the security deposit was received by your billing department. However, the motorized security gate barrier at our commercial truck intake bay remains broken and locked open. Facilities operations must send a technician to repair the gate.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Web",
+    "voice": "polite"
+  },
+  {
+    "subject": "Commercial presentation scheduled for tomorrow but cleanroom air handling unit failing",
+    "description": "Our executive leadership has an important corporate client visiting our production facility tomorrow, but air handler AHU-2 in the clean assembly room has begun vibrating heavily and throwing fault codes. Facilities operations must repair the motor today.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Public relations visit scheduled by communications but building security denied access",
+    "description": "Communications scheduled an on-site facilty tour with a technology journalist this morning, but security operations refused teh reporter building entry because their name was omitted from the daily visitor manifest. Operations must update front desk visitor protocol.",
+    "department": "Operations",
+    "difficulty": "multi_topic",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Email",
+    "voice": "typo"
+  },
+  {
+    "subject": "Confirmation of dispatch window for scheduled end of quarter hardware refresh",
+    "description": "FYI see forwarded thread below from our logistics warehouse manager. Our operations team needs confirmation of the exact dispatch window and carrier handover timeline for our scheduled end-of-quarter hardware refresh across twelve regional hubs. We must schedule warehouse receiving crews and loading dock availability. Please provide the confirmed logistics schedule.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Email",
+    "voice": "forwarded"
+  },
+  {
+    "subject": "Environmental standards compliance documentation for backup diesel fuel storage tanks",
+    "description": "Local municipal environmental safety regulations mandate annual certification of our underground diesel fuel storage tanks and spill containment berms. We need facility operations to provide the certified inspection records for our municipal filing.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Web",
+    "voice": "typo"
+  },
+  {
+    "subject": "Structural engineering floor load capacity calculations for battery mezzanine expansion",
+    "description": "Our facilities engineering group is planning to install an auxiliary lithium battery bank on the mezzanine floor of distribution building 2. We require verified architectural floor load capacity calculations to ensure structural safety.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Low",
+    "split": "test",
+    "origin": "Web",
+    "voice": "non_native"
+  },
+  {
+    "subject": "Clarification of handover protocol between transport contractor and receiving staff",
+    "description": "Our facilities crew was performing our morning site inspection and reviewing equipment logs across the warehouse yesterday. Recent delivery discrepancies have created confusion regarding the exact point at which physical custody and transit liability transfer from your contracted freight carrier to our warehouse receiving personnel. We need to review the written receiving handover procedures. Please furnish the protocol document.",
+    "department": "Operations",
+    "difficulty": "ambiguous",
+    "priority": "Medium",
+    "split": "test",
+    "origin": "Email",
+    "voice": "rambling"
+  }
+]

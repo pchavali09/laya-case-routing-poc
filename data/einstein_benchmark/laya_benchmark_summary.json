@@ -1,0 +1,110 @@
+{
+  "model": "Laya Classifier (Temperature-Calibrated)",
+  "seed": 2026,
+  "train_samples": 800,
+  "test_samples": 200,
+  "overall_rules_acc": 0.22,
+  "overall_laya_acc": 0.925,
+  "difficulty_breakdown": {
+    "easy": {
+      "count": 80,
+      "rules_correct": 19,
+      "rules_acc": 0.2375,
+      "laya_correct": 77,
+      "laya_acc": 0.9625
+    },
+    "paraphrase": {
+      "count": 60,
+      "rules_correct": 12,
+      "rules_acc": 0.2,
+      "laya_correct": 55,
+      "laya_acc": 0.9166666666666666
+    },
+    "multi_topic": {
+      "count": 40,
+      "rules_correct": 9,
+      "rules_acc": 0.225,
+      "laya_correct": 36,
+      "laya_acc": 0.9
+    },
+    "ambiguous": {
+      "count": 20,
+      "rules_correct": 4,
+      "rules_acc": 0.2,
+      "laya_correct": 17,
+      "laya_acc": 0.85
+    }
+  },
+  "confidence_gate_table": [
+    {
+      "tau": 0.5,
+      "auto_routed_pct": 98.0,
+      "auto_routed_acc": 93.9,
+      "human_routed_count": 4,
+      "auto_routed_count": 196
+    },
+    {
+      "tau": 0.55,
+      "auto_routed_pct": 97.0,
+      "auto_routed_acc": 94.8,
+      "human_routed_count": 6,
+      "auto_routed_count": 194
+    },
+    {
+      "tau": 0.6,
+      "auto_routed_pct": 96.0,
+      "auto_routed_acc": 95.3,
+      "human_routed_count": 8,
+      "auto_routed_count": 192
+    },
+    {
+      "tau": 0.65,
+      "auto_routed_pct": 95.5,
+      "auto_routed_acc": 95.8,
+      "human_routed_count": 9,
+      "auto_routed_count": 191
+    },
+    {
+      "tau": 0.7,
+      "auto_routed_pct": 94.5,
+      "auto_routed_acc": 95.8,
+      "human_routed_count": 11,
+      "auto_routed_count": 189
+    },
+    {
+      "tau": 0.75,
+      "auto_routed_pct": 93.5,
+      "auto_routed_acc": 96.8,
+      "human_routed_count": 13,
+      "auto_routed_count": 187
+    },
+    {
+      "tau": 0.8,
+      "auto_routed_pct": 91.0,
+      "auto_routed_acc": 98.4,
+      "human_routed_count": 18,
+      "auto_routed_count": 182
+    },
+    {
+      "tau": 0.85,
+      "auto_routed_pct": 87.5,
+      "auto_routed_acc": 98.3,
+      "human_routed_count": 25,
+      "auto_routed_count": 175
+    },
+    {
+      "tau": 0.9,
+      "auto_routed_pct": 84.0,
+      "auto_routed_acc": 98.2,
+      "human_routed_count": 32,
+      "auto_routed_count": 168
+    },
+    {
+      "tau": 0.95,
+      "auto_routed_pct": 80.5,
+      "auto_routed_acc": 98.1,
+      "human_routed_count": 39,
+      "auto_routed_count": 161
+    }
+  ]
+}
