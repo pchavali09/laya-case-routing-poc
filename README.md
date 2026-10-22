@@ -3,7 +3,19 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://www.python.org/)
 
-> Empirical, measured benchmark evaluating the real **Laya model** (`convaiinnovations/laya` via pip `laya`), classical **TF-IDF + MLP baseline**, and **Heuristic Rules** against production **Salesforce Einstein Case Classification** on a 1,000-case enterprise CRM dataset.
+> Empirical, measured benchmark evaluating the real **Laya foundation model** (`convaiinnovations/laya` via pip `laya`), classical **TF-IDF + MLP baseline**, and **Heuristic Rules** against production **Salesforce Einstein Case Classification** on a 1,000-case enterprise CRM dataset.
+
+---
+
+## Limitations & Experimental Scope
+
+> [!WARNING]
+> **Read Before Interpreting Results:**
+> 1. **Synthetic Templated Dataset**: The 1,000 cases were generated from hand-authored department templates. Because training (`train_closed.csv`, 800 cases) and test (`test_blind.csv`, 200 cases) share underlying sentence templates and vocabulary, surface n-gram methods (TF-IDF) achieve artificial 98.5% accuracy.
+> 2. **Head-Only Fine-Tuning**: Due to Apple Silicon M2 MPS memory constraints (8GB unified memory), Laya's 421M-parameter encoder was kept frozen (`freeze_encoder=True`). Only the linear routing head and temperature scaling were trained. Full backpropagation through the transformer encoder was not performed locally.
+> 3. **Unmeasured Einstein Latency**: Salesforce Einstein Case Classification ran asynchronously via batch Case creation inside the Salesforce Sandbox org. Per-case inference latency was not measured; any previous estimates of ~450–800 ms were unmeasured network roundtrip estimates and have been purged.
+> 4. **Test Set Scale & Confidence Intervals**: The evaluation set consists of 200 blind cases. All accuracy metrics include Wilson 95% score confidence intervals to reflect statistical uncertainty given this sample size.
+> 5. **Scope of Conclusions**: Findings in this repository apply strictly to **zero-shot and head-only fine-tuned Laya on a templated synthetic dataset**, and should not be generalized to full-model fine-tunes or wild customer support distributions.
 
 ---
 
@@ -24,16 +36,16 @@ The goal of this benchmark is to measure whether the real Laya foundation model 
 
 All numbers below were produced by code in this repository or exported directly from the Salesforce Sandbox.
 
-### 1. Overall Model Comparison
+### 1. Overall Model Comparison (with Wilson 95% Confidence Intervals)
 
-| System / Model | Model Artifact / Architecture | Overall Top-1 Accuracy (All 200 Cases) | Accuracy @ 173 Cases (Matching Einstein Coverage) | Measured Latency (Mean) | Execution Context |
-|---|---|:---:|:---:|:---:|---|
-| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | **99.42%** (172/173 routed) | Unmeasured (batch in SF) | Cloud SaaS API (27 unrouted) |
-| **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | **100.00%** (173/173 routed) | **0.04 ms** | Local CPU |
-| **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | 63.01% (109/173 routed) | 58.1 ms | Local Apple M2 (MPS) |
-| **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | 48.55% (84/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
-| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (RLCD head, ECE=0.1095) | 46.50% (93/200) | 49.71% (86/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
-| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | 20.81% (36/173 routed) | **0.073 ms** | Local CPU (written for initial POC schema) |
+| System / Model | Model Artifact / Architecture | Overall Top-1 Accuracy (200 Cases) | Overall 95% CI | Accuracy @ 173 Cases (Matching Einstein) | Routed 95% CI | Measured Latency (Mean) | Execution Context |
+|---|---|:---:|:---:|:---:|:---:|:---:|---|
+| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | [80.5%, 90.1%] | **99.42%** (172/173 routed) | [96.8%, 99.9%] | Unmeasured (batch in SF) | Cloud SaaS API (27 unrouted) |
+| **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | [95.7%, 99.5%] | **100.00%** (173/173 routed) | [97.8%, 100.0%] | **0.04 ms** | Local CPU (synthetic n-gram overlap) |
+| **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | [49.1%, 62.7%] | 63.01% (109/173 routed) | [55.6%, 69.8%] | 58.1 ms | Local Apple M2 (MPS) |
+| **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | [39.7%, 53.4%] | 48.55% (84/173 routed) | [41.2%, 56.0%] | 58.0 ms | Local Apple M2 (MPS) |
+| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (Head-only RLCD, ECE=0.1095) | 46.50% (93/200) | [39.7%, 53.4%] | 49.71% (86/173 routed) | [42.3%, 57.1%] | 58.0 ms | Local Apple M2 MPS (frozen encoder) |
+| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | [16.8%, 28.2%] | 20.81% (36/173 routed) | [15.4%, 27.5%] | **0.073 ms** | Local CPU (legacy POC rules) |
 
 > **Like-for-Like Note:** Salesforce Einstein routed 173 cases and abstained on 27 (leaving them unrouted for human agent triage). Einstein's 27 unrouted cases are **not** counted as incorrect in the coverage-matched comparison; they represent deliberate abstentions.
 
@@ -44,10 +56,10 @@ All numbers below were produced by code in this repository or exported directly 
 By varying the confidence threshold ($\tau$), each model can trade off automation volume against accuracy:
 
 ### Simple Local Baseline (TF-IDF + MLP)
-* **200 cases routed (100.0% coverage)**: 197 / 200 correct (**98.50%** accuracy, 0 unrouted)
-* **190 cases routed (95.0% coverage)**: 189 / 190 correct (**99.47%** accuracy, 10 unrouted)
-* **173 cases routed (86.5% coverage)**: 173 / 173 correct (**100.00%** accuracy, 27 unrouted)
-* **150 cases routed (75.0% coverage)**: 150 / 150 correct (**100.00%** accuracy, 50 unrouted)
+* **200 cases routed (100.0% coverage)**: 197 / 200 correct (**98.50%** accuracy, cutoff 0.2123, 0 unrouted)
+* **190 cases routed (95.0% coverage)**: 189 / 190 correct (**99.47%** accuracy, cutoff 0.2386, 10 unrouted)
+* **173 cases routed (86.5% coverage)**: 173 / 173 correct (**100.00%** accuracy, cutoff 0.2520, 27 unrouted)
+* **150 cases routed (75.0% coverage)**: 150 / 150 correct (**100.00%** accuracy, cutoff 0.2658, 50 unrouted)
 
 ### Real Laya Zero-Shot (Descriptive Criteria)
 * **200 cases routed (100.0% coverage)**: 112 / 200 correct (**56.00%** accuracy, 0 unrouted)
@@ -61,15 +73,23 @@ By varying the confidence threshold ($\tau$), each model can trade off automatio
 * **190 cases routed (95.0% coverage)**: 91 / 190 correct (**47.89%** accuracy, 10 unrouted)
 * **173 cases routed (86.5% coverage)**: 84 / 173 correct (**48.55%** accuracy, 27 unrouted)
 * **150 cases routed (75.0% coverage)**: 73 / 150 correct (**48.67%** accuracy, 50 unrouted)
-* **100 cases routed (50.0% coverage)**: 55 / 100 correct (**55.00%** accuracy, 100 unrouted)
+
+### Real Laya Fine-Tuned (Head-Only + Calibration, RLCD)
+* **200 cases routed (100.0% coverage)**: 93 / 200 correct (**46.50%** accuracy, cutoff 0.2199, 0 unrouted)
+* **190 cases routed (95.0% coverage)**: 91 / 190 correct (**47.89%** accuracy, cutoff 0.2445, 10 unrouted)
+* **173 cases routed (86.5% coverage)**: 86 / 173 correct (**49.71%** accuracy, cutoff 0.2600, 27 unrouted)
+* **150 cases routed (75.0% coverage)**: 75 / 150 correct (**50.00%** accuracy, cutoff 0.3061, 50 unrouted)
+* **100 cases routed (50.0% coverage)**: 55 / 100 correct (**55.00%** accuracy, cutoff 0.3951, 100 unrouted)
 
 ---
 
 ## Architectural Findings: Did Real Laya Win?
 
+> **Scoped Conclusion:** Evaluated strictly as **zero-shot and head-only fine-tuned Laya on a templated synthetic dataset**:
+
 1. **Comparison vs. Einstein**: Real Laya **lost** to Salesforce Einstein. Einstein achieved 99.42% accuracy among routed cases (172/173), whereas Laya achieved 48.5% to 63.0% at the same 173-case coverage level.
-2. **Comparison vs. Simple Local Baseline**: Real Laya **lost** to the TF-IDF + MLP baseline. The lightweight TF-IDF model achieved 98.50% overall top-1 accuracy and 100.0% accuracy at 173-case coverage in 0.04ms latency, training in under 1 second.
-3. **Fine-Tuning Behavior**: Fine-tuning Laya's classification head on 800 closed cases improved probability calibration (ECE dropped from 0.1533 to 0.1095 and multi-class Brier score dropped from 0.7050 to 0.6899), but top-1 accuracy remained at 46.50% because the transformer encoder representations were frozen.
+2. **Comparison vs. Simple Local Baseline**: Real Laya **lost** to the TF-IDF + MLP baseline. The lightweight TF-IDF model achieved 98.50% overall top-1 accuracy and 100.0% accuracy at 173-case coverage in 0.04ms latency, directly leveraging the synthetic n-gram overlap between train and test templates.
+3. **Fine-Tuning Behavior**: Fine-tuning Laya's classification head with frozen encoder weights improved probability calibration (ECE dropped from 0.1533 to 0.1095 and multi-class Brier score dropped from 0.7050 to 0.6899), but top-1 accuracy remained at 46.50%. Full encoder fine-tuning requires discrete GPU acceleration and was not tested in this run.
 
 ---
 
@@ -91,13 +111,15 @@ laya-case-routing-poc/
 │   ├── laya_baseline.py              # Real Laya zero-shot evaluation
 │   ├── laya_finetune.py              # Real Laya fine-tuning pipeline (laya.train)
 │   ├── laya_inference.py             # Real Laya inference engine & confidence gating
+│   ├── comparison.py                 # Measured benchmark comparison table generator
+│   ├── plot_results.py               # Measured benchmark visualization generator
 │   └── einstein_benchmark/
 │       └── run_full_benchmark.py     # Master benchmark execution script
 ├── salesforce/
-│   ├── fastapi_bridge.py             # Local webhook bridge for Salesforce
+│   ├── fastapi_bridge.py             # Local webhook bridge for Salesforce (~58ms MPS)
 │   ├── CaseLayaRoutingInvocable.cls  # Apex Invocable Action
 │   └── README.md                     # Salesforce bridge documentation
-├── results/                          # Benchmark output tables & summaries
+├── results/                          # Measured benchmark CSVs, curves & plots
 ├── ARCHITECTURE.md                   # System architecture and measured findings
 ├── RESULTS.md                        # Full evaluation tables and metrics
 └── requirements.txt
@@ -120,20 +142,10 @@ pip install -r requirements.txt
 ```bash
 python src/einstein_benchmark/run_full_benchmark.py
 ```
-
-### 3. Run Individual Components
-* **Real Laya Zero-Shot**:
-  ```bash
-  python src/laya_baseline.py
-  ```
-* **Simple Local Baseline (TF-IDF + MLP)**:
-  ```bash
-  python src/local_tfidf_baseline.py
-  ```
-* **Real Laya Fine-Tuning**:
-  ```bash
-  python src/laya_finetune.py
-  ```
+Or to recompile results and charts from saved CSVs:
+```bash
+make run
+```
 
 ---
 

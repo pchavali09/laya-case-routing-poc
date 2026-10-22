@@ -6,21 +6,22 @@ This document records the empirical results measured across the 1,000-case Einst
 * **Ground truth**: 200 labels with difficulty breakdown (`data/einstein_benchmark/test_truth.csv`)
 * **Salesforce Einstein baseline**: Real export from a production Salesforce Sandbox (`data/einstein_benchmark/einstein_predictions.csv`)
 * **Hardware**: Apple M2 (MacBook Air), 8GB Unified Memory, PyTorch with MPS backend.
+* **Scope**: Evaluates **zero-shot and head-only fine-tuned Laya on a templated synthetic set**.
 
 ---
 
-## 1. Overall Head-to-Head Performance
+## 1. Overall Head-to-Head Performance (with Wilson 95% Confidence Intervals)
 
 Scored on the exact 200 blind cases. Overall top-1 accuracy evaluates every case without abstention. Matched coverage evaluates accuracy on the 173 cases where the model or Einstein routes.
 
-| System / Run | Model Artifact | Overall Top-1 Acc (All 200 Cases) | Acc @ Einstein Coverage (173 Cases) | Measured Latency (Mean) | Execution Context |
-|---|---|:---:|:---:|:---:|---|
-| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | **99.42%** (172/173 routed) | Unmeasured (batch in SF) | Cloud SaaS API (27 unrouted) |
-| **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | **100.00%** (173/173 routed) | **0.04 ms** | Local CPU |
-| **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | 63.01% (109/173 routed) | 58.1 ms | Local Apple M2 (MPS) |
-| **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | 48.55% (84/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
-| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (RLCD head, ECE=0.1095) | 46.50% (93/200) | 49.71% (86/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
-| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | 20.81% (36/173 routed) | **0.073 ms** | Local CPU (written for initial POC schema) |
+| System / Run | Model Artifact | Overall Top-1 Acc (200 Cases) | Wilson 95% CI (Overall) | Acc @ 173 Cases (Matching Einstein) | Wilson 95% CI (Routed) | Measured Latency (Mean) | Execution Context |
+|---|---|:---:|:---:|:---:|:---:|:---:|---|
+| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | [80.5%, 90.1%] | **99.42%** (172/173 routed) | [96.8%, 99.9%] | Unmeasured (batch in SF) | Cloud SaaS API (27 unrouted) |
+| **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | [95.7%, 99.5%] | **100.00%** (173/173 routed) | [97.8%, 100.0%] | **0.04 ms** | Local CPU (synthetic n-gram overlap) |
+| **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | [49.1%, 62.7%] | 63.01% (109/173 routed) | [55.6%, 69.8%] | 58.1 ms | Local Apple M2 (MPS) |
+| **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | [39.7%, 53.4%] | 48.55% (84/173 routed) | [41.2%, 56.0%] | 58.0 ms | Local Apple M2 (MPS) |
+| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (Head-only RLCD, ECE=0.1095) | 46.50% (93/200) | [39.7%, 53.4%] | 49.71% (86/173 routed) | [42.3%, 57.1%] | 58.0 ms | Local Apple M2 MPS (frozen encoder) |
+| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | [16.8%, 28.2%] | 20.81% (36/173 routed) | [15.4%, 27.5%] | **0.073 ms** | Local CPU (written for initial POC schema) |
 
 > **Abstention Handling:** In Salesforce Einstein, 27 cases had confidence below the automated routing threshold and were left unrouted for human agent triage. In a like-for-like comparison, these 27 unrouted cases are treated as abstentions, not misclassifications.
 
@@ -36,7 +37,7 @@ The 200 test cases are split across four difficulty tiers:
 
 | System / Model | Easy (80 Cases) | Paraphrase (60 Cases) | Multi-Topic (40 Cases) | Ambiguous (20 Cases) | Overall (200 Cases) |
 |---|:---:|:---:|:---:|:---:|:---:|
-| **Salesforce Einstein (Routed: 173)** | 100.0% (75/75) | 100.0% (48/48) | 97.1% (33/34) | 100.0% (16/16) | **99.4% (172/173)** |
+| **Salesforce Einstein (Routed: 173)** | 100.0% (75/75, 5 unrouted) | 100.0% (48/48, 12 unrouted) | 97.1% (33/34, 6 unrouted) | 100.0% (16/16, 4 unrouted) | **99.4% (172/173)** |
 | **Simple Local Baseline (TF-IDF + MLP)** | 98.8% (79/80) | 100.0% (60/60) | 95.0% (38/40) | 100.0% (20/20) | **98.5% (197/200)** |
 | **Real Laya Zero-Shot (Dict Criteria)** | 65.0% (52/80) | 53.3% (32/60) | 37.5% (15/40) | 65.0% (13/20) | **56.0% (112/200)** |
 | **Real Laya Zero-Shot (List Criteria)** | 58.8% (47/80) | 41.7% (25/60) | 30.0% (12/40) | 45.0% (9/20) | **46.5% (93/200)** |
@@ -87,6 +88,8 @@ The 200 test cases are split across four difficulty tiers:
 
 ## 4. Empirical Conclusions
 
+> **Scoped Statement:** All conclusions below apply strictly to **zero-shot and head-only fine-tuned Laya evaluated on a templated synthetic dataset**:
+
 1. **Outcome vs. Salesforce Einstein**: Real Laya **lost** to Salesforce Einstein. Einstein achieved 99.42% accuracy among routed cases (172/173) in the production sandbox, while Laya reached 48.55% (labels only) to 63.01% (descriptive criteria) at the equivalent 173-case coverage point.
-2. **Outcome vs. Simple Local Baseline**: Real Laya **lost** to the classical TF-IDF + MLP baseline. The TF-IDF model achieved 98.50% overall top-1 accuracy (197/200) and 100.0% accuracy on the top 173 cases, with 0.04ms average latency.
+2. **Outcome vs. Simple Local Baseline**: Real Laya **lost** to the classical TF-IDF + MLP baseline. The TF-IDF model achieved 98.50% overall top-1 accuracy (197/200) and 100.0% accuracy on the top 173 cases, with 0.04ms average latency, because train and test sets share template sentence structures.
 3. **Laya Model Behavior**: `convaiinnovations/laya` operates as an open-weights general router with 421M parameters. Without domain-specific encoder fine-tuning, zero-shot accuracy is 46.5% with label lists and 56.0% with detailed dictionary descriptions. Fine-tuning the classification head with frozen encoder weights on 800 closed cases improved calibration (ECE dropped from 0.1533 to 0.1095), but did not boost top-1 accuracy.

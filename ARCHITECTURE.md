@@ -79,7 +79,7 @@ flowchart TD
 
 | System | Artifact Loaded / Evaluated | Source Code Reference |
 |---|---|---|
-| **Real Laya** | `convaiinnovations/laya` (Hugging Face) | [`src/laya_inference.py`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/src/laya_inference.py), [`src/laya_baseline.py`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/src/laya_baseline.py) |
-| **TF-IDF Baseline** | Scikit-Learn + PyTorch 2-layer MLP | [`src/local_tfidf_baseline.py`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/src/local_tfidf_baseline.py) |
-| **Rules Baseline** | Regex keyword patterns | [`src/rules.py`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/src/rules.py) |
-| **Salesforce Einstein** | Production Sandbox Case Classification Model | [`data/einstein_benchmark/einstein_predictions.csv`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/data/einstein_benchmark/einstein_predictions.csv) |
+| **Real Laya** | `convaiinnovations/laya` (Hugging Face) | [`src/laya_inference.py`](src/laya_inference.py), [`src/laya_baseline.py`](src/laya_baseline.py) |
+| **TF-IDF Baseline** | Scikit-Learn + PyTorch 2-layer MLP | [`src/local_tfidf_baseline.py`](src/local_tfidf_baseline.py) |
+| **Rules Baseline** | Regex keyword patterns | [`src/rules.py`](src/rules.py) |
+| **Salesforce Einstein** | Production Sandbox Case Classification Model | [`data/einstein_benchmark/einstein_predictions.csv`](data/einstein_benchmark/einstein_predictions.csv) |

@@ -25,10 +25,13 @@ compare:
 plots:
 	$(PYTHON) src/plot_results.py
 
-run: data rules laya-baseline laya-finetune compare plots
+benchmark:
+	$(PYTHON) src/einstein_benchmark/run_full_benchmark.py --from-saved
+
+run: benchmark compare plots
 	@echo "=========================================================="
-	@echo " POC Benchmark Pipeline Completed Successfully!"
-	@echo " Results available in results/ and rendered at docs/index.html"
+	@echo " Benchmark Pipeline Completed Successfully!"
+	@echo " Results available in results/ and results/measured_benchmark_summary.json"
 	@echo "=========================================================="
 
 demo:
@@ -40,4 +43,3 @@ serve:
 clean:
 	rm -rf __pycache__ src/__pycache__ salesforce/__pycache__ .pytest_cache
 	rm -rf data/splits/*.csv data/synthetic_cases.csv
-	rm -rf results/*.png results/*.csv results/*.md

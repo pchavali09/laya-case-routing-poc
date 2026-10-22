@@ -3,7 +3,7 @@
     <apiVersion>60.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>Laya Intelligent Case Triage</masterLabel>
-    <description>Sub-15ms local-first calibrated case classification card</description>
+    <description>Local-first calibrated case classification card (~58ms inference)</description>
     <targets>
         <target>lightning__RecordPage</target>
     </targets>

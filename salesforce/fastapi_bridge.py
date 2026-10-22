@@ -2,7 +2,7 @@
 Salesforce <-> Laya Real-Time Integration Bridge
 ------------------------------------------------
 FastAPI HTTP Webhook Service that receives incoming Salesforce Case payloads,
-executes sub-15ms local Laya inference, and returns calibrated routing decisions.
+executes ~58ms local Laya inference (on Apple M2 MPS), and returns calibrated routing decisions.
 
 Compatible with Salesforce External Services, Named Credentials, and Apex HTTP Callouts.
 """
@@ -15,7 +15,7 @@ import time
 app = FastAPI(
     title="Laya Salesforce Case Routing Bridge",
     version="1.0.0",
-    description="Local-first, sub-15ms decision engine bridge for Salesforce Case classification"
+    description="Local-first decision engine bridge for Salesforce Case classification (~58ms local MPS inference)"
 )
 
 # Lazy-loaded inference engine

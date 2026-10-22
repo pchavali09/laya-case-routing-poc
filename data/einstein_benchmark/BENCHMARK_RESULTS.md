@@ -4,22 +4,23 @@ This document records the official measured results on the 1,000-case Einstein b
 
 * **Dataset**: 800 training closed cases (`train_closed.csv`), 200 blind test cases (`test_blind.csv`), 200 ground truth labels (`test_truth.csv`).
 * **Salesforce Einstein Baseline**: Real model trained and evaluated in a production Salesforce Sandbox org (`einstein_predictions.csv`).
-* **Real Laya Models**: `convaiinnovations/laya` (pip `laya` v0.4.13 by NandhaKishorM) evaluated in zero-shot and fine-tuned modes on Apple Silicon M2 MPS.
+* **Real Laya Models**: `convaiinnovations/laya` (pip `laya` v0.4.13 by NandhaKishorM) evaluated in zero-shot and head-only fine-tuned modes on Apple Silicon M2 MPS.
 * **Simple Local Baseline**: TF-IDF (5,000 bigrams) + 2-layer MLP (hidden_dim=64, seed 2026).
 * **Heuristic Rules Baseline**: Regex keyword rules (`src/rules.py`, written for legacy POC schema).
+* **Scope**: Evaluates **zero-shot and head-only fine-tuned Laya on a templated synthetic set**.
 
 ---
 
-## 1. Overall Head-to-Head Comparison (200 Blind Cases)
+## 1. Overall Head-to-Head Comparison (200 Blind Cases, with Wilson 95% Confidence Intervals)
 
-| System / Model | Architecture / Artifact | Overall Top-1 Acc (All 200 Cases) | Acc @ Einstein Coverage (173 Cases) | Measured Latency (Mean) | Status vs. Einstein |
-|---|---|:---:|:---:|:---:|---|
-| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | **99.42%** (172/173 routed) | Unmeasured (batch in SF) | **Reference Standard** (27 unrouted) |
-| **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | **100.00%** (173/173 routed) | **0.04 ms** | **Tied / Exceeded Einstein** |
-| **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | 63.01% (109/173 routed) | 58.1 ms | **Lost to Einstein & TF-IDF** |
-| **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | 48.55% (84/173 routed) | 58.0 ms | **Lost to Einstein & TF-IDF** |
-| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (RLCD head, ECE=0.1095) | 46.50% (93/200) | 49.71% (86/173 routed) | 58.0 ms | **Lost to Einstein & TF-IDF** |
-| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | 20.81% (36/173 routed) | **0.073 ms** | **Lost (Keyword mismatch)** |
+| System / Model | Architecture / Artifact | Overall Top-1 Acc (200 Cases) | Wilson 95% CI (Overall) | Acc @ 173 Cases (Matching Einstein) | Wilson 95% CI (Routed) | Measured Latency (Mean) | Status vs. Einstein |
+|---|---|:---:|:---:|:---:|:---:|:---:|---|
+| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | [80.5%, 90.1%] | **99.42%** (172/173 routed) | [96.8%, 99.9%] | Unmeasured (batch in SF) | **Reference Standard** (27 unrouted) |
+| **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | [95.7%, 99.5%] | **100.00%** (173/173 routed) | [97.8%, 100.0%] | **0.04 ms** | **Tied / Exceeded Einstein** (n-gram overlap) |
+| **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | [49.1%, 62.7%] | 63.01% (109/173 routed) | [55.6%, 69.8%] | 58.1 ms | **Lost to Einstein & TF-IDF** |
+| **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | [39.7%, 53.4%] | 48.55% (84/173 routed) | [41.2%, 56.0%] | 58.0 ms | **Lost to Einstein & TF-IDF** |
+| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (Head-only RLCD, ECE=0.1095) | 46.50% (93/200) | [39.7%, 53.4%] | 49.71% (86/173 routed) | [42.3%, 57.1%] | 58.0 ms | **Lost to Einstein & TF-IDF** |
+| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | [16.8%, 28.2%] | 20.81% (36/173 routed) | [15.4%, 27.5%] | **0.073 ms** | **Lost (Keyword mismatch)** |
 
 ---
 
@@ -67,6 +68,8 @@ This document records the official measured results on the 1,000-case Einstein b
 ---
 
 ## 4. Key Findings Summary
+
+> **Scoped Statement:** All conclusions below apply strictly to **zero-shot and head-only fine-tuned Laya on a templated synthetic set**:
 
 1. **Real Laya vs. Einstein**: Real Laya **lost** to Salesforce Einstein (63.0% zero-shot dict / 49.7% fine-tuned vs. 99.4% Einstein at matching 173-case coverage).
 2. **Real Laya vs. TF-IDF**: Real Laya **lost** to the Simple Local Baseline (TF-IDF + MLP), which reached 98.5% top-1 accuracy in 0.04 ms due to synthetic n-gram template overlap between train and test sets.

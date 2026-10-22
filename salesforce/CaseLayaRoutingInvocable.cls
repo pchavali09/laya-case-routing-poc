@@ -35,7 +35,7 @@ public with sharing class CaseLayaRoutingInvocable {
         public String detectedLanguage;
     }
 
-    @InvocableMethod(label='Route Case with Laya Local Engine' description='Sub-15ms calibrated classification')
+    @InvocableMethod(label='Route Case with Laya Local Engine' description='Local calibrated classification (~58ms inference)')
     public static List<CaseRoutingResult> routeCases(List<CaseRoutingRequest> requests) {
         List<CaseRoutingResult> results = new List<CaseRoutingResult>();
         List<Case> casesToUpdate = new List<Case>();
