@@ -1,114 +1,140 @@
 """
 Laya Baseline (Zero-Shot) Classifier
 -------------------------------------
-Evaluates the uncalibrated zero-shot performance of Laya prior to domain adaptation.
-Demonstrates why raw System 1 zero-shot routing without calibrated temperature scaling
-fails on nuanced domain-specific enterprise routing (achieving ~36.7% accuracy).
+Evaluates the uncalibrated zero-shot performance of real Laya (convaiinnovations/laya)
+on the 200 blind test cases from data/einstein_benchmark/test_blind.csv.
+
+Uses Laya's documented API: Router().predict(state, questions) with choice questions.
+No hardcoded indices, no synthetic matrix, and no silent fallback.
 """
 
 import os
+import sys
 import json
+import time
 import pandas as pd
 import numpy as np
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Tuple
+
+# Ensure project root is in sys.path
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
+from laya import Router
 
 DEPARTMENTS = ["Billing", "Technical", "Sales", "Operations", "Other"]
 
-# Zero-shot criteria for LayaRouter
-CRITERIA = {
-    "Billing": "Disputes, charges, credit card payments, VAT taxes, invoices, and refunds.",
-    "Technical": "System errors, REST APIs, GraphQL latency, SDK exceptions, and authentication.",
-    "Sales": "Enterprise quotes, license renewals, competitor pricing, and demos.",
-    "Operations": "Hardware delivery, office facilities, physical badges, and vendor compliance.",
-    "Other": "General inquiries, employee feedback, GDPR privacy requests, and careers."
-}
 
-
-def run_zero_shot_inference(df: pd.DataFrame) -> List[Dict[str, Any]]:
+def run_zero_shot_inference(
+    test_blind_path: str,
+    test_truth_path: str,
+    criteria_mode: str = "list"
+) -> Tuple[pd.DataFrame, Dict[str, Any]]:
     """
-    Executes zero-shot routing across the test set.
-    Attempts live Laya model inference if model weights are present,
-    or falls back to deterministic uncalibrated zero-shot prediction matrix.
+    Executes real Laya zero-shot routing across the 200 benchmark test cases.
+    Raises RuntimeError immediately if Laya fails to load or predict (no fallback).
     """
-    results = []
-    
-    # Try loading live laya agent if available
-    live_agent = None
+    print(f"Loading real Laya model (convaiinnovations/laya) with default='english'...")
     try:
-        import laya
-        if os.environ.get("USE_LIVE_LAYA", "0") == "1":
-            print("⏳ Loading live Laya agent from Hugging Face...")
-            live_agent = laya.load("convaiinnovations/laya", device="cpu")
+        router = Router(default="english")
     except Exception as e:
-        print(f"ℹ️  Live Laya load skipped ({e}). Using deterministic zero-shot benchmark matrix.")
+        raise RuntimeError(f"Failed to load real Laya model: {e}") from e
 
-    np.random.seed(42)
+    test_blind = pd.read_csv(test_blind_path)
+    test_truth = pd.read_csv(test_truth_path)
+    merged = pd.merge(test_blind, test_truth, on="ExternalId__c")
 
-    for idx, row in df.iterrows():
-        text = f"{row['subject']} {row['body']}"
-        dept = row["department"]
+    if criteria_mode == "dict":
+        criteria = {
+            "Billing": "invoices, payments, refunds, charges, subscriptions, pricing",
+            "Technical": "system errors, software bugs, outages, API integration, technical issues",
+            "Sales": "quotes, enterprise licensing, contract renewals, upgrades, sales demos",
+            "Operations": "shipping, logistics, warehouse, facilities, hardware procurement",
+            "Other": "general inquiries, uncategorized corporate communications, miscellaneous feedback"
+        }
+    else:
+        criteria = DEPARTMENTS
 
-        if live_agent:
-            # Live Laya zero-shot routing
-            decision = live_agent.decide(
-                question="Which department should handle this customer support case?",
-                options=DEPARTMENTS,
-                context=text
-            )
-            pred = decision.choice
-            conf = float(decision.confidence)
-        else:
-            # Deterministic benchmark zero-shot behavior (~36.7% accuracy, high uncalibrated variance)
-            # Demonstrates un-finetuned confusion on nuanced enterprise jargon
-            if idx in [0, 4, 8, 12, 16, 20, 23, 25, 27, 28, 29]: # 11 out of 30 correct (~36.7%)
-                pred = dept
-                conf = float(np.random.uniform(0.48, 0.68))
-            else:
-                other_depts = [d for d in DEPARTMENTS if d != dept]
-                pred = other_depts[idx % len(other_depts)]
-                conf = float(np.random.uniform(0.42, 0.65))
+    questions = {
+        "department": {
+            "type": "choice",
+            "instructions": "Which department should handle this customer support case?",
+            "criteria": criteria
+        }
+    }
 
-        is_correct = (pred == dept)
-        results.append({
-            "case_id": row["case_id"],
-            "subject": row["subject"],
-            "ground_truth": dept,
-            "prediction": pred,
+    # Warmup call
+    router.predict("Warmup system check", questions)
+
+    predictions = []
+    latencies = []
+    t_start = time.time()
+
+    for _, row in merged.iterrows():
+        state = f"Subject: {row['Subject']}\nDescription: {row['Description']}"
+        t0 = time.time()
+        try:
+            res = router.predict(state, questions)
+        except Exception as e:
+            raise RuntimeError(f"Laya predict failed on case {row['ExternalId__c']}: {e}") from e
+        lat_ms = (time.time() - t0) * 1000.0
+        latencies.append(lat_ms)
+
+        ans = res["answers"]["department"]
+        pred_choice = ans["choice"]
+        conf = float(ans.get("confidence", ans.get("answer_confidence", 0.0)))
+
+        predictions.append({
+            "ExternalId__c": row["ExternalId__c"],
+            "true_department": row["true_department"],
+            "predicted_department": pred_choice,
             "confidence": round(conf, 4),
-            "correct": is_correct,
-            "calibrated": False,
-            "model_version": "convaiinnovations/laya:zero-shot"
+            "correct": (pred_choice == row["true_department"]),
+            "latency_ms": round(lat_ms, 2),
+            "difficulty": row["difficulty"],
+            "model_artifact": "convaiinnovations/laya"
         })
 
-    return results
+    total_time = time.time() - t_start
+    pred_df = pd.DataFrame(predictions)
+    acc = pred_df["correct"].mean()
+
+    metrics = {
+        "total_cases": len(pred_df),
+        "correct": int(pred_df["correct"].sum()),
+        "accuracy": round(float(acc) * 100, 2),
+        "mean_latency_ms": round(float(np.mean(latencies)), 2),
+        "median_latency_ms": round(float(np.median(latencies)), 2),
+        "total_time_s": round(total_time, 2),
+        "criteria_mode": criteria_mode,
+        "model_artifact": "convaiinnovations/laya"
+    }
+
+    return pred_df, metrics
 
 
-def run_laya_baseline():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    test_path = os.path.join(base_dir, "data", "splits", "test.csv")
-    results_dir = os.path.join(base_dir, "results")
+def main():
+    test_blind_path = os.path.join(BASE_DIR, "data", "einstein_benchmark", "test_blind.csv")
+    test_truth_path = os.path.join(BASE_DIR, "data", "einstein_benchmark", "test_truth.csv")
+    results_dir = os.path.join(BASE_DIR, "results")
     os.makedirs(results_dir, exist_ok=True)
 
     print("==================================================")
-    print(" 🤖 EVALUATING LAYA BASELINE (ZERO-SHOT)          ")
+    print(" 🤖 EVALUATING REAL LAYA BASELINE (ZERO-SHOT)     ")
     print("==================================================")
 
-    df_test = pd.read_csv(test_path)
-    predictions = run_zero_shot_inference(df_test)
-    correct_count = sum(1 for p in predictions if p["correct"])
-    accuracy = correct_count / len(df_test)
+    # Run list criteria
+    pred_df_list, metrics_list = run_zero_shot_inference(test_blind_path, test_truth_path, "list")
+    out_csv = os.path.join(results_dir, "laya_zeroshot_predictions.csv")
+    pred_df_list.to_csv(out_csv, index=False)
 
-    # Save predictions
-    pred_df = pd.DataFrame(predictions)
-    output_csv = os.path.join(results_dir, "laya_baseline_predictions.csv")
-    pred_df.to_csv(output_csv, index=False)
-
-    print(f"📊 [Laya Zero-Shot] English Test: {correct_count}/{len(df_test)} correct ({accuracy:.1%})")
-    print(f" - Uncalibrated confidence mean: {pred_df['confidence'].mean():.3f}")
-    print(f" - Confidence range: [{pred_df['confidence'].min():.3f}, {pred_df['confidence'].max():.3f}]")
-    print(f" - Diagnosis: Raw zero-shot semantic matching lacks domain priors and temperature calibration.")
-    print(f"   Saved baseline predictions to {output_csv}\n")
+    print(f"\n📊 [Real Laya Zero-Shot (List Criteria)] 200 Test Cases:")
+    print(f" - Top-1 Accuracy: {metrics_list['correct']}/{metrics_list['total_cases']} ({metrics_list['accuracy']}%)")
+    print(f" - Mean Latency: {metrics_list['mean_latency_ms']} ms")
+    print(f" - Saved predictions to {out_csv}\n")
 
 
 if __name__ == "__main__":
-    run_laya_baseline()
+    from typing import Tuple
+    main()

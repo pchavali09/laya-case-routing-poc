@@ -212,97 +212,91 @@
 <body>
   <div class="container">
     <header>
-      <div class="badge">Production Reference POC</div>
+      <div class="badge">1,000-Case Measured Benchmark</div>
       <h1>Enterprise Support Case Classification</h1>
-      <p class="lead">An empirical 3-way benchmark demonstrating why open, local-first, calibrated decision engines (Laya) outperform fragile regex rules and closed SaaS black boxes (Salesforce Einstein).</p>
+      <p class="lead">An empirical, measured benchmark evaluating the real Laya foundation model (convaiinnovations/laya), TF-IDF + MLP baseline, and Heuristic Rules against production Salesforce Einstein Case Classification.</p>
       <div class="cta-group">
-        <a href="https://github.com/pavanchavali/laya-case-routing-poc" class="btn btn-primary" id="btn-repo">View GitHub Repository</a>
-        <a href="https://colab.research.google.com/github/pavanchavali/laya-case-routing-poc/blob/main/notebooks/laya_finetune.ipynb" class="btn btn-secondary" id="btn-colab">Open in Google Colab</a>
+        <a href="https://github.com/pchavali09/laya-case-routing-poc" class="btn btn-primary" id="btn-repo">View GitHub Repository</a>
       </div>
     </header>
 
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="stat-title">English Accuracy</div>
-        <div class="stat-val">100%</div>
-        <div class="stat-sub">Laya Calibrated vs 73.3% Einstein</div>
+        <div class="stat-title">Einstein Accuracy</div>
+        <div class="stat-val">99.4%</div>
+        <div class="stat-sub">172/173 Routed (27 Unrouted)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-title">Inference Latency</div>
-        <div class="stat-val">&lt;15ms</div>
-        <div class="stat-sub">Local CPU vs 800ms SaaS Cloud Hop</div>
+        <div class="stat-title">TF-IDF Baseline</div>
+        <div class="stat-val">98.5%</div>
+        <div class="stat-sub">197/200 Top-1 Accuracy</div>
       </div>
       <div class="stat-card">
-        <div class="stat-title">Auto-Route Precision</div>
-        <div class="stat-val">100%</div>
-        <div class="stat-sub">At &tau;=0.85 Confidence Gating</div>
+        <div class="stat-title">Laya Zero-Shot (Dict)</div>
+        <div class="stat-val">56.0%</div>
+        <div class="stat-sub">63.0% at 173-Case Coverage</div>
       </div>
       <div class="stat-card">
-        <div class="stat-title">Annual License Tax</div>
-        <div class="stat-val">$0</div>
-        <div class="stat-sub">Saves $30,000/yr vs Closed SaaS</div>
+        <div class="stat-title">Laya Measured Latency</div>
+        <div class="stat-val">58ms</div>
+        <div class="stat-sub">Local Apple M2 MPS vs ~600ms Cloud</div>
       </div>
     </div>
 
-    <h2 class="section-title">Architectural Benchmark Comparison</h2>
+    <h2 class="section-title">Measured Benchmark Results (200 Blind Test Cases)</h2>
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>Dimension</th>
-            <th>1. Rules-Based Heuristics</th>
-            <th>2. Salesforce Einstein (Closed SaaS)</th>
-            <th>3. Laya (Local-First Calibrated)</th>
+            <th>System / Run</th>
+            <th>Model Architecture / Artifact</th>
+            <th>Overall Top-1 Accuracy (200 Cases)</th>
+            <th>Accuracy @ 173 Cases (Matching Einstein)</th>
+            <th>Latency (Mean)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Paradigm</strong></td>
-            <td>15 Handcrafted Regex Rules</td>
-            <td>Multi-tenant Cloud ML</td>
-            <td class="highlight">Local System 1 Neural Engine</td>
+            <td><strong>Salesforce Einstein</strong></td>
+            <td>Production Sandbox Model</td>
+            <td>86.0% (172/200 total)</td>
+            <td class="highlight">99.42% (172/173 routed)</td>
+            <td>~450–800 ms</td>
           </tr>
           <tr>
-            <td><strong>English Accuracy</strong></td>
-            <td>83.3% (Brittle)</td>
-            <td>73.3%</td>
-            <td class="highlight">100.0%</td>
+            <td><strong>Simple Local Baseline</strong></td>
+            <td>TF-IDF (5k n-grams) + 2-layer MLP</td>
+            <td class="highlight">98.50% (197/200)</td>
+            <td class="highlight">100.00% (173/173)</td>
+            <td>0.04 ms</td>
           </tr>
           <tr>
-            <td><strong>Spanish Accuracy</strong></td>
-            <td>40.0% (Catastrophic)</td>
-            <td>53.3%</td>
-            <td class="highlight">73.3% (Zero-shot transfer)</td>
+            <td><strong>Real Laya Zero-Shot (Dict)</strong></td>
+            <td>convaiinnovations/laya (Descriptive)</td>
+            <td>56.00% (112/200)</td>
+            <td>63.01% (109/173)</td>
+            <td>58.1 ms</td>
           </tr>
           <tr>
-            <td><strong>Hindi Accuracy</strong></td>
-            <td>46.7% (Fallback)</td>
-            <td>36.7%</td>
-            <td class="highlight">70.0% (Script invariant)</td>
+            <td><strong>Real Laya Zero-Shot (List)</strong></td>
+            <td>convaiinnovations/laya (Labels only)</td>
+            <td>46.50% (93/200)</td>
+            <td>48.55% (84/173)</td>
+            <td>58.0 ms</td>
           </tr>
           <tr>
-            <td><strong>Uncertainty Calibration</strong></td>
-            <td>None (Routes 100% blindly)</td>
-            <td>Uncalibrated score</td>
-            <td class="highlight">Platt Temperature Scaled (T=1.497)</td>
+            <td><strong>Real Laya Fine-Tuned</strong></td>
+            <td>convaiinnovations/laya (RLCD head)</td>
+            <td>46.50% (93/200)</td>
+            <td>50.29% (87/173)</td>
+            <td>58.0 ms</td>
           </tr>
           <tr>
-            <td><strong>Latency (p95)</strong></td>
-            <td>&lt;1 ms</td>
-            <td>1,140 ms</td>
-            <td class="highlight">12.4 ms</td>
-          </tr>
-          <tr>
-            <td><strong>PII Data Sovereignty</strong></td>
-            <td>On-premise</td>
-            <td>Leaves perimeter</td>
-            <td class="highlight">100% Zero-Egress Boundary</td>
-          </tr>
-          <tr>
-            <td><strong>Cost Model</strong></td>
-            <td>$0 (Heavy maintenance debt)</td>
-            <td>$50 / agent / month</td>
-            <td class="highlight">$20 / month (or $0 on existing VM)</td>
+            <td><strong>Heuristic Rules Baseline</strong></td>
+            <td>src/rules.py (Keyword Regex)</td>
+            <td>22.00% (44/200)</td>
+            <td>20.81% (36/173)</td>
+            <td>0.005 ms</td>
           </tr>
         </tbody>
       </table>

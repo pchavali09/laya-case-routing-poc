@@ -4,15 +4,15 @@ This folder contains the complete reference integration connecting Salesforce Se
 
 ---
 
-## ⚡ Architectural Advantages over Salesforce Einstein
+## ⚡ Architectural Comparison
 
-| Dimension | Salesforce Einstein Case Classification | Laya Integration Bridge |
+| Dimension | Salesforce Einstein Case Classification | Local Laya Integration Bridge |
 |---|---|---|
-| **Latency** | 450 ms – 1200 ms (Multi-tenant SaaS cloud queue) | **< 15 ms** (Sub-second local/edge decision) |
-| **Pricing** | $50 / agent / month (Einstein Service Cloud license) | **$0 SaaS fee** (Self-hosted or edge container) |
-| **Data Privacy** | Customer PII egresses into Salesforce ML training perimeter | **100% On-Premise / Zero egress** |
-| **Confidence Gating** | Opaque score; either forces automatic or manual review | **Calibrated posterior probability gating** |
-| **Multilingual** | Requires separate language pack models | **Native zero-shot multilingual routing** |
+| **Deployment** | Multi-tenant SaaS cloud model | Self-hosted local/edge inference |
+| **Model Artifact** | Closed Salesforce Einstein Sandbox model | `convaiinnovations/laya` (open-source weights) |
+| **Inference Latency** | ~450 ms – 800 ms (Cloud network roundtrip) | ~58 ms (Apple M2 MPS local inference) |
+| **Interface** | Salesforce standard Case layout & flow | FastAPI REST webhook + Apex Invocable Action |
+| **173-Case Accuracy** | 99.42% (172/173 routed, 27 unrouted) | 48.55% (labels) to 63.01% (descriptive criteria) |
 
 ---
 

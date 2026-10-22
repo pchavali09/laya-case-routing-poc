@@ -50,7 +50,14 @@ class LayaRoutingResponse(BaseModel):
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok", "engine": "laya-local-first", "model": "convaiinnovations/laya:calibrated"}
+    eng = get_engine()
+    return {
+        "status": "ok",
+        "engine": "laya-local-first",
+        "model": eng.model_name,
+        "revision": eng.default_model,
+        "artifact": "convaiinnovations/laya"
+    }
 
 
 @app.post("/v1/cases/route", response_model=LayaRoutingResponse)

@@ -1,20 +1,18 @@
-# Architecture & Design Decisions: Composable Local-First CRM Intelligence
+# Architecture & Design Decisions: Local-First CRM Case Classification
 
-> **Author:** Pavan Chavali  
-> **Status:** Published Technical Reference  
-> **Target Audience:** Enterprise Software Architects, Principal AI Engineers, VP of Customer Operations
+> **Author:** Pavan Chavali ([pchavali09](https://github.com/pchavali09))  
+> **Status:** Technical Architecture Reference  
+> **Target Audience:** Enterprise Software Architects, Principal AI Engineers, CRM Technical Leads
 
 ---
 
-## 1. Executive Context: The Routing Paradox
+## 1. Context: CRM Routing Strategies
 
-Every enterprise CRM deployment (Salesforce Service Cloud, ServiceNow, Zendesk) begins with the same requirement: **"Route incoming customer tickets to the right department quickly and accurately."**
+Enterprise CRM deployments (Salesforce Service Cloud, ServiceNow, Zendesk) evaluate routing strategies across distinct architectural tiers:
 
-In practice, organizations oscillate between two extremes:
-1. **The Heuristic Trap ("Rules Disguised as AI"):** Teams assemble dozens of brittle regex rules, keyword matchers, and Salesforce Assignment Rules. Over time, rule collisions trigger silent misrouting. Because heuristic rules have **no concept of uncertainty (confidence is `None`)**, 100% of cases are routed blindly.
-2. **The Closed SaaS Trap ("Paying for AI Secrets"):** Frustrated by rule debt, leadership adopts vendor SaaS AI (e.g. Salesforce Einstein Case Classification). While accuracy improves slightly, the organization incurs **$50/agent/month license premiums**, exposes **customer PII** across cloud boundaries, endures **800ms+ roundtrip latencies**, and remains trapped inside a proprietary walled garden with uncalibrated confidence scores.
-
-**Laya** represents the third architectural path: a **local-first, composable System 1 decision engine** that delivers superior accuracy, sub-15ms inference, calibrated uncertainty gating, and 100% data sovereignty.
+1. **Rule Engines (Heuristics):** Handcrafted regex rules, keyword matchers, and CRM Assignment Rules. While execution is virtually instantaneous (under 0.01 ms), rules are brittle when confronted with novel phrasing or multi-topic inquiries, and provide no calibrated uncertainty measure.
+2. **Closed SaaS AI (e.g., Salesforce Einstein Case Classification):** Vendor-managed machine learning models trained on closed historical cases. In our Sandbox benchmark, Einstein achieved 99.42% accuracy among cases routed (172/173), while abstaining on 27 ambiguous cases. However, models remain closed inside the vendor cloud platform with limited custom architectural inspectability.
+3. **Local Machine Learning Models:** Self-hosted decision systems running within the application perimeter. This benchmark evaluated both the **real Laya foundation model** (`convaiinnovations/laya`, 421M parameter transformer by NandhaKishorM) and a **Simple Local Baseline** (TF-IDF + 2-layer MLP).
 
 ---
 
@@ -22,97 +20,66 @@ In practice, organizations oscillate between two extremes:
 
 ```mermaid
 flowchart TD
-    subgraph Legacy_Rules["1. Rules-Based Heuristics"]
-        R_In["Incoming Case"] --> R_Regex["15 Handcrafted Regex Rules"]
-        R_Regex -->|Match / Fallback| R_Out["100% Blind Auto-Route<br/>(Confidence: None | Silent Failures)"]
+    subgraph Legacy_Rules["1. Heuristic Rules Baseline"]
+        R_In["Incoming Case"] --> R_Regex["Keyword Regex Rules"]
+        R_Regex -->|Match / Default| R_Out["100% Deterministic Routing<br/>(Confidence: None | No Abstention)"]
     end
 
-    subgraph Einstein_SaaS["2. Salesforce Einstein (Closed SaaS)"]
-        E_In["Incoming Case"] --> E_Net["HTTP Egress to Cloud ML<br/>(Latency: 450-1200ms)"]
-        E_Net --> E_Model["Closed Proprietary Model<br/>($50/agent/mo | Data Leaves Perimeter)"]
-        E_Model --> E_Out["Opaque Recommendation<br/>(Uncalibrated Scores)"]
+    subgraph Einstein_SaaS["2. Salesforce Einstein (Cloud SaaS)"]
+        E_In["Incoming Case"] --> E_Cloud["Salesforce Cloud ML Model<br/>(Trained on 800 closed cases)"]
+        E_Cloud --> E_Gate{"Confidence Score<br/>Meets Automate Threshold?"}
+        E_Gate -->|Yes: 173 cases| E_Auto["Auto-Populate Department<br/>(99.4% Empirical Accuracy)"]
+        E_Gate -->|No: 27 cases| E_Unrouted["Leave Field Blank<br/>(Escalate to Human Agent)"]
     end
 
-    subgraph Laya_Local["3. Laya Composable Decision Engine"]
-        L_In["Incoming Case"] --> L_Lang["Zero-Shot Language Detector"]
-        L_Lang --> L_Inf["Sub-15ms Local Inference Engine<br/>(Zero PII Egress | Commodity CPU)"]
-        L_Inf --> L_Temp["Temperature-Calibrated Posterior P(y|x)"]
-        L_Temp --> L_Gate{"Confidence Gate<br/>τ ≥ 0.85?"}
-        L_Gate -->|Yes: High Certainty| L_Auto["Auto-Route Instantly<br/>(100% Precision)"]
-        L_Gate -->|No: Ambiguous / Risk| L_Human["Escalate to Human Triage<br/>(Zero Silent Misroutes)"]
+    subgraph Local_Engines["3. Local-First ML Systems"]
+        L_In["Incoming Case"] --> L_Router["Local Inference Engine"]
+        L_Router --> L_Laya["Real Laya Model<br/>(convaiinnovations/laya)"]
+        L_Router --> L_TFIDF["Simple Local Baseline<br/>(TF-IDF + Calibrated MLP)"]
+        L_TFIDF --> L_Gate{"Confidence Gate<br/>Score ≥ τ?"}
+        L_Gate -->|Above Threshold| L_Auto["Auto-Route Case"]
+        L_Gate -->|Below Threshold| L_Human["Route to Triage / Review"]
     end
 ```
 
 ---
 
-## 3. Core Architectural Pillars
+## 3. Evaluated Model Architectures & Measured Behaviors
 
-### Pillar A: Local-First Data Sovereignty & Zero PII Egress
-In regulated industries (FinTech, HealthTech, Enterprise SaaS), customer tickets frequently contain unredacted PII: credit card expiration notices, tax IDs, internal IP addresses, and user email addresses.
-* **Closed SaaS (Einstein):** Requires outbound transmission to external multi-tenant infrastructure.
-* **Laya:** Operates locally inside your application cluster or on-premise container. No customer data leaves your network boundary, satisfying strict GDPR, HIPAA, and SOC 2 requirements by design.
+### A. Real Laya Foundation Model (`convaiinnovations/laya`)
+* **Package & Weights**: Installed via `pip install laya` (v0.4.13), using the official weights from Hugging Face (`convaiinnovations/laya`).
+* **Inference API**: Invoked via `laya.Router().predict(state, questions)` with choice questions spanning `['Billing', 'Technical', 'Sales', 'Operations', 'Other']`.
+* **Zero-Shot Accuracy**:
+  * With choice labels only: **46.50%** top-1 accuracy (93/200).
+  * With descriptive category definitions: **56.00%** top-1 accuracy (112/200).
+* **Fine-Tuned Accuracy**: Fine-tuning the classification head with `freeze_encoder=True` on the 800 training cases (with held-out calibration on 80 cases) achieved **46.50%** top-1 accuracy. Calibration improved significantly (ECE dropped from 0.1533 to 0.1095), but raw top-1 accuracy did not increase without unfreezing the transformer backbone.
+* **Measured Latency**: **~58 ms** per case on an Apple Silicon M2 using the PyTorch MPS backend.
 
-### Pillar B: Sub-15ms Latency vs. 800ms Network Roundtrips
-In high-throughput call centers or live-chat deflection pipelines, latency directly impacts customer satisfaction:
-* **Rules:** < 1 ms (fast, but brittle).
-* **Einstein:** 450 ms – 1200 ms (governed by network roundtrips, multi-tenant queueing, and SaaS API rate limits).
-* **Laya:** **< 15 ms** on standard Apple Silicon or Linux x86 CPU cores without dedicated GPU hardware.
+### B. Simple Local Baseline (TF-IDF + 2-layer MLP)
+* **Architecture**: Scikit-Learn `TfidfVectorizer` (5,000 max features, unigram + bigram, English stop words) paired with a PyTorch 2-layer MLP (`input_dim=5000`, `hidden_dim=64`, `ReLU`, `Dropout(0.2)`, `output_dim=5`).
+* **Performance**: Achieved **98.50%** top-1 accuracy (197/200 correct) on the test set, and **100.0%** accuracy at Einstein's 173-case coverage level.
+* **Measured Latency**: **0.04 ms** per case on local CPU.
+* **Training Time**: **0.8 seconds** on 800 training cases.
 
-### Pillar C: Rigorous Uncertainty Calibration (Platt Temperature Scaling)
-Raw neural networks are notoriously overconfident or uncalibrated. A model outputting `0.92` probability does not necessarily mean it is correct 92% of the time.
-
-Laya applies post-hoc temperature scaling ($T$) over validation set logits:
-$$\hat{p}_i = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}$$
-
-Where $T$ is optimized via L-BFGS to minimize negative log-likelihood on an independent validation set. In our benchmark, optimal $T = 1.497$ produced true calibrated posterior probabilities, enabling deterministic confidence gating.
-
-### Pillar D: Confidence-Gated Routing Policy
-Traditional CRM rules force a binary dilemma: either auto-route everything (causing customer churn when cases land in the wrong queue) or send everything to human triage (causing staffing bloat).
-
-Laya provides explicit uncertainty thresholding ($\tau$):
-$$\text{Action}(x) = \begin{cases} 
-\text{AUTO\_ROUTE}(y^*) & \text{if } \max_k P(y_k|x) \ge \tau \\
-\text{HUMAN\_TRIAGE\_ESCALATION} & \text{if } \max_k P(y_k|x) < \tau 
-\end{cases}$$
-
-At $\tau = 0.85$, **90%** of tickets are automated with **100% precision**, while the remaining **10%** are proactively escalated to senior specialists before customers experience delay.
+### C. Salesforce Einstein Case Classification
+* **Environment**: Production Salesforce Sandbox org with Einstein Case Classification enabled.
+* **Performance**: Routed 173 cases with **99.42%** accuracy (172 correct, 1 error), leaving 27 cases unrouted for human agent triage.
 
 ---
 
-## 4. Why Google Antigravity & Agentic Tooling?
+## 4. Key Architectural Takeaways
 
-Building and validating this POC repository utilized Google Antigravity to:
-1. **Enforce Deterministic Reproducibility:** Ensure exact random seeds across data generation, cross-validation, and metric computation.
-2. **Eliminate Flaky Dependencies:** Package lightweight inference heads and Colab notebooks that execute across Apple Silicon, Linux, and Cloud environments without bloat.
-3. **Bridge Salesforce & Open Source:** Seamlessly synthesize Apex triggers, Invocable Actions, and FastAPI webhook endpoints into an auditable, production-ready deliverable.
-
----
-
-## 5. Trade-Off Analysis
-
-| Decision | Chosen Path | Alternative Rejected | Rationale |
-|---|---|---|---|
-| **Model Size** | Lightweight Classifier Head (< 5MB) | 70B Parameter LLM Prompting | LLM prompting costs $0.02 per case and takes 2500ms; Laya takes 12ms and costs $0. |
-| **Calibration** | Empirical Temperature Scaling | Raw Softmax Probs | Raw softmax suffers from extreme overconfidence and breaks threshold gating. |
-| **Interface** | FastAPI Bridge + Apex Invocables | Proprietary Salesforce AppExchange Package | Independent REST API enables universal reuse across Zendesk, Freshdesk, Slack, and Salesforce. |
+1. **Real Laya vs. Einstein**: Real Laya **lost** to Salesforce Einstein. On this 1,000-case enterprise routing benchmark, Einstein's specialized training delivered 99.42% accuracy among routed tickets, whereas Laya reached 48.55% to 63.01% at equivalent coverage.
+2. **Real Laya vs. Classical NLP**: Real Laya **lost** to the simple TF-IDF + MLP baseline. For text classification problems with strong domain vocabulary, classical n-gram representations trained directly on closed historical cases significantly outperformed the frozen zero-shot transformer router.
+3. **Role of Confidence Gating**: Across all evaluated models, confidence gating effectively isolated difficult edge cases. In Einstein, abstaining on 27 ambiguous cases lifted accuracy from 86.0% overall to 99.42% among routed cases. In the TF-IDF baseline, abstaining on 27 cases lifted accuracy from 98.50% to 100.00%.
 
 ---
 
-## 6. Enterprise Scale: Continuous Learning via Data Lakehouse
+## 5. Artifact Identity & Verification
 
-In production enterprise deployments, model evolution does not occur inside an interactive notebook. Instead, the architecture establishes an **Active Learning Loop** decoupled from operational CRM limits:
-
-```
-[Salesforce Service Cloud] ──(CDC / Fivetran / Data Cloud)──> [Lakehouse: Snowflake / Databricks]
-                                                                     │
-                                                               (Table: gold_support_cases)
-                                                                     │
-                                                                     ▼
-[Local Laya Pod / Edge API] <──(Hot Reload Weights)── [Headless Training Job: Airflow / dbt]
-```
-
-### Architectural Principles of the Enterprise Loop:
-1. **Zero Impact on Salesforce OLTP:** Training queries are offloaded entirely to the Data Lakehouse, protecting Salesforce governor limits and transactional throughput.
-2. **Quality-Gated Supervision:** Only closed cases meeting strict QA filters (e.g., `CSAT >= 4`, verified by tier-2 leads, and deduplicated) are ingested into training.
-3. **Sub-15-Second Retraining:** Because Laya operates as an efficient System 1 decision engine, retraining on 5,000 cases completes in seconds on commodity CPU instances without requiring costly GPU clusters.
-4. **Autonomous Expansion of Automation Rate:** As human agents resolve edge cases and corrections flow back into the Lakehouse, Laya's posterior confidence on ambiguous tickets systematically rises, naturally increasing the proportion of tickets that exceed the safety gate ($\tau \ge 0.85$).
+| System | Artifact Loaded / Evaluated | Source Code Reference |
+|---|---|---|
+| **Real Laya** | `convaiinnovations/laya` (Hugging Face) | [`src/laya_inference.py`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/src/laya_inference.py), [`src/laya_baseline.py`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/src/laya_baseline.py) |
+| **TF-IDF Baseline** | Scikit-Learn + PyTorch 2-layer MLP | [`src/local_tfidf_baseline.py`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/src/local_tfidf_baseline.py) |
+| **Rules Baseline** | Regex keyword patterns | [`src/rules.py`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/src/rules.py) |
+| **Salesforce Einstein** | Production Sandbox Case Classification Model | [`data/einstein_benchmark/einstein_predictions.csv`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/data/einstein_benchmark/einstein_predictions.csv) |
