@@ -35,6 +35,7 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from src.rules import classify_case_rules
+from src.rules_trained import classify_case_trained_rules
 import laya
 from laya import Router
 
@@ -49,6 +50,21 @@ DICT_CRITERIA = {
     "Operations": "shipping, logistics, warehouse, facilities, hardware procurement, generator power, customs freight",
     "Other": "general inquiries, uncategorized corporate communications, legal, privacy, academic grants, sponsorships"
 }
+
+def compute_ece(confidences, accuracies, n_bins=10):
+    bin_boundaries = np.linspace(0, 1, n_bins + 1)
+    ece = 0.0
+    total_samples = len(confidences)
+    for i in range(n_bins):
+        bin_lower = bin_boundaries[i]
+        bin_upper = bin_boundaries[i + 1]
+        in_bin = (confidences >= bin_lower) & (confidences < bin_upper if i < n_bins - 1 else confidences <= bin_upper)
+        bin_count = np.sum(in_bin)
+        if bin_count > 0:
+            bin_acc = np.mean(accuracies[in_bin])
+            bin_conf = np.mean(confidences[in_bin])
+            ece += (bin_count / total_samples) * np.abs(bin_acc - bin_conf)
+    return float(ece)
 
 def wilson_score_interval(successes, total, confidence=0.95):
     if total == 0:
@@ -175,12 +191,22 @@ def run_laya_eval(test_df, model_name="english", criteria_mode="dict"):
     return pd.DataFrame(results)
 
 
-def score_system_predictions(pred_df, target_coverage_cases=173, model_label="Model"):
-    """
-    Computes:
-    - Overall top-1 accuracy (all 200 cases)
-    - Routed accuracy among top N cases (matching target coverage, default 173 / 86.5%)
-    """
+
+def run_trained_rules_baseline(test_df):
+    results = []
+    for _, row in test_df.iterrows():
+        pred_dept, conf, rule_id = classify_case_trained_rules(row["Subject"], row["Description"])
+        results.append({
+            "ExternalId__c": row["ExternalId__c"],
+            "true_department": row["true_department"],
+            "predicted_department": pred_dept,
+            "confidence": float(conf),
+            "is_correct": bool(pred_dept == row["true_department"])
+        })
+    return pd.DataFrame(results)
+
+
+def score_system_predictions(pred_df, target_coverage_cases=173, model_label="Model", training_label="no training"):
     total = len(pred_df)
     overall_correct = int(pred_df["is_correct"].sum())
     p_ovr, low_ovr, up_ovr = wilson_score_interval(overall_correct, total)
@@ -193,8 +219,15 @@ def score_system_predictions(pred_df, target_coverage_cases=173, model_label="Mo
     routed_correct = int(routed_df["is_correct"].sum())
     p_rout, low_rout, up_rout = wilson_score_interval(routed_correct, routed_count)
 
+    ece = None
+    if "confidence" in pred_df.columns:
+        confs = pred_df["confidence"].values
+        accs = pred_df["is_correct"].values.astype(float)
+        ece = round(compute_ece(confs, accs), 4)
+
     return {
         "model": model_label,
+        "training": training_label,
         "total_cases": total,
         "overall_correct": overall_correct,
         "overall_accuracy": p_ovr,
@@ -203,7 +236,8 @@ def score_system_predictions(pred_df, target_coverage_cases=173, model_label="Mo
         "coverage_pct": routed_count / total,
         "routed_correct": routed_correct,
         "routed_accuracy": p_rout,
-        "routed_ci": [low_rout, up_rout]
+        "routed_ci": [low_rout, up_rout],
+        "ece": ece
     }
 
 
@@ -219,31 +253,36 @@ def evaluate_dataset(dataset_name, data_dir, einstein_preds_path=None):
 
     summary_list = []
 
-    # 1. TF-IDF Baseline
-    print(" -> Training & Evaluating TF-IDF + MLP Baseline...")
-    tfidf_preds = train_tfidf_mlp(train_df, test_df)
-    summary_list.append(score_system_predictions(tfidf_preds, 173, "TF-IDF + MLP Baseline"))
-
-    # 2. Heuristic Rules Baseline
-    print(" -> Evaluating Heuristic Rules Baseline...")
+    # 1. Untuned Legacy Rules Baseline
+    print(" -> Evaluating Untuned Legacy Rules Baseline (src/rules.py)...")
     rules_preds = run_rules_baseline(test_df)
-    summary_list.append(score_system_predictions(rules_preds, 173, "Rules Baseline (src/rules.py)"))
+    summary_list.append(score_system_predictions(rules_preds, 173, "Untuned Legacy Rules Baseline", "no training"))
 
-    # 3. Laya English Zero-Shot (Dict)
+    # 2. Trained Keyword Rules Baseline (tuned on 800 train cases)
+    print(" -> Evaluating Trained Keyword Rules Baseline (src/rules_trained.py)...")
+    trained_rules_preds = run_trained_rules_baseline(test_df)
+    summary_list.append(score_system_predictions(trained_rules_preds, 173, "Trained Keyword Rules Baseline", "trained on 800 closed cases"))
+
+    # 3. TF-IDF + MLP (Control Baseline)
+    print(" -> Training & Evaluating TF-IDF + MLP (Control Baseline)...")
+    tfidf_preds = train_tfidf_mlp(train_df, test_df)
+    summary_list.append(score_system_predictions(tfidf_preds, 173, "TF-IDF + MLP (Control Baseline)", "trained on 800 closed cases"))
+
+    # 4. Laya English Zero-Shot (Dict Criteria)
     laya_en_dict_preds = run_laya_eval(test_df, model_name="english", criteria_mode="dict")
-    summary_list.append(score_system_predictions(laya_en_dict_preds, 173, "Laya English Zero-Shot (Dict)"))
+    summary_list.append(score_system_predictions(laya_en_dict_preds, 173, "Laya English Zero-Shot (Dict Criteria)", "no training"))
 
-    # 4. Laya English Zero-Shot (List)
+    # 5. Laya English Zero-Shot (List Criteria)
     laya_en_list_preds = run_laya_eval(test_df, model_name="english", criteria_mode="list")
-    summary_list.append(score_system_predictions(laya_en_list_preds, 173, "Laya English Zero-Shot (List)"))
+    summary_list.append(score_system_predictions(laya_en_list_preds, 173, "Laya English Zero-Shot (List Criteria)", "no training"))
 
-    # 5. Laya Multilingual Zero-Shot (Dict)
+    # 6. Laya Multilingual Zero-Shot (Dict Criteria)
     laya_multi_dict_preds = run_laya_eval(test_df, model_name="laya-multilingual", criteria_mode="dict")
-    summary_list.append(score_system_predictions(laya_multi_dict_preds, 173, "Laya Multilingual Zero-Shot (Dict)"))
+    summary_list.append(score_system_predictions(laya_multi_dict_preds, 173, "Laya Multilingual Zero-Shot (Dict Criteria)", "no training"))
 
-    # 6. Laya Multilingual Zero-Shot (List)
+    # 7. Laya Multilingual Zero-Shot (List Criteria)
     laya_multi_list_preds = run_laya_eval(test_df, model_name="laya-multilingual", criteria_mode="list")
-    summary_list.append(score_system_predictions(laya_multi_list_preds, 173, "Laya Multilingual Zero-Shot (List)"))
+    summary_list.append(score_system_predictions(laya_multi_list_preds, 173, "Laya Multilingual Zero-Shot (List Criteria)", "no training"))
 
     # 7. Salesforce Einstein (if provided)
     if einstein_preds_path and os.path.exists(einstein_preds_path):
@@ -266,8 +305,14 @@ def evaluate_dataset(dataset_name, data_dir, einstein_preds_path=None):
         rout_corr = int((routed_ein[pred_col] == routed_ein["true_department"]).sum())
         p_rout, l_rout, u_rout = wilson_score_interval(rout_corr, rout_count)
 
+        conf_col = "Einstein_Confidence" if "Einstein_Confidence" in m_df.columns else "confidence"
+        ein_ece = None
+        if conf_col in m_df.columns:
+            ein_ece = round(compute_ece(m_df[conf_col].values, m_df["is_correct"].values.astype(float)), 4)
+
         summary_list.append({
             "model": "Salesforce Einstein Case Classification",
+            "training": "trained on 800 closed cases",
             "total_cases": tot,
             "overall_correct": ovr_corr,
             "overall_accuracy": p_ovr,
@@ -276,11 +321,13 @@ def evaluate_dataset(dataset_name, data_dir, einstein_preds_path=None):
             "coverage_pct": rout_count / tot,
             "routed_correct": rout_corr,
             "routed_accuracy": p_rout,
-            "routed_ci": [l_rout, u_rout]
+            "routed_ci": [l_rout, u_rout],
+            "ece": ein_ece
         })
     else:
         summary_list.append({
             "model": "Salesforce Einstein Case Classification",
+            "training": "trained on 800 closed cases",
             "total_cases": len(test_df),
             "overall_correct": None,
             "overall_accuracy": None,
@@ -290,6 +337,7 @@ def evaluate_dataset(dataset_name, data_dir, einstein_preds_path=None):
             "routed_correct": None,
             "routed_accuracy": None,
             "routed_ci": None,
+            "ece": None,
             "status": "Pending Sandbox Export (Pavan must score in sandbox)"
         })
 

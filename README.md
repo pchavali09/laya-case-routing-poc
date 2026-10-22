@@ -34,20 +34,40 @@ The goal of this benchmark is to measure whether the real Laya foundation model 
 
 ## Measured Head-to-Head Results
 
-All numbers below were produced by code in this repository or exported directly from the Salesforce Sandbox.
+All figures below are dynamically produced by code in this repository or exported directly from the Salesforce Sandbox.
 
-### 1. Overall Model Comparison (with Wilson 95% Confidence Intervals)
+### Table 1: Original Benchmark (Shared Templates, 200 Test Cases)
 
-| System / Model | Model Artifact / Architecture | Overall Top-1 Accuracy (200 Cases) | Overall 95% CI | Accuracy @ 173 Cases (Matching Einstein) | Routed 95% CI | Measured Latency (Mean) | Execution Context |
+| System / Model | Training Status | Cases Routed | Routed Accuracy @ 86.5% Cov (173/200) | Overall Top-1 (All 200 Cases) | ECE | Measured Latency (Mean) | Hardware / Context |
 |---|---|:---:|:---:|:---:|:---:|:---:|---|
-| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | [80.5%, 90.1%] | **99.42%** (172/173 routed) | [96.8%, 99.9%] | Unmeasured (batch in SF) | Cloud SaaS API (27 unrouted) |
-| **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | [95.7%, 99.5%] | **100.00%** (173/173 routed) | [97.8%, 100.0%] | **0.04 ms** | Local CPU (synthetic n-gram overlap) |
-| **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | [49.1%, 62.7%] | 63.01% (109/173 routed) | [55.6%, 69.8%] | 58.1 ms | Local Apple M2 (MPS) |
-| **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | [39.7%, 53.4%] | 48.55% (84/173 routed) | [41.2%, 56.0%] | 58.0 ms | Local Apple M2 (MPS) |
-| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (Head-only RLCD, ECE=0.1095) | 46.50% (93/200) | [39.7%, 53.4%] | 49.71% (86/173 routed) | [42.3%, 57.1%] | 58.0 ms | Local Apple M2 MPS (frozen encoder) |
-| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | [16.8%, 28.2%] | 20.81% (36/173 routed) | [15.4%, 27.5%] | **0.073 ms** | Local CPU (legacy POC rules) |
+| **Salesforce Einstein** | Trained on 800 closed cases | 173/200 | **99.42%** [96.8%, 99.9%] | **86.00%** [80.5%, 90.1%] | 0.0815 | Unmeasured | Cloud SaaS API (27 unrouted) |
+| **TF-IDF + MLP (Control Baseline)** | Trained on 800 closed cases | 173/200 | **100.00%** [97.8%, 100.0%] | **99.00%** [96.4%, 99.7%] | 0.6448 | 0.04 ms | Local Apple M2 CPU (memorized template n-grams) |
+| **Trained Keyword Rules Baseline** | Tuned on 800 closed cases | 173/200 | **67.05%** [59.7%, 73.6%] | **62.00%** [55.1%, 68.4%] | 0.0725 | 0.05 ms | Local Apple M2 CPU (`src/rules_trained.py`, commit `40f18e9`) |
+| **Laya English Zero-Shot (Dict)** | No training | 173/200 | **59.54%** [52.1%, 66.6%] | **53.50%** [46.6%, 60.3%] | 0.4012 | 93.8 ms | Local Apple M2 MPS (`convaiinnovations/laya`) |
+| **Laya Multilingual Zero-Shot (Dict)** | No training | 173/200 | **59.54%** [52.1%, 66.6%] | **53.50%** [46.6%, 60.3%] | 0.4012 | 143.0 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`) |
+| **Laya English Zero-Shot (List)** | No training | 173/200 | **48.55%** [41.2%, 56.0%] | **46.50%** [39.7%, 53.4%] | 0.4285 | 56.9 ms | Local Apple M2 MPS (`convaiinnovations/laya`) |
+| **Laya Multilingual Zero-Shot (List)** | No training | 173/200 | **48.55%** [41.2%, 56.0%] | **46.50%** [39.7%, 53.4%] | 0.4285 | 198.0 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`) |
+| **Untuned Legacy Rules Baseline** | No training | 173/200 | **20.81%** [15.4%, 27.5%] | **22.00%** [16.8%, 28.2%] | N/A | 0.07 ms | Local Apple M2 CPU (`src/rules.py`) |
 
-> **Like-for-Like Note:** Salesforce Einstein routed 173 cases and abstained on 27 (leaving them unrouted for human agent triage). Einstein's 27 unrouted cases are **not** counted as incorrect in the coverage-matched comparison; they represent deliberate abstentions.
+---
+
+### Table 2: Group-Held-Out Hard Benchmark (Zero Theme Overlap, 200 Test Cases)
+
+| System / Model | Training Status | Cases Routed | Routed Accuracy @ 86.5% Cov (173/200) | Overall Top-1 (All 200 Cases) | ECE | Measured Latency (Mean) | Hardware / Context |
+|---|---|:---:|:---:|:---:|:---:|:---:|---|
+| **Salesforce Einstein** | Trained on 800 closed cases | Pending | *Pending Sandbox Export* | *Pending Sandbox Export* | N/A | Unmeasured | Awaiting Pavan Sandbox Run (zero invented data) |
+| **Laya English Zero-Shot (Dict)** | No training | 173/200 | **52.02%** [44.6%, 59.3%] | **49.50%** [42.6%, 56.4%] | 0.4012 | 85.5 ms | Local Apple M2 MPS (`convaiinnovations/laya`) |
+| **Laya Multilingual Zero-Shot (Dict)** | No training | 173/200 | **52.02%** [44.6%, 59.3%] | **49.50%** [42.6%, 56.4%] | 0.4012 | 337.7 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`) |
+| **Trained Keyword Rules Baseline** | Tuned on 800 closed cases | 173/200 | **52.60%** [45.2%, 59.9%] | **48.50%** [41.7%, 55.4%] | 0.0535 | 0.05 ms | Local Apple M2 CPU (`src/rules_trained.py`, commit `40f18e9`) |
+| **Laya English Zero-Shot (List)** | No training | 173/200 | **51.45%** [44.0%, 58.8%] | **47.00%** [40.2%, 53.9%] | 0.4285 | 53.4 ms | Local Apple M2 MPS (`convaiinnovations/laya`) |
+| **Laya Multilingual Zero-Shot (List)** | No training | 173/200 | **51.45%** [44.0%, 58.8%] | **47.00%** [40.2%, 53.9%] | 0.4285 | 233.2 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`) |
+| **TF-IDF + MLP (Control Baseline)** | Trained on 800 closed cases | 173/200 | **32.37%** [25.8%, 39.7%] | **30.50%** [24.5%, 37.2%] | 0.1261 | 0.04 ms | Local Apple M2 CPU (collapsed: no memorized n-grams) |
+| **Untuned Legacy Rules Baseline** | No training | 173/200 | **25.43%** [19.5%, 32.4%] | **23.50%** [18.2%, 29.8%] | N/A | 0.07 ms | Local Apple M2 CPU (`src/rules.py`) |
+
+> **Plain English System Determination:**
+> - **vs. TF-IDF Control:** Laya Zero-Shot **lost** on the templated set (53.5% vs 99.0%), but **beat** TF-IDF on the hard set (49.5% vs 30.5% top-1, and 52.0% vs 32.4% routed).
+> - **vs. Einstein:** Laya Zero-Shot **lost** on the templated set (53.5% vs 86.0% overall; 59.5% vs 99.4% routed). Hard-set Einstein comparison is **pending sandbox export** from Pavan Chavali.
+> - **Laya English vs Multilingual:** Both models **tied** in zero-shot routing performance.
 
 ---
 
