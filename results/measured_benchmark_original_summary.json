@@ -1,0 +1,128 @@
+[
+  {
+    "model": "TF-IDF + MLP Baseline",
+    "total_cases": 200,
+    "overall_correct": 198,
+    "overall_accuracy": 0.99,
+    "overall_ci": [
+      0.9642782382838231,
+      0.9972533418664555
+    ],
+    "cases_routed": 173,
+    "coverage_pct": 0.865,
+    "routed_correct": 173,
+    "routed_accuracy": 1.0,
+    "routed_ci": [
+      0.9782773855954833,
+      0.9999999999999999
+    ]
+  },
+  {
+    "model": "Rules Baseline (src/rules.py)",
+    "total_cases": 200,
+    "overall_correct": 44,
+    "overall_accuracy": 0.22,
+    "overall_ci": [
+      0.16816538358833258,
+      0.28238799918293667
+    ],
+    "cases_routed": 173,
+    "coverage_pct": 0.865,
+    "routed_correct": 36,
+    "routed_accuracy": 0.20809248554913296,
+    "routed_ci": [
+      0.15426805877242536,
+      0.27459890108223456
+    ]
+  },
+  {
+    "model": "Laya English Zero-Shot (Dict)",
+    "total_cases": 200,
+    "overall_correct": 107,
+    "overall_accuracy": 0.535,
+    "overall_ci": [
+      0.4658664687236316,
+      0.6028143584299599
+    ],
+    "cases_routed": 173,
+    "coverage_pct": 0.865,
+    "routed_correct": 103,
+    "routed_accuracy": 0.5953757225433526,
+    "routed_ci": [
+      0.5209344049834946,
+      0.6656734200144877
+    ]
+  },
+  {
+    "model": "Laya English Zero-Shot (List)",
+    "total_cases": 200,
+    "overall_correct": 93,
+    "overall_accuracy": 0.465,
+    "overall_ci": [
+      0.3971856415700402,
+      0.5341335312763685
+    ],
+    "cases_routed": 173,
+    "coverage_pct": 0.865,
+    "routed_correct": 84,
+    "routed_accuracy": 0.48554913294797686,
+    "routed_ci": [
+      0.41220019091120136,
+      0.5595258962103162
+    ]
+  },
+  {
+    "model": "Laya Multilingual Zero-Shot (Dict)",
+    "total_cases": 200,
+    "overall_correct": 107,
+    "overall_accuracy": 0.535,
+    "overall_ci": [
+      0.4658664687236316,
+      0.6028143584299599
+    ],
+    "cases_routed": 173,
+    "coverage_pct": 0.865,
+    "routed_correct": 103,
+    "routed_accuracy": 0.5953757225433526,
+    "routed_ci": [
+      0.5209344049834946,
+      0.6656734200144877
+    ]
+  },
+  {
+    "model": "Laya Multilingual Zero-Shot (List)",
+    "total_cases": 200,
+    "overall_correct": 93,
+    "overall_accuracy": 0.465,
+    "overall_ci": [
+      0.3971856415700402,
+      0.5341335312763685
+    ],
+    "cases_routed": 173,
+    "coverage_pct": 0.865,
+    "routed_correct": 84,
+    "routed_accuracy": 0.48554913294797686,
+    "routed_ci": [
+      0.41220019091120136,
+      0.5595258962103162
+    ]
+  },
+  {
+    "model": "Salesforce Einstein Case Classification",
+    "total_cases": 200,
+    "overall_correct": 172,
+    "overall_accuracy": 0.86,
+    "overall_ci": [
+      0.8051011913429243,
+      0.9013301736654437
+    ],
+    "cases_routed": 173,
+    "coverage_pct": 0.865,
+    "routed_correct": 172,
+    "routed_accuracy": 0.9942196531791907,
+    "routed_ci": [
+      0.9679889233853399,
+      0.9989788970587502
+    ]
+  }
+]
