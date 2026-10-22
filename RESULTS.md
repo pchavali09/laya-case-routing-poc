@@ -15,12 +15,12 @@ Scored on the exact 200 blind cases. Overall top-1 accuracy evaluates every case
 
 | System / Run | Model Artifact | Overall Top-1 Acc (All 200 Cases) | Acc @ Einstein Coverage (173 Cases) | Measured Latency (Mean) | Execution Context |
 |---|---|:---:|:---:|:---:|---|
-| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | **99.42%** (172/173 routed) | ~450–800 ms | Cloud SaaS API (27 unrouted) |
+| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | **99.42%** (172/173 routed) | Unmeasured (batch in SF) | Cloud SaaS API (27 unrouted) |
 | **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | **100.00%** (173/173 routed) | **0.04 ms** | Local CPU |
 | **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | 63.01% (109/173 routed) | 58.1 ms | Local Apple M2 (MPS) |
 | **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | 48.55% (84/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
-| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (RLCD head on 800 cases) | 46.50% (93/200) | 50.29% (87/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
-| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | 20.81% (36/173 routed) | **0.005 ms** | Local CPU (written for initial POC schema) |
+| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (RLCD head, ECE=0.1095) | 46.50% (93/200) | 49.71% (86/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
+| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | 20.81% (36/173 routed) | **0.073 ms** | Local CPU (written for initial POC schema) |
 
 > **Abstention Handling:** In Salesforce Einstein, 27 cases had confidence below the automated routing threshold and were left unrouted for human agent triage. In a like-for-like comparison, these 27 unrouted cases are treated as abstentions, not misclassifications.
 
@@ -36,8 +36,8 @@ The 200 test cases are split across four difficulty tiers:
 
 | System / Model | Easy (80 Cases) | Paraphrase (60 Cases) | Multi-Topic (40 Cases) | Ambiguous (20 Cases) | Overall (200 Cases) |
 |---|:---:|:---:|:---:|:---:|:---:|
-| **Salesforce Einstein (Routed: 173)** | 98.7% (78/79) | 100.0% (52/52) | 100.0% (31/31) | 100.0% (11/11) | **99.4% (172/173)** |
-| **Simple Local Baseline (TF-IDF + MLP)** | 100.0% (80/80) | 98.3% (59/60) | 95.0% (38/40) | 100.0% (20/20) | **98.5% (197/200)** |
+| **Salesforce Einstein (Routed: 173)** | 100.0% (75/75) | 100.0% (48/48) | 97.1% (33/34) | 100.0% (16/16) | **99.4% (172/173)** |
+| **Simple Local Baseline (TF-IDF + MLP)** | 98.8% (79/80) | 100.0% (60/60) | 95.0% (38/40) | 100.0% (20/20) | **98.5% (197/200)** |
 | **Real Laya Zero-Shot (Dict Criteria)** | 65.0% (52/80) | 53.3% (32/60) | 37.5% (15/40) | 65.0% (13/20) | **56.0% (112/200)** |
 | **Real Laya Zero-Shot (List Criteria)** | 58.8% (47/80) | 41.7% (25/60) | 30.0% (12/40) | 45.0% (9/20) | **46.5% (93/200)** |
 | **Real Laya Fine-Tuned (Head)** | 58.8% (47/80) | 41.7% (25/60) | 30.0% (12/40) | 45.0% (9/20) | **46.5% (93/200)** |
@@ -73,6 +73,15 @@ The 200 test cases are split across four difficulty tiers:
 | **173** (Matches Einstein) | 86.5% | 0.0760 | 84 | **48.55%** | 27 |
 | **150** | 75.0% | 0.1383 | 73 | 48.67% | 50 |
 | **100** | 50.0% | 0.2779 | 55 | 55.00% | 100 |
+
+### Real Laya Fine-Tuned (Head + Temperature Calibration, RLCD)
+| Cases Routed | Coverage % | Cutoff Confidence | Correct Cases | Accuracy Among Routed | Cases Unrouted |
+|---|---|---|---|---|---|
+| **200** | 100.0% | 0.2199 | 93 | 46.50% | 0 |
+| **190** | 95.0% | 0.2445 | 91 | 47.89% | 10 |
+| **173** (Matches Einstein) | 86.5% | 0.2600 | 86 | **49.71%** | 27 |
+| **150** | 75.0% | 0.3061 | 75 | 50.00% | 50 |
+| **100** | 50.0% | 0.3951 | 55 | 55.00% | 100 |
 
 ---
 

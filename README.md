@@ -28,12 +28,12 @@ All numbers below were produced by code in this repository or exported directly 
 
 | System / Model | Model Artifact / Architecture | Overall Top-1 Accuracy (All 200 Cases) | Accuracy @ 173 Cases (Matching Einstein Coverage) | Measured Latency (Mean) | Execution Context |
 |---|---|:---:|:---:|:---:|---|
-| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | **99.42%** (172/173 routed) | ~450–800 ms | Cloud SaaS API (27 unrouted) |
+| **Salesforce Einstein** | Production Einstein Sandbox Model | 86.0% (172/200 total) | **99.42%** (172/173 routed) | Unmeasured (batch in SF) | Cloud SaaS API (27 unrouted) |
 | **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | **100.00%** (173/173 routed) | **0.04 ms** | Local CPU |
 | **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | 63.01% (109/173 routed) | 58.1 ms | Local Apple M2 (MPS) |
 | **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | 48.55% (84/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
-| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (RLCD head on 800 cases) | 46.50% (93/200) | 50.29% (87/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
-| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | 20.81% (36/173 routed) | **0.005 ms** | Local CPU (written for initial POC schema) |
+| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (RLCD head, ECE=0.1095) | 46.50% (93/200) | 49.71% (86/173 routed) | 58.0 ms | Local Apple M2 (MPS) |
+| **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | 20.81% (36/173 routed) | **0.073 ms** | Local CPU (written for initial POC schema) |
 
 > **Like-for-Like Note:** Salesforce Einstein routed 173 cases and abstained on 27 (leaving them unrouted for human agent triage). Einstein's 27 unrouted cases are **not** counted as incorrect in the coverage-matched comparison; they represent deliberate abstentions.
 

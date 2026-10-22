@@ -1,0 +1,262 @@
+{
+  "benchmark_dataset": "Salesforce Einstein 1,000-Case Closed Benchmark (800 train, 200 test)",
+  "test_size": 200,
+  "timestamp": "2026-10-22 15:09:12",
+  "hardware": "Apple M2 (MacBook Air), 8GB Unified Memory, MPS Backend",
+  "models": {
+    "laya_zero_shot_list": {
+      "name": "Real Laya Zero-Shot (Choice List)",
+      "top1_accuracy": 46.5,
+      "mean_latency_ms": 59.3,
+      "median_latency_ms": 58.0,
+      "artifact": "convaiinnovations/laya"
+    },
+    "laya_zero_shot_dict": {
+      "name": "Real Laya Zero-Shot (Descriptive Dict)",
+      "top1_accuracy": 56.0,
+      "mean_latency_ms": 77.5,
+      "median_latency_ms": 75.0,
+      "artifact": "convaiinnovations/laya"
+    },
+    "laya_finetuned": {
+      "name": "Real Laya Fine-Tuned (Head+Calibration)",
+      "top1_accuracy": 46.5,
+      "mean_latency_ms": 58.0,
+      "median_latency_ms": 58.0,
+      "training_time_s": 163.1,
+      "artifact": "convaiinnovations/laya (fine-tuned head, RLCD)"
+    },
+    "tfidf_mlp_baseline": {
+      "name": "Simple Local Baseline (TF-IDF + MLP)",
+      "top1_accuracy": 98.5,
+      "mean_latency_ms": 0.04,
+      "median_latency_ms": 0.03,
+      "training_time_s": 0.25,
+      "artifact": "Scikit-Learn TfidfVectorizer + PyTorch 2-layer MLP (hidden_dim=64)"
+    },
+    "rules_baseline": {
+      "name": "Heuristic Rules Baseline",
+      "top1_accuracy": 22.0,
+      "mean_latency_ms": 0.073,
+      "median_latency_ms": 0.07,
+      "dataset_written_for": "Initial 30-case synthetic POC keyword schema",
+      "artifact": "src/rules.py (regex keyword heuristics)"
+    },
+    "salesforce_einstein": {
+      "name": "Salesforce Einstein Case Classification (Production Sandbox)",
+      "total_cases": 200,
+      "cases_routed": 173,
+      "coverage_pct": 86.5,
+      "cases_unrouted": 27,
+      "correct_among_routed": 172,
+      "accuracy_among_routed": 99.42,
+      "overall_accuracy_with_abstentions": 86.0,
+      "difficulty_breakdown": {
+        "ambiguous": {
+          "total": 20.0,
+          "routed": 16.0,
+          "correct": 16.0,
+          "accuracy_routed": 100.0
+        },
+        "easy": {
+          "total": 80.0,
+          "routed": 75.0,
+          "correct": 75.0,
+          "accuracy_routed": 100.0
+        },
+        "multi_topic": {
+          "total": 40.0,
+          "routed": 34.0,
+          "correct": 33.0,
+          "accuracy_routed": 97.05882352941177
+        },
+        "paraphrase": {
+          "total": 60.0,
+          "routed": 48.0,
+          "correct": 48.0,
+          "accuracy_routed": 100.0
+        }
+      }
+    }
+  },
+  "coverage_curves": {
+    "laya_zero_shot_list": [
+      {
+        "cases_routed": 200,
+        "coverage_pct": 100.0,
+        "threshold": 0.0062,
+        "correct": 93,
+        "accuracy_among_routed": 46.5,
+        "cases_unrouted": 0
+      },
+      {
+        "cases_routed": 190,
+        "coverage_pct": 95.0,
+        "threshold": 0.0389,
+        "correct": 91,
+        "accuracy_among_routed": 47.89,
+        "cases_unrouted": 10
+      },
+      {
+        "cases_routed": 173,
+        "coverage_pct": 86.5,
+        "threshold": 0.076,
+        "correct": 84,
+        "accuracy_among_routed": 48.55,
+        "cases_unrouted": 27
+      },
+      {
+        "cases_routed": 150,
+        "coverage_pct": 75.0,
+        "threshold": 0.1383,
+        "correct": 73,
+        "accuracy_among_routed": 48.67,
+        "cases_unrouted": 50
+      },
+      {
+        "cases_routed": 100,
+        "coverage_pct": 50.0,
+        "threshold": 0.2779,
+        "correct": 55,
+        "accuracy_among_routed": 55.0,
+        "cases_unrouted": 100
+      }
+    ],
+    "laya_zero_shot_dict": [
+      {
+        "cases_routed": 200,
+        "coverage_pct": 100.0,
+        "threshold": 0.0079,
+        "correct": 112,
+        "accuracy_among_routed": 56.0,
+        "cases_unrouted": 0
+      },
+      {
+        "cases_routed": 190,
+        "coverage_pct": 95.0,
+        "threshold": 0.022,
+        "correct": 111,
+        "accuracy_among_routed": 58.42,
+        "cases_unrouted": 10
+      },
+      {
+        "cases_routed": 173,
+        "coverage_pct": 86.5,
+        "threshold": 0.0432,
+        "correct": 109,
+        "accuracy_among_routed": 63.01,
+        "cases_unrouted": 27
+      },
+      {
+        "cases_routed": 150,
+        "coverage_pct": 75.0,
+        "threshold": 0.0758,
+        "correct": 99,
+        "accuracy_among_routed": 66.0,
+        "cases_unrouted": 50
+      },
+      {
+        "cases_routed": 100,
+        "coverage_pct": 50.0,
+        "threshold": 0.2225,
+        "correct": 71,
+        "accuracy_among_routed": 71.0,
+        "cases_unrouted": 100
+      }
+    ],
+    "laya_finetuned": [
+      {
+        "cases_routed": 200,
+        "coverage_pct": 100.0,
+        "threshold": 0.2199,
+        "correct": 93,
+        "accuracy_among_routed": 46.5,
+        "cases_unrouted": 0
+      },
+      {
+        "cases_routed": 190,
+        "coverage_pct": 95.0,
+        "threshold": 0.2445,
+        "correct": 91,
+        "accuracy_among_routed": 47.89,
+        "cases_unrouted": 10
+      },
+      {
+        "cases_routed": 173,
+        "coverage_pct": 86.5,
+        "threshold": 0.26,
+        "correct": 86,
+        "accuracy_among_routed": 49.71,
+        "cases_unrouted": 27
+      },
+      {
+        "cases_routed": 150,
+        "coverage_pct": 75.0,
+        "threshold": 0.3061,
+        "correct": 75,
+        "accuracy_among_routed": 50.0,
+        "cases_unrouted": 50
+      },
+      {
+        "cases_routed": 100,
+        "coverage_pct": 50.0,
+        "threshold": 0.3951,
+        "correct": 55,
+        "accuracy_among_routed": 55.0,
+        "cases_unrouted": 100
+      }
+    ],
+    "tfidf_mlp_baseline": [
+      {
+        "cases_routed": 200,
+        "coverage_pct": 100.0,
+        "threshold": 0.2123,
+        "correct": 197,
+        "accuracy_among_routed": 98.5,
+        "cases_unrouted": 0
+      },
+      {
+        "cases_routed": 190,
+        "coverage_pct": 95.0,
+        "threshold": 0.2386,
+        "correct": 189,
+        "accuracy_among_routed": 99.47,
+        "cases_unrouted": 10
+      },
+      {
+        "cases_routed": 173,
+        "coverage_pct": 86.5,
+        "threshold": 0.252,
+        "correct": 173,
+        "accuracy_among_routed": 100.0,
+        "cases_unrouted": 27
+      },
+      {
+        "cases_routed": 150,
+        "coverage_pct": 75.0,
+        "threshold": 0.2658,
+        "correct": 150,
+        "accuracy_among_routed": 100.0,
+        "cases_unrouted": 50
+      },
+      {
+        "cases_routed": 100,
+        "coverage_pct": 50.0,
+        "threshold": 0.2888,
+        "correct": 100,
+        "accuracy_among_routed": 100.0,
+        "cases_unrouted": 100
+      }
+    ],
+    "rules_baseline": [
+      {
+        "cases_routed": 200,
+        "coverage_pct": 100.0,
+        "threshold": "N/A (uncalibrated rules)",
+        "correct": 44,
+        "accuracy_among_routed": 22.0,
+        "cases_unrouted": 0
+      }
+    ]
+  }
+}
