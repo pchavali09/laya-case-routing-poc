@@ -135,6 +135,7 @@ Because Laya's softmax confidences saturate near 1.0 (mean max prob > 0.98), fix
    - Einstein trained on Hard 800 and evaluated on the Original 200 test set was **not run**.
 2. **Critical Dataset Caveat: Lexical Diversity in `train_closed.csv`:**
    - Although the training set contains 800 nominal cases (20 themes $\times$ 40 cases), masking all digit tokens (ticket IDs, batch codes, instance indices) reveals **only 132 unique descriptions** across the entire 800 cases.
-   - This synthetic redundancy explains why deep transformer fine-tuning converges rapidly to near 100% on the in-distribution held-out validation and hard test sets, but drops to 45.5% when transferred out-of-domain to the original benchmark test set.
+   - This synthetic redundancy likely explains why deep transformer fine-tuning converges rapidly to near 100% on the in-distribution held-out validation and hard test sets, while transferring at 45.5% out-of-domain to the original benchmark test set, which suggests that fine-tuning was specialized to the training distribution's vocabulary.
+
 
 

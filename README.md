@@ -11,11 +11,11 @@
 
 > [!WARNING]
 > **Read Before Interpreting Results:**
-> 1. **Synthetic Templated Dataset**: The 1,000 cases were generated from hand-authored department templates. Because training (`train_closed.csv`, 800 cases) and test (`test_blind.csv`, 200 cases) share underlying sentence templates and vocabulary, surface n-gram methods (TF-IDF) achieve artificial 98.5% accuracy.
-> 2. **Head-Only Fine-Tuning**: Due to Apple Silicon M2 MPS memory constraints (8GB unified memory), Laya's 421M-parameter encoder was kept frozen (`freeze_encoder=True`). Only the linear routing head and temperature scaling were trained. Full backpropagation through the transformer encoder was not performed locally.
+> 1. **Dual Dataset Design (Templated & Group-Held-Out)**: The benchmark evaluates across two distinct datasets: the Original 1,000-case templated benchmark (where train and test share sentence templates, allowing surface n-gram methods like TF-IDF to score 98.50%) and the Group-Held-Out Hard Benchmark (where 10 novel themes are held out with 0 theme overlap, causing TF-IDF to collapse to 30.50%).
+> 2. **Full GPU Fine-Tuning Pipeline**: Beyond initial local head-only calibration on Apple Silicon, full transformer encoder fine-tuning of Laya's 421M-parameter ModernBERT-large backbone was conducted on a Google Colab Tesla T4 GPU (`micro_batch=4, grad_accum=16`, effective batch size 64) across 3 distinct seeds (`[2026, 2027, 2028]`), measuring both in-distribution performance and out-of-domain transfer.
 > 3. **Unmeasured Einstein Latency**: Salesforce Einstein Case Classification ran asynchronously via batch Case creation inside the Salesforce Sandbox org. Per-case inference latency was not measured; any previous estimates of ~450–800 ms were unmeasured network roundtrip estimates and have been purged.
 > 4. **Test Set Scale & Confidence Intervals**: The evaluation set consists of 200 blind cases. All accuracy metrics include Wilson 95% score confidence intervals to reflect statistical uncertainty given this sample size.
-> 5. **Scope of Conclusions**: Findings in this repository apply strictly to **zero-shot and head-only fine-tuned Laya on a templated synthetic dataset**, and should not be generalized to full-model fine-tunes or wild customer support distributions.
+> 5. **Scope of Conclusions**: Findings in this repository apply to **zero-shot, head-only calibrated, and full GPU encoder fine-tuned Laya evaluated against classical baselines and Salesforce Einstein** across the documented synthetic benchmarks. Results should be interpreted alongside the training set lexical diversity constraints (~132 unique masked descriptions) rather than generalized uncritically to arbitrary production CRM distributions.
 
 ---
 
@@ -69,9 +69,10 @@ All figures below are dynamically produced by code in this repository or exporte
 
 > **Plain English System Determination:**
 > - **Laya Full GPU Fine-Tuned vs. Zero-Shot:** Full transformer encoder fine-tuning on a GPU elevated Laya's accuracy on the hard benchmark from 46.0%–54.0% (zero-shot) to **98.67% ± 1.25%** overall and **99.83%** with confidence gating ($\tau \ge 0.90$).
-> - **vs. Einstein Sandbox Model:** On the hard test set, retrained Salesforce Einstein routed 147 cases exclusively to `Billing`, achieving **27.21% routed accuracy** (40/147) and **20.00% overall accuracy** (40/200), with 53 cases unrouted. Laya GPU Fine-Tuned strongly outperformed Einstein on this benchmark.
-> - **Dataset Caveat (132 Unique Descriptions):** The 800 training cases contain only **~132 unique descriptions** after masking digits (~20 themes $\times$ ~40 near-copies). While deep transformer fine-tuning excels at learning these thematic patterns (yielding ~98.7% on the hard test set), it transferred at **45.50%** onto the original templated test set, demonstrating that fine-tuning was specialized to the training distribution's vocabulary.
-> - **vs. TF-IDF Control:** Laya Zero-Shot (**46.0%–54.0%**) and Fine-Tuned (**98.67%**) both beat TF-IDF (**30.50%**) on the hard benchmark, confirming that semantic embeddings generalize far better than surface n-gram memorization.
+> - **vs. Einstein Sandbox Model:** On the hard test set, with this training data, retrained Salesforce Einstein routed 147 cases exclusively to `Billing`, achieving **27.21% routed accuracy** (40/147) and **20.00% overall accuracy** (40/200), with 53 cases unrouted. On the hard test set, with this training data, Laya GPU Fine-Tuned strongly outperformed Einstein.
+> - **Dataset Caveat (132 Unique Descriptions):** The 800 training cases contain only **~132 unique descriptions** after masking digits (~20 themes $\times$ ~40 near-copies). While deep transformer fine-tuning excels at learning these thematic patterns (yielding ~98.7% on the hard test set), it transferred at **45.50%** onto the original templated test set; this synthetic redundancy likely explains the high in-distribution score and suggests that fine-tuning was specialized to the training distribution's vocabulary.
+> - **vs. TF-IDF Control:** On the hard benchmark test set, Laya Zero-Shot (**46.0%–54.0%**) and Fine-Tuned (**98.67%**) both beat TF-IDF (**30.50%**), scoped strictly to this held-out test distribution. On the original test set, TF-IDF trained on the hard 800 scored **42.00%** versus Laya Fine-Tuned's **45.50%** average (and **56.00%** for Laya zero-shot dict criteria).
+
 
 
 ---
@@ -108,13 +109,20 @@ By varying the confidence threshold ($\tau$), each model can trade off automatio
 
 ---
 
-## Architectural Findings: Did Real Laya Win?
+## Architectural Findings: Dual Benchmark Synthesis
 
-> **Scoped Conclusion:** Evaluated strictly as **zero-shot and head-only fine-tuned Laya on a templated synthetic dataset**:
+> **Scoped Conclusion:** Evaluated across the **Original Templated Benchmark** and the **Group-Held-Out Hard Benchmark**:
 
-1. **Comparison vs. Einstein**: Real Laya **lost** to Salesforce Einstein. Einstein achieved 99.42% accuracy among routed cases (172/173), whereas Laya achieved 48.5% to 63.0% at the same 173-case coverage level.
-2. **Comparison vs. Simple Local Baseline**: Real Laya **lost** to the TF-IDF + MLP baseline. The lightweight TF-IDF model achieved 98.50% overall top-1 accuracy and 100.0% accuracy at 173-case coverage in 0.04ms latency, directly leveraging the synthetic n-gram overlap between train and test templates.
-3. **Fine-Tuning Behavior**: Fine-tuning Laya's classification head with frozen encoder weights improved probability calibration (ECE dropped from 0.1533 to 0.1095 and multi-class Brier score dropped from 0.7050 to 0.6899), but top-1 accuracy remained at 46.50%. Full encoder fine-tuning requires discrete GPU acceleration and was not tested in this run.
+1. **Comparison vs. Einstein**:
+   - On the original templated set, Salesforce Einstein achieved **99.42%** accuracy among routed cases (172/173) and **86.00%** overall top-1 accuracy, outperforming Laya Zero-Shot (56.00% dict / 46.50% list).
+   - On the hard test set, with this training data, retrained Salesforce Einstein routed 147 cases exclusively to `Billing` (**27.21% routed accuracy**, **20.00% overall accuracy**), whereas Laya Full GPU Fine-Tuned achieved **98.67% ± 1.25%** overall and **99.83%** routed accuracy with confidence gating ($\tau \ge 0.90$).
+2. **Comparison vs. Simple Local Baseline (TF-IDF)**:
+   - On the original templated set, TF-IDF achieved **98.50%** overall accuracy due to synthetic template overlap.
+   - On the hard test set, TF-IDF collapsed to **30.50%**, while Laya Zero-Shot achieved **46.0%–54.0%** and Laya Fine-Tuned achieved **98.67%**, scoped strictly to this held-out test distribution.
+   - When trained on the hard 800 and evaluated on the original set, TF-IDF scored **42.00%** versus Laya Fine-Tuned's **45.50%** average.
+3. **Fine-Tuning & Generalization Behavior**:
+   - Full transformer encoder fine-tuning on a GPU elevated Laya's accuracy on the hard benchmark from 46.0%–54.0% (zero-shot) to **98.67% ± 1.25%** across 3 seeds.
+   - However, transferring this fine-tuned model onto the original templated set yielded **45.50% ± 8.13%**. The training set contains only ~132 unique descriptions after masking digits, which likely explains why the transformer mastered the 20 training themes and suggests specialization to the training distribution's vocabulary.
 
 ---
 
