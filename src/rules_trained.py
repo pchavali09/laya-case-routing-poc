@@ -1,60 +1,61 @@
 """
-Keyword Rules Baseline: Tuned from 800 Training Cases (train_closed.csv ONLY)
+Keyword Rules Baseline: Trained on 800 Training Cases (train_closed.csv ONLY)
 =============================================================================
-Methodology & Data Leakage Prevention:
--------------------------------------
-1. This rule set was authored strictly by analyzing `data/einstein_benchmark/train_closed.csv` (800 cases).
+Methodology & Strict Data Leakage Prevention:
+---------------------------------------------
+1. This rule set was authored strictly by analyzing `data/einstein_hard_benchmark/train_closed.csv` (800 cases).
 2. Neither test set (`data/einstein_benchmark/test_blind.csv` nor `data/einstein_hard_benchmark/test_blind.csv`)
-   was ever inspected, queried, or referenced during authoring.
-3. Feature engineering based on top discriminative n-grams per department in train_closed.csv:
-   - Billing: 'invoice', 'credit', 'payment', 'charge', 'statement', 'dollars', 'card', 'vat', 'drawdown', 'balance'
-   - Technical: 'api', 'database', 'replica', 'cluster', 'endpoint', 'error', 'timeout', 'health check', 'crash'
-   - Sales: 'enterprise', 'procurement', 'licensing', 'discount', 'contract renewal', 'demo', 'seats', 'quote'
-   - Operations: 'warehouse', 'freight', 'shipment', 'facilities', 'badge', 'hvac', 'pallet', 'cleanroom', 'dock'
-   - Other: 'dmca', 'copyright', 'privacy', 'gdpr', 'ccpa', 'inquiry', 'community', 'interview', 'panel', 'recruiting'
+   was ever inspected, queried, or referenced during rule authoring.
+3. Feature engineering based on top discriminative n-grams per department across the 20 training themes:
+   - Billing: tax exemption/VAT, invoice line items, gateway/ACH failures, license seat proration
+   - Technical: API 500/payload errors, SSO/SAML auth, DB latency/pool exhaustion, container/pod crashes
+   - Sales: prepay discounts/volume quotes, product demos/walkthroughs, contract renewals, partner/reseller agreements
+   - Operations: facilities/HVAC controls, hardware asset tagging/docking, RFID badges, office moves/desks
+   - Other: DMCA/copyright notices, GDPR/CCPA data privacy/erasure, marketing unsubscribes, recruiting/employment
 """
 
 import re
-from typing import Tuple, Optional
+from typing import Tuple
 
 def classify_case_trained_rules(subject: str, body: str) -> Tuple[str, float, str]:
     """
-    Classifies a case based on keywords extracted from the 800 training cases.
+    Classifies a support case based on keywords extracted strictly from
+    data/einstein_hard_benchmark/train_closed.csv (800 cases).
     Returns: (predicted_department, confidence, rule_name)
     """
     text = f"{subject} {body}".lower()
 
-    # Rule 1: High-confidence Billing terms from train_closed.csv
-    if re.search(r"\b(invoice|credit memo|payment failure|card declined|vat number|drawdown account|overcharged|wire transfer|remittance|refund|billing statement|pro-rata|proration)\b", text):
+    # Tier 1: High-confidence primary discriminative patterns from the 20 training themes
+    if re.search(r"\b(invoice|itemized.*receipt|accounting ledger|tax residency|w-9 form|withholding tax|vat compliance|gateway.*failure|ach payment|credit memo|proration|billing statement|direct debit|chargeback|wire transfer|remittance|refund)\b", text):
         return "Billing", 0.90, "RULE_TRAINED_BILLING_PRIMARY"
 
-    # Rule 2: High-confidence Technical terms from train_closed.csv
-    if re.search(r"\b(rest api|replica database|connection pool|500 internal|timeout|crashloopbackoff|docker|kubernetes|oomkilled|health check probe|stack trace|nullpointer|endpoint error)\b", text):
+    if re.search(r"\b(json payload|api gateway|saml assertion|sso.*login|500 internal|endpoint dispatch|connection pool|database.*latency|kubernetes|crash loop backoff|worker deployment|stack trace|oomkilled|fatal error|unhandled exception)\b", text):
         return "Technical", 0.90, "RULE_TRAINED_TECH_PRIMARY"
 
-    # Rule 3: High-confidence Operations terms from train_closed.csv
-    if re.search(r"\b(damaged server chassis|freight delivery|keycard reader|cleanroom access|warehouse|crushed diagnostic|ventilation fan|security pre clearance|hvac|asset tagging|pallet)\b", text):
+    if re.search(r"\b(server room hvac|temperature alarm|docking station|rfid.*badge|security badge|thermostat calibration|ergonomic chair|standing desk|desk reconfiguration|office move|asset tagging|cleanroom|pallet|freight delivery)\b", text):
         return "Operations", 0.90, "RULE_TRAINED_OPS_PRIMARY"
 
-    # Rule 4: High-confidence Other terms from train_closed.csv (legal, privacy, recruiting, PR)
-    if re.search(r"\b(gdpr|ccpa|dmca copyright|trademark infringement|personal data portability|erasure request|panel discussion|lost property|moderation inquiry|press release|employment verification)\b", text):
+    if re.search(r"\b(dmca copyright|takedown notification|ccpa personal|data erasure|gdpr article|press release|executive interview|job applicant|employment verification|unsubscribe|promotional email|trademark infringement)\b", text):
         return "Other", 0.90, "RULE_TRAINED_OTHER_PRIMARY"
 
-    # Rule 5: High-confidence Sales terms from train_closed.csv
-    if re.search(r"\b(contract renewal|volume discount|tier pricing|reseller agreement|product demo|trial account|commercial framework|procurement committee|quote for self hosted|enterprise licensing)\b", text):
+    if re.search(r"\b(prepay discount|enterprise licensing|product demo|technical walkthrough|contract renewal|trial account|channel partner|commission agreement|volume quote|pricing schedule|poc evaluation|tier pricing)\b", text):
         return "Sales", 0.90, "RULE_TRAINED_SALES_PRIMARY"
 
-    # Secondary / Broader patterns from train set
-    if re.search(r"\b(dollars|banking|clearing house|charges|dispute|debit)\b", text):
+    # Tier 2: Secondary broader vocabulary from train_closed.csv
+    if re.search(r"\b(tax|vat|invoice|receipt|payment|charge|billing|ledger)\b", text):
         return "Billing", 0.70, "RULE_TRAINED_BILLING_SECONDARY"
-    if re.search(r"\b(latency|query|logs|sync lag|bug|unhandled)\b", text):
+
+    if re.search(r"\b(api|saml|sso|database|pod|kubernetes|crash|error|latency)\b", text):
         return "Technical", 0.70, "RULE_TRAINED_TECH_SECONDARY"
-    if re.search(r"\b(procurement|quote|pricing|seats|upgrade|proposal)\b", text):
+
+    if re.search(r"\b(licensing|renewal|demo|quote|pricing|reseller|partner|discount)\b", text):
         return "Sales", 0.70, "RULE_TRAINED_SALES_SECONDARY"
-    if re.search(r"\b(facilities|courier|air freight|shipping|logistics|badge)\b", text):
+
+    if re.search(r"\b(hvac|badge|inventory|facilities|thermostat|desk|docking|warehouse)\b", text):
         return "Operations", 0.70, "RULE_TRAINED_OPS_SECONDARY"
-    if re.search(r"\b(legal|privacy|charity|donation|conference sponsorship|symposium)\b", text):
+
+    if re.search(r"\b(dmca|copyright|gdpr|ccpa|press|applicant|interview|unsubscribe|takedown|legal)\b", text):
         return "Other", 0.70, "RULE_TRAINED_OTHER_SECONDARY"
 
-    # Default fallback
+    # Tier 3: Low-confidence default fallback
     return "Other", 0.20, "RULE_TRAINED_DEFAULT_FALLBACK"
