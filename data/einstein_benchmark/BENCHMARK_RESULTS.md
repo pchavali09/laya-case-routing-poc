@@ -22,7 +22,8 @@ This document records the official measured results on the 1,000-case Einstein b
 | **Simple Local Baseline** | TF-IDF (5k n-grams) + 2-layer MLP (hidden=64) | **98.50%** (197/200) | [95.7%, 99.5%] | **100.00%** (173/173 routed) | [97.8%, 100.0%] | **0.04 ms** | **Tied / Exceeded Einstein** (n-gram overlap) |
 | **Real Laya Zero-Shot (Dict)** | `convaiinnovations/laya` (Descriptive Criteria) | 56.00% (112/200) | [49.1%, 62.7%] | 63.01% (109/173 routed) | [55.6%, 69.8%] | 58.1 ms | **Lost to Einstein & TF-IDF** |
 | **Real Laya Zero-Shot (List)** | `convaiinnovations/laya` (Choice Labels only) | 46.50% (93/200) | [39.7%, 53.4%] | 48.55% (84/173 routed) | [41.2%, 56.0%] | 58.0 ms | **Lost to Einstein & TF-IDF** |
-| **Real Laya Fine-Tuned** | `convaiinnovations/laya` (Head-only RLCD, ECE=0.1095) | 46.50% (93/200) | [39.7%, 53.4%] | 49.71% (86/173 routed) | [42.3%, 57.1%] | 58.0 ms | **Lost to Einstein & TF-IDF** |
+| **Real Laya Fine-Tuned (Head-Only)** | `convaiinnovations/laya` (Head-only RLCD, ECE=0.1095) | 46.50% (93/200) | [39.7%, 53.4%] | 49.71% (86/173 routed) | [42.3%, 57.1%] | 58.0 ms | **Lost to Einstein & TF-IDF** |
+| **Real Laya Full GPU Fine-Tuned** | ModernBERT-large backbone (Option A Hard 800 train, 3 seeds) | **45.50% ± 8.13%**<br><sub>(51.0%, 51.5%, 34.0%)</sub> | [38.8%, 52.4%] | **46.07%** (conf ≥ 0.99)<br><sub>**45.75%** (conf ≥ 0.90)</sub> | [39.4%, 52.8%] | 39.5 ms (T4) | **Out-of-Domain Transfer** (trained on Hard 800) |
 | **Heuristic Rules Baseline** | Regex keyword rules (`src/rules.py`) | 22.00% (44/200) | [16.8%, 28.2%] | 20.81% (36/173 routed) | [15.4%, 27.5%] | **0.073 ms** | **Lost (Keyword mismatch)** |
 
 ---

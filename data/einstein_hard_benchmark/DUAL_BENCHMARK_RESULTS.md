@@ -16,13 +16,13 @@ For every trained system, performance is presented across the 2x2 grid of traini
 
 All values are empirically measured from repository code and committed prediction artifacts. Unmeasured / pending cells remain unfilled.
 
-| Trained System | Training Set | Test: Original 200 (Overall Top-1) | Test: Original 200 (Routed @173) | Test: Hard 200 (Overall Top-1) | Test: Hard 200 (Routed @173) |
+| Trained System | Training Set | Test: Original 200 (Overall Top-1) | Test: Original 200 (Routed) | Test: Hard 200 (Overall Top-1) | Test: Hard 200 (Routed) |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| **Salesforce Einstein Case Classification** | **Original 800** | **86.00%** (172/200)<br><sub>[80.5%, 90.1%]</sub> | **99.42%** (172/173)<br><sub>[96.8%, 99.9%]</sub> | — | — |
-| | **Hard 800** | — | — | **trained on hard 800 (pending)** | **trained on hard 800 (pending)** |
-| **Trained Keyword Rules Baseline**<br><sub>(Frozen commit `ff8b315`)</sub> | **Hard 800** | **55.50%** (111/200)<br><sub>[48.6%, 62.2%]</sub> | **60.12%** (104/173)<br><sub>[52.7%, 67.1%]</sub> | **41.00%** (82/200)<br><sub>[34.4%, 47.9%]</sub> | **43.93%** (76/173)<br><sub>[36.8%, 51.4%]</sub> |
-| **TF-IDF + MLP Baseline** | **Hard 800** | **42.00%** (84/200)<br><sub>[35.4%, 48.9%]</sub> | **43.35%** (75/173)<br><sub>[36.2%, 50.8%]</sub> | **30.50%** (61/200)<br><sub>[24.5%, 37.3%]</sub> | **32.37%** (56/173)<br><sub>[25.8%, 39.7%]</sub> |
-| **Laya Full GPU Fine-Tuned (ModernBERT-large)** | **Hard 800** | pending Colab run | pending Colab run | pending Colab run | pending Colab run |
+| **Salesforce Einstein Case Classification** | **Original 800** | **86.00%** (172/200)<br><sub>[80.5%, 90.1%]</sub> | **99.42%** (172/173 @173)<br><sub>[96.8%, 99.9%]</sub> | — | — |
+| | **Hard 800** | Not run | Not run | **20.00%** (40/200)<br><sub>[15.0%, 26.1%]</sub> | **27.21%** (40/147 @ conf≥90)<br><sub>[20.7%, 34.9%]</sub> |
+| **Trained Keyword Rules Baseline**<br><sub>(Frozen commit `ff8b315`)</sub> | **Hard 800** | **55.50%** (111/200)<br><sub>[48.6%, 62.2%]</sub> | **60.12%** (104/173 @173)<br><sub>[52.7%, 67.1%]</sub> | **41.00%** (82/200)<br><sub>[34.4%, 47.9%]</sub> | **43.93%** (76/173 @173)<br><sub>[36.8%, 51.4%]</sub> |
+| **TF-IDF + MLP Baseline** | **Hard 800** | **42.00%** (84/200)<br><sub>[35.4%, 48.9%]</sub> | **43.35%** (75/173 @173)<br><sub>[36.2%, 50.8%]</sub> | **30.50%** (61/200)<br><sub>[24.5%, 37.3%]</sub> | **32.37%** (56/173 @173)<br><sub>[25.8%, 39.7%]</sub> |
+| **Laya Full GPU Fine-Tuned (ModernBERT-large)**<br><sub>(Mean across 3 seeds: 2026, 2027, 2028)</sub> | **Hard 800** | **45.50% ± 8.13%**<br><sub>(51.0%, 51.5%, 34.0%)</sub> | **46.07%** (conf ≥ 0.99)<br><sub>**45.75%** (conf ≥ 0.90)</sub> | **98.67% ± 1.25%**<br><sub>(97.0%, 100.0%, 99.0%)</sub> | **99.83%** (conf ≥ 0.99)<br><sub>**99.83%** (conf ≥ 0.90)</sub> |
 
 ---
 
@@ -106,4 +106,35 @@ The following systems undergo zero training. Both test sets are evaluated out-of
     - **Ground Truth:** `Other` (difficulty: `easy`)
     - At 40 epochs, the strong vocabulary weights on "broken code examples... JavaScript SDK" caused the model to predict `Technical`.
     - By 50 epochs, AdamW gradient descent converged further; the negative gradients on misclassified loss shifted the winning logit to `Other`, correctly classifying the case.
+
+### 7. Laya Full GPU Fine-Tuning Multi-Seed Empirical Results
+Fine-tuning ran on a Google Colab Tesla T4 GPU (`micro_batch=4, grad_accum=16`, effective batch size 64, lr 2.5e-5/1e-4, full encoder unfreezing) across 3 distinct seeds (`[2026, 2027, 2028]`).
+
+Because Laya's softmax confidences saturate near 1.0 (mean max prob > 0.98), fixed rank cuts (such as "routed at 173") create arbitrary tie-breaking. Real-world deployments gate on explicit confidence thresholds ($\tau \ge 0.99$ and $\tau \ge 0.90$):
+
+| Seed | Eval Set | Overall Top-1 Acc | Wilson 95% CI | ECE | Routed @ conf ≥ 0.99 (Cases, Accuracy) | Routed @ conf ≥ 0.90 (Cases, Accuracy) | Differing Tensors |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **2026** | **Hard 200** | **97.00%** (194/200) | [93.6%, 98.6%] | 0.0167 | 192/193 = **99.48%** (96.5% cov) | 192/193 = **99.48%** (96.5% cov) | 200/206 |
+| **2027** | **Hard 200** | **100.00%** (200/200) | [98.1%, 100.0%] | 0.0119 | 194/194 = **100.00%** (97.0% cov) | 194/194 = **100.00%** (97.0% cov) | 200/206 |
+| **2028** | **Hard 200** | **99.00%** (198/200) | [96.4%, 99.7%] | 0.0894 | 105/105 = **100.00%** (52.5% cov) | 124/124 = **100.00%** (62.0% cov) | 200/206 |
+| **Mean** | **Hard 200** | **98.67% ± 1.25%** | — | **0.0393** | **99.83%** (mean cov 82.0%) | **99.83%** (mean cov 85.2%) | — |
+| **2026** | **Orig 200** | **51.00%** (102/200) | [44.1%, 57.8%] | 0.4148 | 76/140 = **54.29%** (70.0% cov) | 79/147 = **53.74%** (73.5% cov) | 200/206 |
+| **2027** | **Orig 200** | **51.50%** (103/200) | [44.6%, 58.3%] | 0.4572 | 63/119 = **52.94%** (59.5% cov) | 67/126 = **53.17%** (63.0% cov) | 200/206 |
+| **2028** | **Orig 200** | **34.00%** (68/200) | [27.8%, 40.8%] | 0.5652 | 44/142 = **30.99%** (71.0% cov) | 44/145 = **30.34%** (72.5% cov) | 200/206 |
+| **Mean** | **Orig 200** | **45.50% ± 8.13%** | — | **0.4791** | **46.07%** (mean cov 66.8%) | **45.75%** (mean cov 69.7%) | — |
+
+### 8. Salesforce Einstein Sandbox Hard Run & Dataset Caveat
+1. **Empirical Results from Sandbox Export (`data/einstein_hard_benchmark/einstein_hard_raw_export.csv`):**
+   - Retrained on 800 hard closed cases (`train_salesforce_import.csv`, 160 per department).
+   - Setup: `Automate Value = On`, confidence threshold = 90.
+   - Tested on 200 hard cases (`test_salesforce_import.csv`).
+   - Results: **147 cases routed** (73.5% coverage), **53 cases unrouted** (26.5% abstained).
+   - All 147 routed predictions were assigned to `Billing`. Since there are 40 true Billing cases, exactly 40 were correct:
+     - **Routed Accuracy:** **27.21%** (40/147) [20.7%, 34.9%]
+     - **Overall Accuracy:** **20.00%** (40/200) [15.0%, 26.1%]
+   - Einstein trained on Hard 800 and evaluated on the Original 200 test set was **not run**.
+2. **Critical Dataset Caveat: Lexical Diversity in `train_closed.csv`:**
+   - Although the training set contains 800 nominal cases (20 themes $\times$ 40 cases), masking all digit tokens (ticket IDs, batch codes, instance indices) reveals **only 132 unique descriptions** across the entire 800 cases.
+   - This synthetic redundancy explains why deep transformer fine-tuning converges rapidly to near 100% on the in-distribution held-out validation and hard test sets, but drops to 45.5% when transferred out-of-domain to the original benchmark test set.
+
 

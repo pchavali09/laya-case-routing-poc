@@ -1,0 +1,127 @@
+{
+  "gpu_device": "Tesla T4",
+  "gpu_vram_gb": 14.56,
+  "laya_version": "0.4.13",
+  "training_data": "data/einstein_hard_benchmark/train_closed.csv",
+  "micro_batch": 4,
+  "grad_accum": 16,
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "freeze_encoder": false,
+  "runs": [
+    {
+      "seed": 2026,
+      "training_time_s": 167.39,
+      "differing_weight_tensors": 200,
+      "original_set": {
+        "overall_correct": 102,
+        "overall_accuracy": 0.51,
+        "overall_ci": [
+          0.44118587678458643,
+          0.5784372166878682
+        ],
+        "cases_routed": 173,
+        "routed_correct": 93,
+        "routed_accuracy": 0.5375722543352601,
+        "routed_ci": [
+          0.4632669414600451,
+          0.6102452320240085
+        ],
+        "ece": 0.4148
+      },
+      "hard_set": {
+        "overall_correct": 194,
+        "overall_accuracy": 0.97,
+        "overall_ci": [
+          0.9361057075454807,
+          0.9861796856598887
+        ],
+        "cases_routed": 173,
+        "routed_correct": 173,
+        "routed_accuracy": 1.0,
+        "routed_ci": [
+          0.9782773855954833,
+          0.9999999999999999
+        ],
+        "ece": 0.0167
+      }
+    },
+    {
+      "seed": 2027,
+      "training_time_s": 247.79,
+      "differing_weight_tensors": 200,
+      "original_set": {
+        "overall_correct": 103,
+        "overall_accuracy": 0.515,
+        "overall_ci": [
+          0.4461084919274572,
+          0.5833261482812249
+        ],
+        "cases_routed": 173,
+        "routed_correct": 89,
+        "routed_accuracy": 0.5144508670520231,
+        "routed_ci": [
+          0.4404741037896836,
+          0.5877998090887986
+        ],
+        "ece": 0.4572
+      },
+      "hard_set": {
+        "overall_correct": 200,
+        "overall_accuracy": 1.0,
+        "overall_ci": [
+          0.9811546736227335,
+          1.0
+        ],
+        "cases_routed": 173,
+        "routed_correct": 173,
+        "routed_accuracy": 1.0,
+        "routed_ci": [
+          0.9782773855954833,
+          0.9999999999999999
+        ],
+        "ece": 0.0119
+      }
+    },
+    {
+      "seed": 2028,
+      "training_time_s": 296.56,
+      "differing_weight_tensors": 200,
+      "original_set": {
+        "overall_correct": 68,
+        "overall_accuracy": 0.34,
+        "overall_ci": [
+          0.27791545970908793,
+          0.4081150447316374
+        ],
+        "cases_routed": 173,
+        "routed_correct": 55,
+        "routed_accuracy": 0.3179190751445087,
+        "routed_ci": [
+          0.2531275824386856,
+          0.3906211152924388
+        ],
+        "ece": 0.5652
+      },
+      "hard_set": {
+        "overall_correct": 198,
+        "overall_accuracy": 0.99,
+        "overall_ci": [
+          0.9642782382838231,
+          0.9972533418664555
+        ],
+        "cases_routed": 173,
+        "routed_correct": 173,
+        "routed_accuracy": 1.0,
+        "routed_ci": [
+          0.9782773855954833,
+          0.9999999999999999
+        ],
+        "ece": 0.0894
+      }
+    }
+  ]
+}

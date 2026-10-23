@@ -1,0 +1,261 @@
+{
+  "training_description_caveat": {
+    "total_cases": 800,
+    "raw_unique_descriptions": 800,
+    "masked_unique_descriptions": 132
+  },
+  "salesforce_einstein_hard": {
+    "model": "Salesforce Einstein Case Classification (Sandbox)",
+    "training_set": "Hard 800 (train_salesforce_import.csv)",
+    "test_set": "Hard 200 (test_salesforce_import.csv)",
+    "total_cases": 200,
+    "overall_correct": 40,
+    "overall_accuracy": 0.2,
+    "overall_ci": [
+      0.15045200926098115,
+      0.2608551865653788
+    ],
+    "cases_routed": 147,
+    "cases_unrouted": 53,
+    "coverage_pct": 0.735,
+    "routed_correct": 40,
+    "routed_accuracy": 0.272108843537415,
+    "routed_ci": [
+      0.20665388387398315,
+      0.34917114908566776
+    ],
+    "configuration": {
+      "automate_value": "On",
+      "confidence_threshold": 90,
+      "select_value": "Select Best (threshold 0)"
+    }
+  },
+  "laya_fine_tuned": {
+    "hard": {
+      "2026": {
+        "total_cases": 200,
+        "overall_correct": 194,
+        "overall_accuracy": 0.97,
+        "overall_ci": [
+          0.9361057075454807,
+          0.9861796856598887
+        ],
+        "ece": 0.0167,
+        "confidence_gating": {
+          "0.99": {
+            "threshold": 0.99,
+            "cases_routed": 193,
+            "coverage_pct": 0.965,
+            "routed_correct": 192,
+            "routed_accuracy": 0.9948186528497409,
+            "routed_ci": [
+              0.9712392635105996,
+              0.999084778712562
+            ]
+          },
+          "0.9": {
+            "threshold": 0.9,
+            "cases_routed": 193,
+            "coverage_pct": 0.965,
+            "routed_correct": 192,
+            "routed_accuracy": 0.9948186528497409,
+            "routed_ci": [
+              0.9712392635105996,
+              0.999084778712562
+            ]
+          }
+        }
+      },
+      "2027": {
+        "total_cases": 200,
+        "overall_correct": 200,
+        "overall_accuracy": 1.0,
+        "overall_ci": [
+          0.9811546736227335,
+          1.0
+        ],
+        "ece": 0.0119,
+        "confidence_gating": {
+          "0.99": {
+            "threshold": 0.99,
+            "cases_routed": 194,
+            "coverage_pct": 0.97,
+            "routed_correct": 194,
+            "routed_accuracy": 1.0,
+            "routed_ci": [
+              0.9805831454964365,
+              0.9999999999999999
+            ]
+          },
+          "0.9": {
+            "threshold": 0.9,
+            "cases_routed": 194,
+            "coverage_pct": 0.97,
+            "routed_correct": 194,
+            "routed_accuracy": 1.0,
+            "routed_ci": [
+              0.9805831454964365,
+              0.9999999999999999
+            ]
+          }
+        }
+      },
+      "2028": {
+        "total_cases": 200,
+        "overall_correct": 198,
+        "overall_accuracy": 0.99,
+        "overall_ci": [
+          0.9642782382838231,
+          0.9972533418664555
+        ],
+        "ece": 0.0894,
+        "confidence_gating": {
+          "0.99": {
+            "threshold": 0.99,
+            "cases_routed": 105,
+            "coverage_pct": 0.525,
+            "routed_correct": 105,
+            "routed_accuracy": 1.0,
+            "routed_ci": [
+              0.9647059230708901,
+              1.0
+            ]
+          },
+          "0.9": {
+            "threshold": 0.9,
+            "cases_routed": 124,
+            "coverage_pct": 0.62,
+            "routed_correct": 124,
+            "routed_accuracy": 1.0,
+            "routed_ci": [
+              0.9699513846593223,
+              0.9999999999999999
+            ]
+          }
+        }
+      },
+      "summary": {
+        "mean_overall_accuracy": 0.9866666666666667,
+        "std_overall_accuracy": 0.012472191289246483,
+        "mean_ece": 0.03933333333333333,
+        "mean_routed_acc_0_99": 0.998272884283247,
+        "mean_coverage_0_99": 0.82,
+        "mean_routed_acc_0_90": 0.998272884283247,
+        "mean_coverage_0_90": 0.8516666666666667
+      }
+    },
+    "orig": {
+      "2026": {
+        "total_cases": 200,
+        "overall_correct": 102,
+        "overall_accuracy": 0.51,
+        "overall_ci": [
+          0.44118587678458643,
+          0.5784372166878682
+        ],
+        "ece": 0.4148,
+        "confidence_gating": {
+          "0.99": {
+            "threshold": 0.99,
+            "cases_routed": 140,
+            "coverage_pct": 0.7,
+            "routed_correct": 76,
+            "routed_accuracy": 0.5428571428571428,
+            "routed_ci": [
+              0.4602951001372034,
+              0.6231300826882755
+            ]
+          },
+          "0.9": {
+            "threshold": 0.9,
+            "cases_routed": 147,
+            "coverage_pct": 0.735,
+            "routed_correct": 79,
+            "routed_accuracy": 0.5374149659863946,
+            "routed_ci": [
+              0.45688842748310754,
+              0.6160358208369499
+            ]
+          }
+        }
+      },
+      "2027": {
+        "total_cases": 200,
+        "overall_correct": 103,
+        "overall_accuracy": 0.515,
+        "overall_ci": [
+          0.4461084919274572,
+          0.5833261482812249
+        ],
+        "ece": 0.4572,
+        "confidence_gating": {
+          "0.99": {
+            "threshold": 0.99,
+            "cases_routed": 119,
+            "coverage_pct": 0.595,
+            "routed_correct": 63,
+            "routed_accuracy": 0.5294117647058824,
+            "routed_ci": [
+              0.4402213212698429,
+              0.6167626975394547
+            ]
+          },
+          "0.9": {
+            "threshold": 0.9,
+            "cases_routed": 126,
+            "coverage_pct": 0.63,
+            "routed_correct": 67,
+            "routed_accuracy": 0.5317460317460317,
+            "routed_ci": [
+              0.44497262128249504,
+              0.6166409809726036
+            ]
+          }
+        }
+      },
+      "2028": {
+        "total_cases": 200,
+        "overall_correct": 68,
+        "overall_accuracy": 0.34,
+        "overall_ci": [
+          0.27791545970908793,
+          0.4081150447316374
+        ],
+        "ece": 0.5652,
+        "confidence_gating": {
+          "0.99": {
+            "threshold": 0.99,
+            "cases_routed": 142,
+            "coverage_pct": 0.71,
+            "routed_correct": 44,
+            "routed_accuracy": 0.30985915492957744,
+            "routed_ci": [
+              0.23964916767997269,
+              0.39008574832638243
+            ]
+          },
+          "0.9": {
+            "threshold": 0.9,
+            "cases_routed": 145,
+            "coverage_pct": 0.725,
+            "routed_correct": 44,
+            "routed_accuracy": 0.30344827586206896,
+            "routed_ci": [
+              0.23448779647366402,
+              0.38255438752786075
+            ]
+          }
+        }
+      },
+      "summary": {
+        "mean_overall_accuracy": 0.455,
+        "std_overall_accuracy": 0.08134289561274953,
+        "mean_ece": 0.4790666666666667,
+        "mean_routed_acc_0_99": 0.4607093541642009,
+        "mean_coverage_0_99": 0.6683333333333333,
+        "mean_routed_acc_0_90": 0.4575364245314984,
+        "mean_coverage_0_90": 0.6966666666666667
+      }
+    }
+  }
+}
