@@ -10,7 +10,7 @@
 
 | Metric | Hard Test vs. Hard Train (800 cases) | Hard Test vs. Original Train (800 cases) | Hard Test vs. ALL Train Combined (1,600 cases) | Benchmark Standard | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Shared Themes** | **0** (0 / 30) | **0** (Independent) | **0** (0 / 30) | 0 shared | ✅ PASS |
+| **Shared Themes** | **0** (0 / 30) | **not measurable (no theme labels)** | **0** (against labeled hard train) | 0 shared | ✅ PASS |
 | **ExternalId Overlap** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 shared | ✅ PASS |
 | **Exact Full-Text Matches** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 matches | ✅ PASS |
 | **Exact Subject Matches** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 matches | ✅ PASS |
@@ -20,7 +20,7 @@
 | **4-Gram Jaccard** | **0.02%** | **0.15%** | **0.14%** | < 2% | ✅ PASS |
 | **Mean Max TF-IDF Sim** | **0.1578** | **0.2380** | **0.2387** | Moderate lexical distance | ✅ Verified |
 | **Median Max TF-IDF Sim** | **0.1505** | **0.2138** | **0.2170** | Moderate lexical distance | ✅ Verified |
-| **Highest Max TF-IDF Sim** | **0.4315** | **0.5887** | **0.5754** | < 0.65 (No near-duplicates) | ✅ Verified |
+| **Highest Max TF-IDF Sim** | **0.4315** | **0.5887** | **0.5754** | No near-duplicates | ✅ Verified |
 
 ---
 

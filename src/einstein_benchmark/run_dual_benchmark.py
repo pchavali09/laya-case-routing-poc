@@ -30,6 +30,11 @@ import torch.nn as nn
 import torch.optim as optim
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+# Cap PyTorch CPU threads for system responsiveness
+torch.set_num_threads(2)
+os.environ["OMP_NUM_THREADS"] = "2"
+os.environ["MKL_NUM_THREADS"] = "2"
+
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)

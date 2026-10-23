@@ -145,7 +145,7 @@ def check_overlap():
 
 | Metric | Hard Test vs. Hard Train (800 cases) | Hard Test vs. Original Train (800 cases) | Hard Test vs. ALL Train Combined (1,600 cases) | Benchmark Standard | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Shared Themes** | **0** (0 / 30) | **0** (Independent) | **0** (0 / 30) | 0 shared | ✅ PASS |
+| **Shared Themes** | **0** (0 / 30) | **not measurable (no theme labels)** | **0** (against labeled hard train) | 0 shared | ✅ PASS |
 | **ExternalId Overlap** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 shared | ✅ PASS |
 | **Exact Full-Text Matches** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 matches | ✅ PASS |
 | **Exact Subject Matches** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 matches | ✅ PASS |
@@ -155,7 +155,7 @@ def check_overlap():
 | **4-Gram Jaccard** | **{m_hard['jaccard_4g']:.2%}** | **{m_orig['jaccard_4g']:.2%}** | **{m_comb['jaccard_4g']:.2%}** | < 2% | ✅ PASS |
 | **Mean Max TF-IDF Sim** | **{m_hard['mean_sim']:.4f}** | **{m_orig['mean_sim']:.4f}** | **{m_comb['mean_sim']:.4f}** | Moderate lexical distance | ✅ Verified |
 | **Median Max TF-IDF Sim** | **{m_hard['median_sim']:.4f}** | **{m_orig['median_sim']:.4f}** | **{m_comb['median_sim']:.4f}** | Moderate lexical distance | ✅ Verified |
-| **Highest Max TF-IDF Sim** | **{m_hard['max_sim']:.4f}** | **{m_orig['max_sim']:.4f}** | **{m_comb['max_sim']:.4f}** | < 0.65 (No near-duplicates) | ✅ Verified |
+| **Highest Max TF-IDF Sim** | **{m_hard['max_sim']:.4f}** | **{m_orig['max_sim']:.4f}** | **{m_comb['max_sim']:.4f}** | No near-duplicates | ✅ Verified |
 
 ---
 

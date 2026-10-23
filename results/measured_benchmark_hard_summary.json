@@ -23,21 +23,21 @@
     "model": "Trained Keyword Rules Baseline",
     "training": "trained on 800 closed cases",
     "total_cases": 200,
-    "overall_correct": 97,
-    "overall_accuracy": 0.485,
+    "overall_correct": 82,
+    "overall_accuracy": 0.41,
     "overall_ci": [
-      0.4166738517187752,
-      0.5538915080725428
+      0.34415674908482885,
+      0.4792354096630791
     ],
     "cases_routed": 173,
     "coverage_pct": 0.865,
-    "routed_correct": 91,
-    "routed_accuracy": 0.5260115606936416,
+    "routed_correct": 76,
+    "routed_accuracy": 0.4393063583815029,
     "routed_ci": [
-      0.45185117308684,
-      0.599041870094428
+      0.36746487688697677,
+      0.5137846890233979
     ],
-    "ece": 0.0535
+    "ece": 0.085
   },
   {
     "model": "TF-IDF + MLP (Control Baseline)",
