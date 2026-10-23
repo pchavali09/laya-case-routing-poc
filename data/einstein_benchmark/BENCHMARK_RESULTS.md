@@ -4,7 +4,9 @@ This document records the official measured results on the 1,000-case Einstein b
 
 * **Dataset**: 800 training closed cases (`train_closed.csv`), 200 blind test cases (`test_blind.csv`), 200 ground truth labels (`test_truth.csv`).
 * **Salesforce Einstein Baseline**: Real model trained and evaluated in a production Salesforce Sandbox org (`einstein_predictions.csv`).
-* **Real Laya Models**: `convaiinnovations/laya` (pip `laya` v0.4.13 by NandhaKishorM) evaluated in zero-shot and head-only fine-tuned modes on Apple Silicon M2 MPS.
+* **Real Laya Models**: `convaiinnovations/laya` (**421,293,827 parameters**, `answerdotai/ModernBERT-large` backbone 394.8M + 2-layer head 25.2M; pip `laya` v0.4.13 by NandhaKishorM). Sourced directly from checkpoint `rl_agent_config.json` and verified via PyTorch parameter enumeration `sum(p.numel() for p in model.parameters())`.
+* **Multilingual Model**: `convaiinnovations/laya-multilingual` (**321,908,995 parameters**, `jhu-clsp/mmBERT-base` backbone).
+* **Dual Benchmark Report**: See [`data/einstein_hard_benchmark/DUAL_BENCHMARK_RESULTS.md`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/data/einstein_hard_benchmark/DUAL_BENCHMARK_RESULTS.md) for full side-by-side comparison between this original templated set and the group-held-out hard benchmark.
 * **Simple Local Baseline**: TF-IDF (5,000 bigrams) + 2-layer MLP (hidden_dim=64, seed 2026).
 * **Heuristic Rules Baseline**: Regex keyword rules (`src/rules.py`, written for legacy POC schema).
 * **Scope**: Evaluates **zero-shot and head-only fine-tuned Laya on a templated synthetic set**.

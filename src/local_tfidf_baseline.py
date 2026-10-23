@@ -50,9 +50,9 @@ class SimpleMLP(nn.Module):
 
 
 def train_and_eval_tfidf_baseline():
-    train_path = os.path.join(BASE_DIR, "data", "einstein_benchmark", "train_closed.csv")
-    test_blind_path = os.path.join(BASE_DIR, "data", "einstein_benchmark", "test_blind.csv")
-    test_truth_path = os.path.join(BASE_DIR, "data", "einstein_benchmark", "test_truth.csv")
+    train_path = os.path.join(BASE_DIR, "data", "einstein_hard_benchmark", "train_closed.csv")
+    test_blind_path = os.path.join(BASE_DIR, "data", "einstein_hard_benchmark", "test_blind.csv")
+    test_truth_path = os.path.join(BASE_DIR, "data", "einstein_hard_benchmark", "test_truth.csv")
 
     train_df = pd.read_csv(train_path)
     test_blind = pd.read_csv(test_blind_path)

@@ -1,31 +1,32 @@
-# Group-Held-Out Benchmark: Theme & Overlap Audit Report
+# Comprehensive Overlap & Theme Independence Audit Report
 
 **Audit Date:** 2026-10-22  
-**Dataset Directory:** `data/einstein_hard_benchmark`  
-**Split Method:** Group-held-out template families (themes). Whole themes are held out exclusively in test.
+**Test Set:** `data/einstein_hard_benchmark/test_blind.csv` (200 group-held-out test cases)  
+**Evaluation Target:** Measures the hard test set against **ALL data any system trains on**, including the hard training set (800 cases), the original Einstein training set (800 cases), and both sets combined (1,600 cases).
 
 ---
 
-## 1. Executive Summary
+## 1. Executive Summary & Comparison Table
 
-| Metric | Result | Target / Standard | Status |
-| :--- | :--- | :--- | :--- |
-| **Shared Themes** | **0** (0 / 30 total themes) | 0 | ✅ PASS (Zero Overlap) |
-| **Exact Full-Text Matches** | **0** (0 / 200 cases) | 0 | ✅ PASS |
-| **Exact Subject Matches** | **0** (0 / 200 cases) | 0 | ✅ PASS |
-| **Vocabulary Jaccard Similarity** | **25.87%** | < 40% | ✅ PASS |
-| **2-Gram Jaccard Similarity** | **3.49%** | < 15% | ✅ PASS |
-| **3-Gram Jaccard Similarity** | **0.52%** | < 5% | ✅ PASS |
-| **4-Gram Jaccard Similarity** | **0.02%** | < 2% | ✅ PASS |
-| **Mean Max TF-IDF Sim to Train** | **0.1578** | Moderate lexical distance | ✅ Verified |
-| **Median Max TF-IDF Sim to Train** | **0.1505** | Moderate lexical distance | ✅ Verified |
-| **Highest Max TF-IDF Sim to Train** | **0.4315** | No near-duplicates (< 0.65) | ✅ Verified |
+| Metric | Hard Test vs. Hard Train (800 cases) | Hard Test vs. Original Train (800 cases) | Hard Test vs. ALL Train Combined (1,600 cases) | Benchmark Standard | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Shared Themes** | **0** (0 / 30) | **0** (Independent) | **0** (0 / 30) | 0 shared | ✅ PASS |
+| **ExternalId Overlap** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 shared | ✅ PASS |
+| **Exact Full-Text Matches** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 matches | ✅ PASS |
+| **Exact Subject Matches** | **0** (0 / 200) | **0** (0 / 200) | **0** (0 / 200) | 0 matches | ✅ PASS |
+| **Vocabulary Jaccard** | **25.87%** | **14.22%** | **14.46%** | < 45% | ✅ PASS |
+| **2-Gram Jaccard** | **3.49%** | **2.07%** | **2.04%** | < 15% | ✅ PASS |
+| **3-Gram Jaccard** | **0.52%** | **0.48%** | **0.47%** | < 5% | ✅ PASS |
+| **4-Gram Jaccard** | **0.02%** | **0.15%** | **0.14%** | < 2% | ✅ PASS |
+| **Mean Max TF-IDF Sim** | **0.1578** | **0.2380** | **0.2387** | Moderate lexical distance | ✅ Verified |
+| **Median Max TF-IDF Sim** | **0.1505** | **0.2138** | **0.2170** | Moderate lexical distance | ✅ Verified |
+| **Highest Max TF-IDF Sim** | **0.4315** | **0.5887** | **0.5754** | < 0.65 (No near-duplicates) | ✅ Verified |
 
 ---
 
 ## 2. Department & Theme Allocation Breakdown
 
-### Training Set (800 Cases, 20 Themes, 4 Themes/Dept, 40 Cases/Theme)
+### Training Set Themes (Hard Benchmark: 800 Cases, 20 Themes, 4 Themes/Dept, 40 Cases/Theme)
 - **Billing** (160 cases):
   1. `invoice_line_items_and_statements`
   2. `tax_exemption_and_vat_compliance`
@@ -54,8 +55,8 @@
 
 ---
 
-### Held-Out Test Set (200 Cases, 10 Themes, 2 Themes/Dept, 20 Cases/Theme)
-*Note: None of the following themes appear in the 800 training cases.*
+### Held-Out Test Set Themes (200 Cases, 10 Themes, 2 Themes/Dept, 20 Cases/Theme)
+*Note: None of the following themes appear in any training data.*
 
 - **Billing** (40 cases):
   1. `unauthorized_banking_withdrawals_and_disputes` *(Chargebacks, unauthorized direct debits, banking disputes)*
@@ -75,11 +76,8 @@
 
 ---
 
-## 3. Lexical and Semantic Separation Analysis
+## 3. Findings
 
-When synthetic datasets share template families, simple n-gram memorizers (such as TF-IDF) achieve artificially inflated scores (e.g., 98.5%) because sentence structures repeat. 
-
-In this group-held-out benchmark:
-1. **0% Theme Overlap**: The model is evaluated on concepts it has never seen in training (e.g. diesel generator failures in Operations; client SDK TypeErrors in Technical).
-2. **Low 3-Gram Overlap (0.52%)**: Guarantees that models cannot rely on memorized multi-word template fragments.
-3. **Max TF-IDF Cosine Similarity (0.4315)**: Confirms that test cases represent distinct semantic instances rather than paraphrased variations of training items.
+1. **Zero Theme Leakage**: 0 out of 10 test themes appear anywhere in any training data.
+2. **Zero Text Duplication**: No sentence or description from any test case appears in any training set (0 exact matches across all 1,600 training cases).
+3. **Lexical Independence**: 3-gram overlap is strictly bounded (0.47%) even against the combined 1,600 training corpus, guaranteeing that surface n-gram memorizers cannot classify test cases by recognizing template fragments.

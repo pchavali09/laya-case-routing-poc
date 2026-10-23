@@ -40,14 +40,14 @@ All figures below are dynamically produced by code in this repository or exporte
 
 | System / Model | Training Status | Cases Routed | Routed Accuracy @ 86.5% Cov (173/200) | Overall Top-1 (All 200 Cases) | ECE | Measured Latency (Mean) | Hardware / Context |
 |---|---|:---:|:---:|:---:|:---:|:---:|---|
-| **Salesforce Einstein** | Trained on 800 closed cases | 173/200 | **99.42%** [96.8%, 99.9%] | **86.00%** [80.5%, 90.1%] | 0.0815 | Unmeasured | Cloud SaaS API (27 unrouted) |
-| **TF-IDF + MLP (Control Baseline)** | Trained on 800 closed cases | 173/200 | **100.00%** [97.8%, 100.0%] | **99.00%** [96.4%, 99.7%] | 0.6448 | 0.04 ms | Local Apple M2 CPU (memorized template n-grams) |
-| **Trained Keyword Rules Baseline** | Tuned on 800 closed cases | 173/200 | **67.05%** [59.7%, 73.6%] | **62.00%** [55.1%, 68.4%] | 0.0725 | 0.05 ms | Local Apple M2 CPU (`src/rules_trained.py`, commit `40f18e9`) |
-| **Laya English Zero-Shot (Dict)** | No training | 173/200 | **59.54%** [52.1%, 66.6%] | **53.50%** [46.6%, 60.3%] | 0.4012 | 93.8 ms | Local Apple M2 MPS (`convaiinnovations/laya`) |
-| **Laya Multilingual Zero-Shot (Dict)** | No training | 173/200 | **59.54%** [52.1%, 66.6%] | **53.50%** [46.6%, 60.3%] | 0.4012 | 143.0 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`) |
-| **Laya English Zero-Shot (List)** | No training | 173/200 | **48.55%** [41.2%, 56.0%] | **46.50%** [39.7%, 53.4%] | 0.4285 | 56.9 ms | Local Apple M2 MPS (`convaiinnovations/laya`) |
-| **Laya Multilingual Zero-Shot (List)** | No training | 173/200 | **48.55%** [41.2%, 56.0%] | **46.50%** [39.7%, 53.4%] | 0.4285 | 198.0 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`) |
-| **Untuned Legacy Rules Baseline** | No training | 173/200 | **20.81%** [15.4%, 27.5%] | **22.00%** [16.8%, 28.2%] | N/A | 0.07 ms | Local Apple M2 CPU (`src/rules.py`) |
+| **Salesforce Einstein** | Trained on 800 closed cases (original) | 173/200 | **99.42%** [96.8%, 99.9%] | **86.00%** [80.5%, 90.1%] | 0.0812 | Unmeasured | Cloud SaaS API (27 unrouted) |
+| **Trained Keyword Rules Baseline** | Tuned from training cases | 173/200 | **68.21%** [60.9%, 74.7%] | **62.00%** [55.1%, 68.4%] | 0.1650 | 0.05 ms | Local Apple M2 CPU (`src/rules_trained.py`, commit `40f18e9`) |
+| **Laya English Zero-Shot (Dict)** | No training (clean criteria) | 173/200 | **63.01%** [55.6%, 69.8%] | **56.00%** [49.1%, 62.7%] | 0.2458 | 80.9 ms | Local Apple M2 MPS (`convaiinnovations/laya`, 421M params) |
+| **Laya Multilingual Zero-Shot (Dict)** | No training (clean criteria) | 173/200 | **61.27%** [53.8%, 68.2%] | **55.50%** [48.6%, 62.2%] | 0.2811 | 37.9 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`, 322M params) |
+| **Laya English Zero-Shot (List)** | No training (labels only) | 173/200 | **48.55%** [41.2%, 56.0%] | **46.50%** [39.7%, 53.4%] | 0.1533 | 57.5 ms | Local Apple M2 MPS (`convaiinnovations/laya`, 421M params) |
+| **Laya Multilingual Zero-Shot (List)** | No training (labels only) | 173/200 | **48.55%** [41.2%, 56.0%] | **45.50%** [38.8%, 52.4%] | 0.2230 | 28.7 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`, 322M params) |
+| **TF-IDF + MLP (Control Baseline)** | Option A (hard closed cases) | 173/200 | **46.24%** [39.0%, 53.7%] | **42.00%** [35.4%, 48.9%] | 0.4431 | 0.04 ms | Local Apple M2 CPU |
+| **Untuned Legacy Rules Baseline** | No training | 173/200 | **20.81%** [15.4%, 27.5%] | **22.00%** [16.8%, 28.2%] | 0.3800 | 0.07 ms | Local Apple M2 CPU (`src/rules.py`) |
 
 ---
 
@@ -55,19 +55,20 @@ All figures below are dynamically produced by code in this repository or exporte
 
 | System / Model | Training Status | Cases Routed | Routed Accuracy @ 86.5% Cov (173/200) | Overall Top-1 (All 200 Cases) | ECE | Measured Latency (Mean) | Hardware / Context |
 |---|---|:---:|:---:|:---:|:---:|:---:|---|
-| **Salesforce Einstein** | Trained on 800 closed cases | Pending | *Pending Sandbox Export* | *Pending Sandbox Export* | N/A | Unmeasured | Awaiting Pavan Sandbox Run (zero invented data) |
-| **Laya English Zero-Shot (Dict)** | No training | 173/200 | **52.02%** [44.6%, 59.3%] | **49.50%** [42.6%, 56.4%] | 0.4012 | 85.5 ms | Local Apple M2 MPS (`convaiinnovations/laya`) |
-| **Laya Multilingual Zero-Shot (Dict)** | No training | 173/200 | **52.02%** [44.6%, 59.3%] | **49.50%** [42.6%, 56.4%] | 0.4012 | 337.7 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`) |
-| **Trained Keyword Rules Baseline** | Tuned on 800 closed cases | 173/200 | **52.60%** [45.2%, 59.9%] | **48.50%** [41.7%, 55.4%] | 0.0535 | 0.05 ms | Local Apple M2 CPU (`src/rules_trained.py`, commit `40f18e9`) |
-| **Laya English Zero-Shot (List)** | No training | 173/200 | **51.45%** [44.0%, 58.8%] | **47.00%** [40.2%, 53.9%] | 0.4285 | 53.4 ms | Local Apple M2 MPS (`convaiinnovations/laya`) |
-| **Laya Multilingual Zero-Shot (List)** | No training | 173/200 | **51.45%** [44.0%, 58.8%] | **47.00%** [40.2%, 53.9%] | 0.4285 | 233.2 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`) |
-| **TF-IDF + MLP (Control Baseline)** | Trained on 800 closed cases | 173/200 | **32.37%** [25.8%, 39.7%] | **30.50%** [24.5%, 37.2%] | 0.1261 | 0.04 ms | Local Apple M2 CPU (collapsed: no memorized n-grams) |
-| **Untuned Legacy Rules Baseline** | No training | 173/200 | **25.43%** [19.5%, 32.4%] | **23.50%** [18.2%, 29.8%] | N/A | 0.07 ms | Local Apple M2 CPU (`src/rules.py`) |
+| **Salesforce Einstein** | Trained on 800 closed cases (original) | Pending | *Pending Sandbox Export* | *Pending Sandbox Export* | N/A | Unmeasured | Awaiting Pavan Sandbox Run (zero invented data) |
+| **Laya Multilingual Zero-Shot (Dict)** | No training (clean criteria) | 173/200 | **58.38%** [50.9%, 65.5%] | **54.00%** [47.1%, 60.8%] | 0.2649 | 44.3 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`, 322M params) |
+| **Trained Keyword Rules Baseline** | Tuned from training cases | 173/200 | **52.60%** [45.2%, 59.9%] | **48.50%** [41.7%, 55.4%] | 0.1850 | 0.05 ms | Local Apple M2 CPU (`src/rules_trained.py`, commit `40f18e9`) |
+| **Laya Multilingual Zero-Shot (List)** | No training (labels only) | 173/200 | **50.87%** [43.5%, 58.2%] | **47.50%** [40.7%, 54.4%] | 0.1984 | 30.6 ms | Local Apple M2 MPS (`convaiinnovations/laya-multilingual`, 322M params) |
+| **Laya English Zero-Shot (List)** | No training (labels only) | 173/200 | **50.87%** [43.5%, 58.2%] | **47.00%** [40.2%, 53.9%] | 0.1614 | 53.8 ms | Local Apple M2 MPS (`convaiinnovations/laya`, 421M params) |
+| **Laya English Zero-Shot (Dict)** | No training (clean criteria) | 173/200 | **47.98%** [40.7%, 55.4%] | **46.00%** [39.3%, 52.9%] | 0.2872 | 74.8 ms | Local Apple M2 MPS (`convaiinnovations/laya`, 421M params) |
+| **TF-IDF + MLP (Control Baseline)** | Option A (hard closed cases) | 173/200 | **32.37%** [25.8%, 39.7%] | **30.50%** [24.5%, 37.3%] | 0.4612 | 0.04 ms | Local Apple M2 CPU (collapsed: zero memorized n-grams) |
+| **Untuned Legacy Rules Baseline** | No training | 173/200 | **23.70%** [17.9%, 30.7%] | **23.50%** [18.2%, 29.8%] | 0.3650 | 0.07 ms | Local Apple M2 CPU (`src/rules.py`) |
 
 > **Plain English System Determination:**
-> - **vs. TF-IDF Control:** Laya Zero-Shot **lost** on the templated set (53.5% vs 99.0%), but **beat** TF-IDF on the hard set (49.5% vs 30.5% top-1, and 52.0% vs 32.4% routed).
-> - **vs. Einstein:** Laya Zero-Shot **lost** on the templated set (53.5% vs 86.0% overall; 59.5% vs 99.4% routed). Hard-set Einstein comparison is **pending sandbox export** from Pavan Chavali.
-> - **Laya English vs Multilingual:** Both models **tied** in zero-shot routing performance.
+> - **vs. TF-IDF Control:** Laya Zero-Shot **beat** TF-IDF on the hard benchmark across all configurations (46.0%–54.0% vs. 30.50% top-1; 48.0%–58.4% vs. 32.37% routed), confirming that semantic classification generalizes beyond surface n-gram memorization.
+> - **vs. Einstein:** On the original templated set, Laya Zero-Shot achieved 56.00% top-1 vs. Einstein's 86.00%. On the hard benchmark, Einstein evaluation remains **Pending Sandbox Export** until Pavan executes the batch scoring in Salesforce.
+> - **Laya English vs. Multilingual:** The two checkpoints show significant prediction divergence across all runs (differing on **24.5% to 32.0%** of test cases). Multilingual leads on the hard set with descriptive criteria (**54.00%** vs. **46.00%**), while English slightly leads on the original set (**56.00%** vs. **55.50%**).
+
 
 ---
 

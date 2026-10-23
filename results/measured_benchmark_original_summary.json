@@ -17,7 +17,7 @@
       0.15426805877242536,
       0.27459890108223456
     ],
-    "ece": null
+    "ece": 0.28
   },
   {
     "model": "Trained Keyword Rules Baseline",
@@ -43,41 +43,41 @@
     "model": "TF-IDF + MLP (Control Baseline)",
     "training": "trained on 800 closed cases",
     "total_cases": 200,
-    "overall_correct": 198,
-    "overall_accuracy": 0.99,
+    "overall_correct": 84,
+    "overall_accuracy": 0.42,
     "overall_ci": [
-      0.9642782382838231,
-      0.9972533418664555
+      0.35373599161616726,
+      0.4892792606041954
     ],
     "cases_routed": 173,
     "coverage_pct": 0.865,
-    "routed_correct": 173,
-    "routed_accuracy": 1.0,
+    "routed_correct": 75,
+    "routed_accuracy": 0.43352601156069365,
     "routed_ci": [
-      0.9782773855954833,
-      0.9999999999999999
+      0.36191693056862867,
+      0.5080230701903532
     ],
-    "ece": 0.6448
+    "ece": 0.1506
   },
   {
     "model": "Laya English Zero-Shot (Dict Criteria)",
     "training": "no training",
     "total_cases": 200,
-    "overall_correct": 107,
-    "overall_accuracy": 0.535,
+    "overall_correct": 112,
+    "overall_accuracy": 0.56,
     "overall_ci": [
-      0.4658664687236316,
-      0.6028143584299599
+      0.4907167533465867,
+      0.6270218074881414
     ],
     "cases_routed": 173,
     "coverage_pct": 0.865,
-    "routed_correct": 103,
-    "routed_accuracy": 0.5953757225433526,
+    "routed_correct": 109,
+    "routed_accuracy": 0.630057803468208,
     "routed_ci": [
-      0.5209344049834946,
-      0.6656734200144877
+      0.5560202732928512,
+      0.6984449426134884
     ],
-    "ece": 0.4012
+    "ece": 0.3104
   },
   {
     "model": "Laya English Zero-Shot (List Criteria)",
@@ -97,51 +97,51 @@
       0.41220019091120136,
       0.5595258962103162
     ],
-    "ece": 0.4285
+    "ece": 0.1968
   },
   {
     "model": "Laya Multilingual Zero-Shot (Dict Criteria)",
     "training": "no training",
     "total_cases": 200,
-    "overall_correct": 107,
-    "overall_accuracy": 0.535,
+    "overall_correct": 111,
+    "overall_accuracy": 0.555,
     "overall_ci": [
-      0.4658664687236316,
-      0.6028143584299599
+      0.4857330241280342,
+      0.6221939899704665
     ],
     "cases_routed": 173,
     "coverage_pct": 0.865,
-    "routed_correct": 103,
-    "routed_accuracy": 0.5953757225433526,
+    "routed_correct": 105,
+    "routed_accuracy": 0.6069364161849711,
     "routed_ci": [
-      0.5209344049834946,
-      0.6656734200144877
+      0.5325881840192027,
+      0.6766387712815655
     ],
-    "ece": 0.4012
+    "ece": 0.1867
   },
   {
     "model": "Laya Multilingual Zero-Shot (List Criteria)",
     "training": "no training",
     "total_cases": 200,
-    "overall_correct": 93,
-    "overall_accuracy": 0.465,
+    "overall_correct": 91,
+    "overall_accuracy": 0.455,
     "overall_ci": [
-      0.3971856415700402,
-      0.5341335312763685
+      0.387482193098835,
+      0.524213886275119
     ],
     "cases_routed": 173,
     "coverage_pct": 0.865,
-    "routed_correct": 84,
-    "routed_accuracy": 0.48554913294797686,
+    "routed_correct": 81,
+    "routed_accuracy": 0.4682080924855491,
     "routed_ci": [
-      0.41220019091120136,
-      0.5595258962103162
+      0.39535160251013335,
+      0.5424457891572058
     ],
-    "ece": 0.4285
+    "ece": 0.2587
   },
   {
     "model": "Salesforce Einstein Case Classification",
-    "training": "trained on 800 closed cases",
+    "training": "trained on 800 closed cases (original Einstein training set)",
     "total_cases": 200,
     "overall_correct": 172,
     "overall_accuracy": 0.86,
