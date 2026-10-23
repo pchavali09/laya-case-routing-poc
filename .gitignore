@@ -39,3 +39,4 @@ ENV/
 *.onnx
 data/cache/
 .pytest_cache/
+scratch/

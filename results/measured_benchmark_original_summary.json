@@ -141,7 +141,7 @@
   },
   {
     "model": "Salesforce Einstein Case Classification",
-    "training": "trained on 800 closed cases (original Einstein training set)",
+    "training": "trained on 800 closed cases",
     "total_cases": 200,
     "overall_correct": 172,
     "overall_accuracy": 0.86,

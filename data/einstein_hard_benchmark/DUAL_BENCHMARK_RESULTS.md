@@ -20,10 +20,8 @@ All values are empirically measured from repository code and committed predictio
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Salesforce Einstein Case Classification** | **Original 800** | **86.00%** (172/200)<br><sub>[80.5%, 90.1%]</sub> | **99.42%** (172/173)<br><sub>[96.8%, 99.9%]</sub> | — | — |
 | | **Hard 800** | — | — | **trained on hard 800 (pending)** | **trained on hard 800 (pending)** |
-| **Trained Keyword Rules Baseline**<br><sub>(Frozen commit `ff8b315`)</sub> | **Original 800** | **73.00%** (146/200)<br><sub>[66.5%, 78.6%]</sub> | **79.19%** (137/173)<br><sub>[72.5%, 84.6%]</sub> | **40.50%** (81/200)<br><sub>[33.9%, 47.4%]</sub> | **45.09%** (78/173)<br><sub>[37.8%, 52.6%]</sub> |
-| | **Hard 800** | **55.50%** (111/200)<br><sub>[48.6%, 62.2%]</sub> | **60.12%** (104/173)<br><sub>[52.7%, 67.1%]</sub> | **41.00%** (82/200)<br><sub>[34.4%, 47.9%]</sub> | **43.93%** (76/173)<br><sub>[36.8%, 51.4%]</sub> |
-| **TF-IDF + MLP Baseline** | **Original 800** | **99.00%** (198/200)<br><sub>[96.4%, 99.7%]</sub> | **100.00%** (173/173)<br><sub>[97.8%, 100.0%]</sub> | **96.00%** (192/200)<br><sub>[92.3%, 98.0%]</sub> | **100.00%** (173/173)<br><sub>[97.8%, 100.0%]</sub> |
-| | **Hard 800** | **42.00%** (84/200)<br><sub>[35.4%, 48.9%]</sub> | **43.35%** (75/173)<br><sub>[36.2%, 50.8%]</sub> | **30.50%** (61/200)<br><sub>[24.5%, 37.3%]</sub> | **32.37%** (56/173)<br><sub>[25.8%, 39.7%]</sub> |
+| **Trained Keyword Rules Baseline**<br><sub>(Frozen commit `ff8b315`)</sub> | **Hard 800** | **55.50%** (111/200)<br><sub>[48.6%, 62.2%]</sub> | **60.12%** (104/173)<br><sub>[52.7%, 67.1%]</sub> | **41.00%** (82/200)<br><sub>[34.4%, 47.9%]</sub> | **43.93%** (76/173)<br><sub>[36.8%, 51.4%]</sub> |
+| **TF-IDF + MLP Baseline** | **Hard 800** | **42.00%** (84/200)<br><sub>[35.4%, 48.9%]</sub> | **43.35%** (75/173)<br><sub>[36.2%, 50.8%]</sub> | **30.50%** (61/200)<br><sub>[24.5%, 37.3%]</sub> | **32.37%** (56/173)<br><sub>[25.8%, 39.7%]</sub> |
 | **Laya Full GPU Fine-Tuned (ModernBERT-large)** | **Hard 800** | pending Colab run | pending Colab run | pending Colab run | pending Colab run |
 
 ---
@@ -86,3 +84,26 @@ The following systems undergo zero training. Both test sets are evaluated out-of
 - **GPU Memory Management:** Base model is loaded only to snapshot reference weights for divergence verification, and is deleted immediately via `del base_agent` and `torch.cuda.empty_cache()` before fine-tuning starts.
 - **Question Schema Alignment:** Training passes `question_id="department"` and `instructions="Which department should handle this customer support case?"` into `TrainConfig`. Scoring in `evaluate_reloaded_agent` uses the exact matching choice schema (`criteria=DEPARTMENTS`, instructions, and question_id).
 - **Text-Level Integrity Assertions:** Asserts zero identical `Subject` or `Description` strings between train/val splits and either test set.
+
+### 6. Baseline Prediction Regeneration Script, Committed CSVs & 198 vs. 197 Analysis
+- **Regeneration Script:** `src/einstein_benchmark/generate_all_baseline_predictions.py` regenerates and commits per-case prediction CSVs for all baseline systems across both benchmarks.
+- **Committed Per-Case Artifacts in `results/`:**
+  - `results/predictions_rules_legacy_orig.csv` (Untuned Rules on Orig Test: 44/200, 22.00%)
+  - `results/predictions_rules_legacy_hard.csv` (Untuned Rules on Hard Test: 47/200, 23.50%)
+  - `results/predictions_rules_trained_orig.csv` (Trained Rules Hard-800 on Orig Test: 111/200, 55.50%)
+  - `results/predictions_rules_trained_hard.csv` (Trained Rules Hard-800 on Hard Test: 82/200, 41.00%)
+  - `results/predictions_tfidf_orig.csv` (TF-IDF Hard-800 on Orig Test: 84/200, 42.00%)
+  - `results/predictions_tfidf_hard.csv` (TF-IDF Hard-800 on Hard Test: 61/200, 30.50%)
+  - `results/predictions_tfidf_origtrain_origtest_50epochs.csv` (TF-IDF Orig-800 on Orig Test @ 50 epochs: 198/200, 99.00%)
+  - `results/predictions_tfidf_origtrain_origtest_40epochs.csv` (TF-IDF Orig-800 on Orig Test @ 40 epochs: 197/200, 98.50%)
+  - `results/predictions_tfidf_origtrain_hardtest_50epochs.csv` (TF-IDF Orig-800 on Hard Test @ 50 epochs: 192/200, 96.00%)
+- **Explanation of 198 versus 197 Difference:**
+  - In `src/local_tfidf_baseline.py` and `src/einstein_benchmark/run_full_benchmark.py`, the PyTorch MLP was trained for **40 epochs** with AdamW (lr=1e-3, weight_decay=1e-4), yielding **197/200 (98.50%)**.
+  - In `src/einstein_benchmark/run_dual_benchmark.py`, training ran for **50 epochs**, yielding **198/200 (99.00%)**.
+  - **Flipped Case:** Exactly 1 case flips between epoch 40 and epoch 50:
+    - **ExternalId:** `ENS-TEST-0132`
+    - **Subject:** *"Feedback regarding broken code examples in JavaScript SDK developer tutorial"*
+    - **Ground Truth:** `Other` (difficulty: `easy`)
+    - At 40 epochs, the strong vocabulary weights on "broken code examples... JavaScript SDK" caused the model to predict `Technical`.
+    - By 50 epochs, AdamW gradient descent converged further; the negative gradients on misclassified loss shifted the winning logit to `Other`, correctly classifying the case.
+

@@ -6,7 +6,8 @@ This document records the official measured results on the 1,000-case Einstein b
 * **Salesforce Einstein Baseline**: Real model trained and evaluated in a production Salesforce Sandbox org (`einstein_predictions.csv`).
 * **Real Laya Models**: `convaiinnovations/laya` (**421,293,827 parameters**, `answerdotai/ModernBERT-large` backbone 394.8M + 2-layer head 25.2M; pip `laya` v0.4.13 by NandhaKishorM). Sourced directly from checkpoint `rl_agent_config.json` and verified via PyTorch parameter enumeration `sum(p.numel() for p in model.parameters())`.
 * **Multilingual Model**: `convaiinnovations/laya-multilingual` (**321,908,995 parameters**, `jhu-clsp/mmBERT-base` backbone).
-* **Dual Benchmark Report**: See [`data/einstein_hard_benchmark/DUAL_BENCHMARK_RESULTS.md`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/data/einstein_hard_benchmark/DUAL_BENCHMARK_RESULTS.md) for full side-by-side comparison between this original templated set and the group-held-out hard benchmark.
+* **Dual Benchmark Report**: See [`DUAL_BENCHMARK_RESULTS.md`](../einstein_hard_benchmark/DUAL_BENCHMARK_RESULTS.md) for full side-by-side comparison between this original templated set and the group-held-out hard benchmark.
+* **Option A Unified Training Data**: Under Option A, `data/einstein_hard_benchmark/train_closed.csv` serves as the unified training dataset (800 closed cases, 20 balanced themes) for both the Laya GPU fine-tuning notebook and retrained baselines, with a matching Salesforce import file generated for Einstein sandbox retraining.
 * **Simple Local Baseline**: TF-IDF (5,000 bigrams) + 2-layer MLP (hidden_dim=64, seed 2026).
 * **Heuristic Rules Baseline**: Regex keyword rules (`src/rules.py`, written for legacy POC schema).
 * **Scope**: Evaluates **zero-shot and head-only fine-tuned Laya on a templated synthetic set**.

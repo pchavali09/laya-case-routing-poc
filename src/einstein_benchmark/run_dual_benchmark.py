@@ -275,16 +275,28 @@ def evaluate_dataset(dataset_name, dataset_key, data_dir, train_csv_path, einste
     # 1. Untuned Legacy Rules Baseline
     print(" -> Evaluating Untuned Legacy Rules Baseline (src/rules.py)...")
     rules_preds = run_rules_baseline(test_df)
+    rules_preds["model_checkpoint"] = "heuristic_regex"
+    rules_preds["artifact_identifier"] = f"rules_legacy_{dataset_key}"
+    rules_preds["criteria_type"] = "regex"
+    rules_preds.to_csv(os.path.join(REPO_ROOT, "results", f"predictions_rules_legacy_{dataset_key}.csv"), index=False)
     summary_list.append(score_system_predictions(rules_preds, 173, "Untuned Legacy Rules Baseline", "no training"))
 
     # 2. Trained Keyword Rules Baseline (tuned on training cases)
     print(" -> Evaluating Trained Keyword Rules Baseline (src/rules_trained.py)...")
     trained_rules_preds = run_trained_rules_baseline(test_df)
+    trained_rules_preds["model_checkpoint"] = "src/rules_trained.py (commit ff8b315)"
+    trained_rules_preds["artifact_identifier"] = f"rules_trained_{dataset_key}"
+    trained_rules_preds["criteria_type"] = "keyword_rules"
+    trained_rules_preds.to_csv(os.path.join(REPO_ROOT, "results", f"predictions_rules_trained_{dataset_key}.csv"), index=False)
     summary_list.append(score_system_predictions(trained_rules_preds, 173, "Trained Keyword Rules Baseline", "trained on 800 closed cases"))
 
     # 3. TF-IDF + MLP (Control Baseline)
     print(" -> Training & Evaluating TF-IDF + MLP (Control Baseline)...")
     tfidf_preds = train_tfidf_mlp(train_df, test_df)
+    tfidf_preds["model_checkpoint"] = "tfidf_mlp_seed2026_50epochs"
+    tfidf_preds["artifact_identifier"] = f"tfidf_mlp_{dataset_key}"
+    tfidf_preds["criteria_type"] = "supervised_mlp"
+    tfidf_preds.to_csv(os.path.join(REPO_ROOT, "results", f"predictions_tfidf_{dataset_key}.csv"), index=False)
     summary_list.append(score_system_predictions(tfidf_preds, 173, "TF-IDF + MLP (Control Baseline)", "trained on 800 closed cases"))
 
     # 4. Laya English Zero-Shot (Dict Criteria - clean training-derived)
@@ -338,7 +350,7 @@ def evaluate_dataset(dataset_name, dataset_key, data_dir, train_csv_path, einste
 
         summary_list.append({
             "model": "Salesforce Einstein Case Classification",
-            "training": "trained on 800 closed cases (original Einstein training set)",
+            "training": "trained on 800 closed cases",
             "total_cases": tot,
             "overall_correct": ovr_corr,
             "overall_accuracy": p_ovr,
