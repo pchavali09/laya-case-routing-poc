@@ -45,6 +45,14 @@ All figures below are measured directly by code in this repository or exported f
 
 ---
 
+## Empirical Visualizations
+
+* **[Confidence-Gated Routing Simulation](results/routing_simulation.png)**: Trade-off curves between coverage volume and routed accuracy across thresholds.
+* **[Calibrated Confidence Distribution](results/confidence_distribution.png)**: Posterior confidence score distribution comparing zero-shot and GPU fine-tuned Laya.
+* **[Accuracy by Difficulty Tier](results/difficulty_breakdown.png)**: Top-1 accuracy across Easy (80), Paraphrase (60), Multi-Topic (40), and Ambiguous (20) cases.
+
+---
+
 ## Repository Structure
 
 ```
