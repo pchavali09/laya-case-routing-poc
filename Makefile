@@ -1,4 +1,4 @@
-.PHONY: all setup run data rules laya-baseline laya-finetune compare plots serve clean test
+.PHONY: all setup run data rules laya-baseline laya-finetune compare plots clean test
 
 PYTHON ?= python3
 
@@ -37,9 +37,10 @@ run: benchmark compare plots
 demo:
 	$(PYTHON) src/demo_scenarios.py
 
-serve:
-	$(PYTHON) -m uvicorn salesforce.fastapi_bridge:app --host 0.0.0.0 --port 8000 --reload
+test:
+	$(PYTHON) src/einstein_benchmark/validate.py
 
 clean:
-	rm -rf __pycache__ src/__pycache__ salesforce/__pycache__ .pytest_cache
+	rm -rf __pycache__ src/__pycache__ .pytest_cache
 	rm -rf data/splits/*.csv data/synthetic_cases.csv
+

@@ -148,10 +148,6 @@ laya-case-routing-poc/
 │   ├── plot_results.py               # Measured benchmark visualization generator
 │   └── einstein_benchmark/
 │       └── run_full_benchmark.py     # Master benchmark execution script
-├── salesforce/
-│   ├── fastapi_bridge.py             # Local webhook bridge for Salesforce (~58ms MPS)
-│   ├── CaseLayaRoutingInvocable.cls  # Apex Invocable Action
-│   └── README.md                     # Salesforce bridge documentation
 ├── results/                          # Measured benchmark CSVs, curves & plots
 ├── ARCHITECTURE.md                   # System architecture and measured findings
 ├── RESULTS.md                        # Full evaluation tables and metrics
