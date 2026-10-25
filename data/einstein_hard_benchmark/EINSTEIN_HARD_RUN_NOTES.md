@@ -1,4 +1,4 @@
-# Einstein run on the hard benchmark (facts reported by Pavan, not measured by code)
+# Einstein run on the hard benchmark (facts reported by the author, not measured by code)
 
 - Run date: 2026-10-23 (sandbox). Model name in setup: "Case Classification POC".
 - Training data: data/einstein_hard_benchmark/train_salesforce_import.csv, 800 Closed cases (HARD-TRAIN-*).

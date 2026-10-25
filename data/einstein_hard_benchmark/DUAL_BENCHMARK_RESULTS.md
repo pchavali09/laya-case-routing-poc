@@ -45,7 +45,7 @@ The following systems undergo zero training. Both test sets are evaluated out-of
 ### 1. Training Data Provenance (Option A)
 - **Which dataset the Einstein sandbox saw:** The Salesforce Einstein sandbox model was trained on the **original 800 closed cases** (`data/einstein_benchmark/train_closed.csv`, `ENS-TRAIN-0001` through `ENS-TRAIN-0800`). It has never seen the hard benchmark cases.
 - **Option A Selection:** `data/einstein_hard_benchmark/train_closed.csv` (800 closed cases, `HARD-TRAIN-0001` through `HARD-TRAIN-0800`, balanced across 20 themes with 40 cases per theme) is used everywhere for the Colab notebook and all trained baselines.
-- **Salesforce Import File:** Generated `data/einstein_hard_benchmark/train_salesforce_import.csv` with the exact Salesforce schema (`ExternalId__c, Subject, Description, Origin, Priority, Status, Department__c`) so Pavan can import and retrain Einstein in the sandbox if desired.
+- **Salesforce Import File:** Generated `data/einstein_hard_benchmark/train_salesforce_import.csv` with the exact Salesforce schema (`ExternalId__c, Subject, Description, Origin, Priority, Status, Department__c`) to import and retrain Einstein in the sandbox if desired.
 - **Notebook Step 4 Validation Split:** Step 4 in `notebooks/laya_gpu_full_finetune.ipynb` unpacks and reads `data/einstein_hard_benchmark/train_closed.csv`. `VAL_THEMES` successfully isolates 200 validation cases and 600 training cases strictly by theme.
 
 ### 2. Criteria Cleaning & Explanation of 56.0% to 53.5% Shift

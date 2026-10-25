@@ -376,7 +376,7 @@ def evaluate_dataset(dataset_name, dataset_key, data_dir, train_csv_path, einste
             "routed_accuracy": None,
             "routed_ci": None,
             "ece": None,
-            "status": "Pending Sandbox Export (Pavan must score in sandbox)"
+            "status": "Einstein scored in a Salesforce sandbox; see EINSTEIN_HARD_RUN_NOTES.md"
         })
 
     return summary_list

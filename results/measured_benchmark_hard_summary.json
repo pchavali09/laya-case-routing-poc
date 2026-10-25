@@ -152,6 +152,6 @@
     "routed_accuracy": null,
     "routed_ci": null,
     "ece": null,
-    "status": "Pending Sandbox Export (Pavan must score in sandbox)"
+    "status": "Einstein scored in a Salesforce sandbox; see EINSTEIN_HARD_RUN_NOTES.md"
   }
 ]

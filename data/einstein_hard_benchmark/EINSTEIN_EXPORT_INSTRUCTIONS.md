@@ -1,7 +1,6 @@
 # Turnkey Instructions for Scoring Hard Benchmark in Salesforce Einstein Sandbox
 
-**Attention:** Pavan Chavali  
-**Target File for Import:** [`data/einstein_hard_benchmark/test_salesforce_import.csv`](file:///Users/pavanchavali/Documents/SFProjects/sf-claude-test/laya-case-routing-poc/data/einstein_hard_benchmark/test_salesforce_import.csv)  
+**Target File for Import:** [`data/einstein_hard_benchmark/test_salesforce_import.csv`](data/einstein_hard_benchmark/test_salesforce_import.csv)  
 **Destination Output File:** `data/einstein_hard_benchmark/einstein_predictions.csv`  
 
 > [!IMPORTANT]
