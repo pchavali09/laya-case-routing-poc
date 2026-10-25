@@ -38,7 +38,7 @@ Fine-tuning ran on a Tesla T4 GPU (`micro_batch=4, grad_accum=16`, effective bat
 
 | Seed | Model & Training Data | Eval Set | Overall Top-1 Acc | Wilson 95% CI | ECE | Routed @ conf ≥ 0.90 (Cases, Accuracy) |
 | :---: |---|:---:|:---:|:---:|:---:|:---:|
-| **2026** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **97.00%** (194/200) | [93.6%, 98.6%] | 0.0167 | 192/193 = **99.48%** (96.5% coverage) |
+| **2026** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **97.00%** (194/200) | [93.6%, 98.6%] | 0.0167 | 192/193 = **99.5%** (96.5% coverage) |
 | **2027** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **100.00%** (200/200) | [98.1%, 100.0%] | 0.0119 | 194/194 = **100.00%** (97.0% coverage) |
 | **2028** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **99.00%** (198/200) | [96.4%, 99.7%] | 0.0894 | 124/124 = **100.00%** (62.0% coverage) |
 | **Mean** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **98.67% ± 1.25%** | — | **0.0393** | **99.83%** (85.2% mean coverage) |

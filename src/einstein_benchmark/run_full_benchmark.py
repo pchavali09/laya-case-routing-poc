@@ -15,7 +15,7 @@ Runs included:
   4. Heuristic Rules Baseline: regex/keyword matching from src/rules.py (written for
      initial synthetic POC schema, evaluated as-is)
   5. Real Salesforce Einstein Case Classification: from data/einstein_benchmark/einstein_predictions.csv
-     (173 routed, 172 correct, 27 unrouted)
+     (evaluated against actual Salesforce Einstein export)
 
 All metrics, latencies, and coverage curves are measured dynamically on this system.
 """
@@ -460,15 +460,48 @@ def main():
     if "--from-saved" in sys.argv:
         print("Loading predictions from existing CSVs in results/...")
         df_zs_list = pd.read_csv(os.path.join(RESULTS_DIR, "laya_zeroshot_predictions.csv"))
-        meta_zs_list = {"name": "Real Laya Zero-Shot (Choice List)", "top1_accuracy": 46.50, "mean_latency_ms": 59.3, "median_latency_ms": 58.0, "artifact": "convaiinnovations/laya"}
+        meta_zs_list = {
+            "name": "Real Laya Zero-Shot (Choice List)",
+            "top1_accuracy": round(df_zs_list["is_correct"].mean() * 100, 2),
+            "mean_latency_ms": round(df_zs_list["latency_ms"].mean(), 2) if "latency_ms" in df_zs_list else None,
+            "median_latency_ms": round(df_zs_list["latency_ms"].median(), 2) if "latency_ms" in df_zs_list else None,
+            "artifact": "convaiinnovations/laya"
+        }
         df_zs_dict = pd.read_csv(os.path.join(RESULTS_DIR, "laya_zeroshot_dict_predictions.csv"))
-        meta_zs_dict = {"name": "Real Laya Zero-Shot (Descriptive Dict)", "top1_accuracy": 56.00, "mean_latency_ms": 77.5, "median_latency_ms": 75.0, "artifact": "convaiinnovations/laya"}
+        meta_zs_dict = {
+            "name": "Real Laya Zero-Shot (Descriptive Dict)",
+            "top1_accuracy": round(df_zs_dict["is_correct"].mean() * 100, 2),
+            "mean_latency_ms": round(df_zs_dict["latency_ms"].mean(), 2) if "latency_ms" in df_zs_dict else None,
+            "median_latency_ms": round(df_zs_dict["latency_ms"].median(), 2) if "latency_ms" in df_zs_dict else None,
+            "artifact": "convaiinnovations/laya"
+        }
         df_ft = pd.read_csv(os.path.join(RESULTS_DIR, "laya_finetuned_predictions.csv"))
-        meta_ft = {"name": "Real Laya Fine-Tuned (Head+Calibration)", "top1_accuracy": 46.50, "mean_latency_ms": 58.0, "median_latency_ms": 58.0, "training_time_s": 163.1, "artifact": "convaiinnovations/laya (fine-tuned head, RLCD)"}
+        meta_ft = {
+            "name": "Real Laya Fine-Tuned (Head+Calibration)",
+            "top1_accuracy": round(df_ft["is_correct"].mean() * 100, 2),
+            "mean_latency_ms": round(df_ft["latency_ms"].mean(), 2) if "latency_ms" in df_ft else None,
+            "median_latency_ms": round(df_ft["latency_ms"].median(), 2) if "latency_ms" in df_ft else None,
+            "training_time_s": 163.1,
+            "artifact": "convaiinnovations/laya (fine-tuned head, RLCD)"
+        }
         df_tfidf = pd.read_csv(os.path.join(RESULTS_DIR, "tfidf_baseline_predictions.csv"))
-        meta_tfidf = {"name": "Simple Local Baseline (TF-IDF + MLP)", "top1_accuracy": 98.50, "mean_latency_ms": 0.04, "median_latency_ms": 0.03, "training_time_s": 0.25, "artifact": "Scikit-Learn TfidfVectorizer + PyTorch 2-layer MLP (hidden_dim=64)"}
+        meta_tfidf = {
+            "name": "Simple Local Baseline (TF-IDF + MLP)",
+            "top1_accuracy": round(df_tfidf["is_correct"].mean() * 100, 2),
+            "mean_latency_ms": round(df_tfidf["latency_ms"].mean(), 2) if "latency_ms" in df_tfidf else 0.04,
+            "median_latency_ms": round(df_tfidf["latency_ms"].median(), 2) if "latency_ms" in df_tfidf else 0.03,
+            "training_time_s": 0.25,
+            "artifact": "Scikit-Learn TfidfVectorizer + PyTorch 2-layer MLP (hidden_dim=64)"
+        }
         df_rules = pd.read_csv(os.path.join(RESULTS_DIR, "rules_predictions.csv"))
-        meta_rules = {"name": "Heuristic Rules Baseline", "top1_accuracy": 22.00, "mean_latency_ms": 0.073, "median_latency_ms": 0.07, "dataset_written_for": "Initial 30-case synthetic POC keyword schema", "artifact": "src/rules.py (regex keyword heuristics)"}
+        meta_rules = {
+            "name": "Heuristic Rules Baseline",
+            "top1_accuracy": round(df_rules["is_correct"].mean() * 100, 2),
+            "mean_latency_ms": round(df_rules["latency_ms"].mean(), 3) if "latency_ms" in df_rules else 0.073,
+            "median_latency_ms": round(df_rules["latency_ms"].median(), 3) if "latency_ms" in df_rules else 0.07,
+            "dataset_written_for": "Initial 30-case synthetic POC keyword schema",
+            "artifact": "src/rules.py (regex keyword heuristics)"
+        }
         meta_einstein = evaluate_einstein(test_df)
     else:
         # Run 1a: Laya Zero-Shot (list)
