@@ -223,18 +223,18 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-title">Einstein Accuracy</div>
-        <div class="stat-val">99.4%</div>
-        <div class="stat-sub">172/173 Routed (27 Unrouted)</div>
+        <div class="stat-val">20.0%</div>
+        <div class="stat-sub">40 of 200 right (147 routed, all to Billing)</div>
       </div>
       <div class="stat-card">
         <div class="stat-title">TF-IDF Baseline</div>
-        <div class="stat-val">98.5%</div>
-        <div class="stat-sub">197/200 Top-1 Accuracy</div>
+        <div class="stat-val">96.0%</div>
+        <div class="stat-sub">Broader 800: 96.0% | Narrow 800: 30.5%</div>
       </div>
       <div class="stat-card">
-        <div class="stat-title">Laya Zero-Shot (Dict)</div>
-        <div class="stat-val">56.0%</div>
-        <div class="stat-sub">63.0% at 173-Case Coverage</div>
+        <div class="stat-title">Laya Zero-Shot</div>
+        <div class="stat-val">46%–54%</div>
+        <div class="stat-sub">English: 46%–47% | Multilingual: 47.5%–54%</div>
       </div>
       <div class="stat-card">
         <div class="stat-title">Laya Fine-Tuned (GPU)</div>
@@ -293,6 +293,16 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div style="margin-top: 1.5rem; padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">
+      <p style="color: var(--text-main); font-weight: 600; margin-bottom: 0.5rem;">Key Observations & Contextual Caveats:</p>
+      <ul style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+        <li><strong>It is one run, in one sandbox, on synthetic data.</strong></li>
+        <li><strong>The two TF-IDF rows are the same model on the same test; only the training data changed.</strong> When trained on a broader 800-case distribution, TF-IDF achieved 96.0%; when trained on the narrow 800 cases, it collapsed to 30.5%.</li>
+        <li><strong>The same fine-tuned Laya models scored 45.5% on a different, earlier test, so 98.7% is not a general number.</strong> The training set consists of 800 narrow cases with about 132 distinct descriptions after masking digits (~20 themes &times; ~40 near-copies). This synthetic repetition likely explains why the transformer mastered the 20 training themes (yielding ~98.7% on this test set) and suggests specialization to the training distribution's vocabulary.</li>
+        <li><strong>Salesforce Einstein Sandbox Outcome:</strong> When retrained on the narrow 800 cases in the sandbox with Automate Value enabled at 90% confidence threshold, Einstein routed 147 cases exclusively to Billing (correctly identifying all 40 Billing cases, 27.2% routed accuracy) and left 53 cases unrouted. With unrouted cases counted as not right, overall accuracy was 20.0% (40/200).</li>
+      </ul>
     </div>
 
     <h2 class="section-title">Empirical Visualizations</h2>
