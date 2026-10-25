@@ -31,7 +31,7 @@ benchmark:
 run: benchmark compare plots
 	@echo "=========================================================="
 	@echo " Benchmark Pipeline Completed Successfully!"
-	@echo " Results available in results/ and results/measured_benchmark_summary.json"
+	@echo " Results available in results/ and results/measured_benchmark_hard_summary.json"
 	@echo "=========================================================="
 
 demo:
