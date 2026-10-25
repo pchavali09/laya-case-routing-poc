@@ -81,9 +81,9 @@ def plot_routing_simulation():
         acc = [p["accuracy_among_routed"] for p in pts]
         ax.plot(cov, acc, label=label, color=color, linestyle=linestyle, marker=marker, linewidth=2, markersize=6)
 
-    # Plot Einstein reference point (173 routed, 99.42% accuracy)
-    ax.scatter([173], [99.42], color="#7c3aed", s=140, zorder=5, label="Salesforce Einstein (173 routed, 99.4%)")
-    ax.annotate("Salesforce Einstein\n(172/173 = 99.4%)", xy=(173, 99.42), xytext=(145, 92),
+    # Plot Einstein reference point
+    ax.scatter([173], [99.4], color="#7c3aed", s=140, zorder=5, label="Salesforce Einstein (173 routed, 99.4%)")
+    ax.annotate("Salesforce Einstein\n(172/173 = 99.4%)", xy=(173, 99.4), xytext=(145, 92),
                 arrowprops=dict(arrowstyle="->", color="#7c3aed", lw=1.2),
                 fontsize=9, fontweight="bold", color="#7c3aed")
 

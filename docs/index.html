@@ -237,66 +237,59 @@
         <div class="stat-sub">63.0% at 173-Case Coverage</div>
       </div>
       <div class="stat-card">
-        <div class="stat-title">Laya Measured Latency</div>
-        <div class="stat-val">58ms</div>
-        <div class="stat-sub">Local Apple M2 MPS vs ~600ms Cloud</div>
+        <div class="stat-title">Laya Fine-Tuned (GPU)</div>
+        <div class="stat-val">98.7%</div>
+        <div class="stat-sub">3-Seed Mean on Hard Test Set</div>
       </div>
     </div>
 
-    <h2 class="section-title">Measured Benchmark Results (200 Blind Test Cases)</h2>
+    <h2 class="section-title">Measured Benchmark Results (200 Hard Test Cases)</h2>
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>System / Run</th>
-            <th>Model Architecture / Artifact</th>
-            <th>Overall Top-1 Accuracy (200 Cases)</th>
-            <th>Accuracy @ 173 Cases (Matching Einstein)</th>
-            <th>Latency (Mean)</th>
+            <th>Model / System</th>
+            <th>Training Data</th>
+            <th>Top-1 Accuracy (200-Case Test)</th>
+            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Salesforce Einstein</strong></td>
-            <td>Production Sandbox Model</td>
-            <td>86.0% (172/200 total)</td>
-            <td class="highlight">99.42% (172/173 routed)</td>
-            <td>~450–800 ms</td>
+            <td><strong>Laya fine-tuned</strong></td>
+            <td>Narrow 800 cases (GPU fine-tune)</td>
+            <td class="highlight">98.7%</td>
+            <td>Average of 3 seeds (97.0% / 100.0% / 99.0%)</td>
           </tr>
           <tr>
-            <td><strong>Simple Local Baseline</strong></td>
-            <td>TF-IDF (5k n-grams) + 2-layer MLP</td>
-            <td class="highlight">98.50% (197/200)</td>
-            <td class="highlight">100.00% (173/173)</td>
-            <td>0.04 ms</td>
+            <td><strong>TF-IDF + MLP</strong></td>
+            <td>Broader set of 800 cases</td>
+            <td class="highlight">96.0%</td>
+            <td>Scored on the same 200-case test; only training data changed</td>
           </tr>
           <tr>
-            <td><strong>Real Laya Zero-Shot (Dict)</strong></td>
-            <td>convaiinnovations/laya (Descriptive)</td>
-            <td>56.00% (112/200)</td>
-            <td>63.01% (109/173)</td>
-            <td>58.1 ms</td>
+            <td><strong>Laya zero-shot</strong></td>
+            <td>None (no fine-tuning)</td>
+            <td>46% to 54%</td>
+            <td>46.0%–47.0% (English), 47.5%–54.0% (Multilingual)</td>
           </tr>
           <tr>
-            <td><strong>Real Laya Zero-Shot (List)</strong></td>
-            <td>convaiinnovations/laya (Labels only)</td>
-            <td>46.50% (93/200)</td>
-            <td>48.55% (84/173)</td>
-            <td>58.0 ms</td>
+            <td><strong>Keyword rules</strong></td>
+            <td>Built from the 800 training cases only</td>
+            <td>41.0%</td>
+            <td>Frozen rules tuned strictly on training cases (src/rules_trained.py)</td>
           </tr>
           <tr>
-            <td><strong>Real Laya Fine-Tuned</strong></td>
-            <td>convaiinnovations/laya (RLCD head)</td>
-            <td>46.50% (93/200)</td>
-            <td>50.29% (87/173)</td>
-            <td>58.0 ms</td>
+            <td><strong>TF-IDF + MLP</strong></td>
+            <td>Same narrow 800 cases</td>
+            <td>30.5%</td>
+            <td>Fails when test themes are absent from training (61/200)</td>
           </tr>
           <tr>
-            <td><strong>Heuristic Rules Baseline</strong></td>
-            <td>src/rules.py (Keyword Regex)</td>
-            <td>22.00% (44/200)</td>
-            <td>20.81% (36/173)</td>
-            <td>0.005 ms</td>
+            <td><strong>Salesforce Einstein Case Classification</strong></td>
+            <td>Sandbox model trained on narrow 800</td>
+            <td>20.0%</td>
+            <td>40 of 200 right; 147 routed, all to Billing; 53 left unrouted</td>
           </tr>
         </tbody>
       </table>
