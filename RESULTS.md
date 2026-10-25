@@ -33,13 +33,14 @@ Scored on the exact 200 blind cases. Overall top-1 accuracy evaluates every case
 
 ## 2. Multi-Seed Laya Fine-Tuning Breakdown
 
+Full encoder fine-tuning of the 421.3M-parameter ModernBERT-large Laya model (`convaiinnovations/laya`) trained strictly on the 800 narrow cases (`data/einstein_hard_benchmark/train_closed.csv`) and scored on the 200 hard test cases (`data/einstein_hard_benchmark/test_blind.csv`):
 Fine-tuning ran on a Tesla T4 GPU (`micro_batch=4, grad_accum=16`, effective batch size 64, AdamW `lr=2.5e-5` encoder / `1e-4` head) across 3 distinct random seeds:
 
-| Seed | Eval Set | Overall Top-1 Acc | Wilson 95% CI | ECE | Routed @ conf ≥ 0.90 (Cases, Accuracy) |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| **2026** | Hard 200 | **97.00%** (194/200) | [93.6%, 98.6%] | 0.0167 | 192/193 = **99.48%** (96.5% coverage) |
-| **2027** | Hard 200 | **100.00%** (200/200) | [98.1%, 100.0%] | 0.0119 | 194/194 = **100.00%** (97.0% coverage) |
-| **2028** | Hard 200 | **99.00%** (198/200) | [96.4%, 99.7%] | 0.0894 | 124/124 = **100.00%** (62.0% coverage) |
-| **Mean** | Hard 200 | **98.67% ± 1.25%** | — | **0.0393** | **99.83%** (85.2% mean coverage) |
+| Seed | Model & Training Data | Eval Set | Overall Top-1 Acc | Wilson 95% CI | ECE | Routed @ conf ≥ 0.90 (Cases, Accuracy) |
+| :---: |---|:---:|:---:|:---:|:---:|:---:|
+| **2026** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **97.00%** (194/200) | [93.6%, 98.6%] | 0.0167 | 192/193 = **99.48%** (96.5% coverage) |
+| **2027** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **100.00%** (200/200) | [98.1%, 100.0%] | 0.0119 | 194/194 = **100.00%** (97.0% coverage) |
+| **2028** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **99.00%** (198/200) | [96.4%, 99.7%] | 0.0894 | 124/124 = **100.00%** (62.0% coverage) |
+| **Mean** | Laya (ModernBERT-large) trained on Narrow 800 | Hard 200 | **98.67% ± 1.25%** | — | **0.0393** | **99.83%** (85.2% mean coverage) |
 
 Transfer test of these same checkpoints on the earlier test set yielded **45.50% ± 8.13%** (Seed 2026: 51.0%, Seed 2027: 51.5%, Seed 2028: 34.0%), demonstrating that the 98.7% score reflects in-distribution specialization to the 20 training themes.
