@@ -65,7 +65,7 @@ def plot_routing_simulation():
         ("TF-IDF + MLP (Narrow 800)", os.path.join(RESULTS_DIR, "predictions_tfidf_hard.csv"), "confidence", "predicted_department", "#dc2626", ":", "x"),
     ]
 
-    fig, ax = plt.subplots(figsize=(8.5, 4.8), dpi=300)
+    fig, ax = plt.subplots(figsize=(9.2, 4.8), dpi=300)
 
     for label, path, conf_col, pred_col, color, linestyle, marker in series_config:
         if not os.path.exists(path):
@@ -88,16 +88,16 @@ def plot_routing_simulation():
 
         ax.plot(pts_sampled["cov"], pts_sampled["acc"], label=label, color=color, linestyle=linestyle, marker=marker, linewidth=2, markersize=5)
 
-    ax.set_title("Confidence-Gated Routing: Coverage vs. Accuracy Trade-Off (Hard 200 Test Set)", fontsize=12, fontweight="bold", pad=12)
+    ax.set_title("Confidence-Gated Routing: Coverage vs. Accuracy Trade-Off (Hard 200 Test Set)", fontsize=11, fontweight="bold", pad=12)
     ax.set_xlabel("Cases Auto-Routed (out of 200 Blind Test Cases)", fontsize=10)
     ax.set_ylabel("Routing Accuracy Among Auto-Routed Cases (%)", fontsize=10)
     ax.set_ylim(25, 105)
     ax.set_xlim(45, 205)
-    ax.legend(frameon=True, facecolor="white", loc="lower left", fontsize=9)
+    ax.legend(frameon=True, facecolor="white", edgecolor="#cccccc", bbox_to_anchor=(1.02, 1), loc="upper left", fontsize=8.5)
     plt.tight_layout()
 
     out_path = os.path.join(RESULTS_DIR, "routing_simulation.png")
-    plt.savefig(out_path)
+    plt.savefig(out_path, bbox_inches="tight")
     plt.close()
     print(f"📊 Saved: {out_path}")
 
@@ -151,12 +151,12 @@ def plot_difficulty_breakdown():
     ax.set_ylabel("Top-1 Accuracy (%)", fontsize=10)
     ax.set_xticks(x)
     ax.set_xticklabels(tier_labels, fontsize=10, fontweight="bold")
-    ax.set_ylim(0, 115)
+    ax.set_ylim(0, 125)
     ax.legend(frameon=True, facecolor="white", loc="upper right", fontsize=8.5, ncol=2)
     plt.tight_layout()
 
     out_path = os.path.join(RESULTS_DIR, "difficulty_breakdown.png")
-    plt.savefig(out_path)
+    plt.savefig(out_path, bbox_inches="tight")
     plt.close()
     print(f"📊 Saved: {out_path}")
 

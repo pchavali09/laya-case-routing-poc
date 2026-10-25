@@ -12,7 +12,7 @@ Runs included:
      fitted calibration on held-out slice of 800, evaluated on test cases)
   3. Simple Local Baseline: TF-IDF (5,000 features, bigrams) + 2-layer MLP (hidden_dim=64,
      temperature-scaled, trained on 800 train cases, seed 2026)
-  4. Heuristic Rules Baseline: regex/keyword matching from src/rules.py (written for
+  4. Keyword Rules Baseline: regex/keyword matching from src/rules.py (written for
      initial synthetic POC schema, evaluated as-is)
   5. Real Salesforce Einstein Case Classification: from data/einstein_benchmark/einstein_predictions.csv
      (evaluated against actual Salesforce Einstein export)
@@ -364,12 +364,12 @@ def run_rules_baseline(test_df):
     median_lat = float(np.median(latencies))
     print(f"Rules Baseline: Top-1 Accuracy = {top1_acc*100:.2f}%, Mean Latency = {mean_lat:.3f}ms")
     return res_df, {
-        "name": "Heuristic Rules Baseline",
+        "name": "Keyword Rules Baseline",
         "top1_accuracy": round(float(top1_acc) * 100, 2),
         "mean_latency_ms": round(mean_lat, 3),
         "median_latency_ms": round(median_lat, 3),
         "dataset_written_for": "Initial 30-case synthetic POC keyword schema",
-        "artifact": "src/rules.py (regex keyword heuristics)"
+        "artifact": "src/rules.py (regex keyword rules)"
     }
 
 
@@ -495,12 +495,12 @@ def main():
         }
         df_rules = pd.read_csv(os.path.join(RESULTS_DIR, "rules_predictions.csv"))
         meta_rules = {
-            "name": "Heuristic Rules Baseline",
+            "name": "Keyword Rules Baseline",
             "top1_accuracy": round(df_rules["is_correct"].mean() * 100, 2),
             "mean_latency_ms": round(df_rules["latency_ms"].mean(), 3) if "latency_ms" in df_rules else 0.073,
             "median_latency_ms": round(df_rules["latency_ms"].median(), 3) if "latency_ms" in df_rules else 0.07,
             "dataset_written_for": "Initial 30-case synthetic POC keyword schema",
-            "artifact": "src/rules.py (regex keyword heuristics)"
+            "artifact": "src/rules.py (regex keyword rules)"
         }
         meta_einstein = evaluate_einstein(test_df)
     else:
@@ -541,7 +541,7 @@ def main():
     
     # Compile Summary Table
     summary_data = {
-        "benchmark_dataset": "Salesforce Einstein 1,000-Case Closed Benchmark (800 train, 200 test)",
+        "benchmark_dataset": "Salesforce Einstein Closed Benchmark (800 train, 200 test)",
         "test_size": len(test_df),
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "hardware": "Apple M2 (MacBook Air), 8GB Unified Memory, MPS Backend",

@@ -10,7 +10,7 @@
 
 Enterprise CRM deployments (Salesforce Service Cloud, ServiceNow, Zendesk) evaluate routing strategies across distinct architectural tiers:
 
-1. **Rule Engines (Heuristics):** Handcrafted regex rules, keyword matchers, and CRM Assignment Rules. While execution is virtually instantaneous (under 0.01 ms), rules are brittle when confronted with novel phrasing or multi-topic inquiries, and provide no calibrated uncertainty measure.
+1. **Rule Engines (Keyword Rules):** Handcrafted regex rules, keyword matchers, and CRM Assignment Rules. While execution is virtually instantaneous (under 0.01 ms), rules are brittle when confronted with novel phrasing or multi-topic inquiries, and provide no calibrated uncertainty measure.
 2. **Closed SaaS AI (e.g., Salesforce Einstein Case Classification):** Vendor-managed machine learning models trained on closed historical cases. In our Sandbox benchmark, Einstein achieved 20.00% overall accuracy (40/200) and 27.21% routed accuracy (40/147) when evaluated on the held-out hard test set, routing exclusively to Billing with 53 cases unrouted. Models remain closed inside the vendor cloud platform with limited custom architectural inspectability.
 3. **Local Machine Learning Models:** Self-hosted decision systems running within the application perimeter. This benchmark evaluated both the **real Laya foundation model** (`convaiinnovations/laya`, 421M parameter transformer by NandhaKishorM) and a **Simple Local Baseline** (TF-IDF + 2-layer MLP).
 
@@ -20,7 +20,7 @@ Enterprise CRM deployments (Salesforce Service Cloud, ServiceNow, Zendesk) evalu
 
 ```mermaid
 flowchart TD
-    subgraph Legacy_Rules["1. Heuristic Rules Baseline"]
+    subgraph Legacy_Rules["1. Keyword Rules Baseline"]
         R_In["Incoming Case"] --> R_Regex["Keyword Regex Rules"]
         R_Regex -->|Match / Default| R_Out["100% Deterministic Routing<br/>(Confidence: None | No Abstention)"]
     end

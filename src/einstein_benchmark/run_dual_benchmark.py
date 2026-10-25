@@ -392,7 +392,9 @@ def main():
     orig_einstein_csv = os.path.join(orig_dir, "einstein_predictions.csv")
     hard_einstein_csv = os.path.join(hard_dir, "einstein_predictions.csv")
 
-    out_orig_json = os.path.join(REPO_ROOT, "results", "measured_benchmark_original_summary.json")
+    archive_dir = os.path.join(REPO_ROOT, "results", "archive_original_test")
+    os.makedirs(archive_dir, exist_ok=True)
+    out_orig_json = os.path.join(archive_dir, "measured_benchmark_original_summary.json")
     out_hard_json = os.path.join(REPO_ROOT, "results", "measured_benchmark_hard_summary.json")
 
     orig_summary = evaluate_dataset("Original Templated Benchmark", "orig", orig_dir, unified_train_csv, orig_einstein_csv)
